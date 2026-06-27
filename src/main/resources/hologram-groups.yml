@@ -59,15 +59,133 @@ groups:
           - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF2×'
   Production:
     world: voidworld
-    x: 58.0
-    y: 173.0
-    z: -95.0
-    yaw: 0.0
+    x: 87.9
+    y: 17
+    z: -29.5
+    yaw: 90
     pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 1.5
+        scale: 3
         background: transparent
         lines:
           - '§7Loading...'
+
+  artiminexp:
+    world: voidworld
+    x: 54.5
+    y: 173.2
+    z: -76.5
+    yaw: -180
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2
+        background: transparent
+        lines:
+          - '&#848884&lM&#707370&lI&#5C5D5C&lN&#484848&lE &#707370&lX&#848884&lP'
+
+  artiblockstorage:
+    world: voidworld
+    x: 49.5
+    y: 174.2
+    z: -71.5
+    yaw: 180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2
+        background: transparent
+        lines:
+          - '&#00E0FF&lB&#00CAE6&lL&#00B5CE&lO&#009FB5&lC&#00899C&lK &#005E6B&lS&#007484&lT&#00899C&lO&#009FB5&lR&#00B5CE&lA&#00CAE6&lG&#00E0FF&lE'
+  artigrindingpoints:
+    world: voidworld
+    x: 47.5
+    y: 174.2
+    z: -73.5
+    yaw: -90
+    pitch: 1.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#DB4444&lG&#C43939&lR&#AD2D2D&lI&#962222&lN&#7F1717&lD&#680B0B&lI&#510000&lN&#5A0505&lG &#851A1A&lP&#962323&lO&#A72B2B&lI&#B93333&lN&#CA3C3C&lT&#CA3C3C&lS'
+
+  artiexponent:
+    world: voidworld
+    x: 52.5
+    y: 174.2
+    z: -74.5
+    yaw: 140.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#FFBA00&lE&#DBA000&lX&#B88700&lP&#946D00&lO&#AF8000&lN&#CA9400&lE&#E4A700&lN&#FFBA00&lT'
+  artifarmxp:
+    world: voidworld
+    x: 47.5
+    y: 173.2
+    z: -76.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#FFD900&lF&#DCBB00&lA&#B99E00&lR&#968000&lM &#DCBB00&lX&#FFD900&lP'
+
+  artifarmmulti:
+    world: voidworld
+    x: 45.5
+    y: 174.2
+    z: -79.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#FFBA00&lF&#E6A800&lA&#CD9600&lR&#B48300&lM &#AF8000&lM&#C38E00&lU&#D79D00&lL&#EBAB00&lT&#FFBA00&lI'
+
+  artiseedmulti:
+    world: voidworld
+    x: 48.5
+    y: 173.2
+    z: -81.5
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#00FF11&lS&#00D20E&lE&#00A50B&lE&#007708&lD &#006E07&lM&#00920A&lU&#00B70C&lL&#00DB0F&lT&#00FF11&lI'
+
+  artigemmulti:
+    world: voidworld
+    x: 51.5
+    y: 174.2
+    z: -80.5
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4DDDE7&lE&#45BBD0&lM&#3D98B8&lS &#3B91B3&lM&#42ADC6&lU&#48C8D9&lL&#4FE4EC&lT&#55FFFF&lI'

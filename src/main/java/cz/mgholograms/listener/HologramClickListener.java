@@ -20,9 +20,16 @@ public class HologramClickListener implements Listener {
         }
         
         Player player = event.getPlayer();
+        org.bukkit.Location hologramLoc = plugin.getHologramBridge().getTemplateLocation();
         
-        // Musíš koukat na hologram (line-of-sight)
-        if (player.hasLineOfSight(plugin.getHologramBridge().getTemplateLocation())) {
+        if (hologramLoc == null) {
+            return;
+        }
+        
+        // Musíš být v MC reach vzdálenosti (cca 4.5 bloku) a koukat na hologram
+        double distance = player.getLocation().distance(hologramLoc);
+        if (distance <= 4.5 && player.hasLineOfSight(hologramLoc)) {
+            plugin.getLogger().info("[DEBUG] Production GUI opened for " + player.getName() + " from " + distance + " blocks");
             openProductionGUI(player);
         }
     }

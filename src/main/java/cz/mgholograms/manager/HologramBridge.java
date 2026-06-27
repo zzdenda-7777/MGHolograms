@@ -227,7 +227,7 @@ public class HologramBridge {
             Hologram hologram = holoOpt.get();
             if (hologram.getData() instanceof TextHologramData textData) {
                 List<String> textLines = List.of(
-                        "&#FFDD83&lPRODUCTION",
+                        "&#FFBA00&lPRODUCTION",
                         "",
                         "&#F5DFA4Level: §f" + data.level,
                         "&#F5DFA4Worker XP §f" + String.format("%.0f", data.workXp) + " / §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
@@ -315,7 +315,7 @@ public class HologramBridge {
             if (display.getType() == DisplayType.TEXT) {
                 ProductionData data = getProductionDataFor(player.getUniqueId());
                 List<String> textLines = data != null ? List.of(
-                        "&#FFDD83&lPRODUCTION",
+                        "&#FFBA00&lPRODUCTION",
                         "",
                         "&#F5DFA4Level: §f" + data.level,
                         "&#F5DFA4Worker XP §f" + String.format("%.0f", data.workXp) + " / §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
