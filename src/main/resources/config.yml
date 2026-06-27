@@ -1,0 +1,7 @@
+# MGHolograms Configuration
+
+# Distance in blocks from which holograms become visible to players
+view-distance: 100
+
+# Interval in ticks for visibility tracking (20 ticks = 1 second)
+visibility-check-interval: 20

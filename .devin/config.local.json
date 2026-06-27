@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Exec(ls)",
+      "Exec(Get-ChildItem)",
+      "Exec(Remove-Item)",
+      "Exec(New-Item)",
+      "Exec(.\\gradlew.bat build)",
+      "Exec(.\\gradlew.bat clean)",
+      "Exec(git status)",
+      "Exec(./gradlew clean)",
+      "Exec(./gradlew build)",
+      "Exec(cd)",
+      "Exec(.\\gradlew build)",
+      "Exec(dir)",
+      "Exec(del)",
+      "Exec(rmdir)",
+      "Exec(mkdir libs)",
+      "Exec(curl)",
+      "Exec(jar)",
+      "Exec(javap)"
+    ]
+  }
+}

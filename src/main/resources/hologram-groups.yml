@@ -1,0 +1,73 @@
+groups:
+  COBBLESTONE:
+    world: voidworld
+    x: 50.0
+    y: 175.0
+    z: -91.100
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: COBBLESTONE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: -0.1
+        scale: 0.9
+        material: WOODEN_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li &#FFFFFF1×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF1×'
+  COBBLED:
+    world: voidworld
+    x: 54.0
+    y: 173.0
+    z: -98.900
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: COBBLED_DEEPSLATE
+        brightness: 15
+      - type: ITEM
+        x_offset: 0.200
+        y_offset: 1.2
+        z_offset: 0.05
+        scale: 1.0
+        material: STONE_PICKAXE
+        brightness: 15
+        yaw: 0.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li &#FFFFFF2×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF2×'
+  Production:
+    world: voidworld
+    x: 58.0
+    y: 173.0
+    z: -95.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '§7Loading...'

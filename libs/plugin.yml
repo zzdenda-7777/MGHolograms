@@ -1,0 +1,46 @@
+name: multigainer
+version: '1.0-SNAPSHOT'
+main: multigainer.multigainer.Multigainer
+api-version: '1.21.11'
+load: POSTWORLD
+
+# Tímto zajistíš, že se tvůj plugin načte až PO ProtocolLibu
+depend: [ProtocolLib, FancyHolograms]
+
+# Paper safely downloads these on startup so your jar file stays small
+libraries:
+  - "com.zaxxer:HikariCP:5.1.0"
+  - "org.mariadb.jdbc:mariadb-java-client:3.3.3"
+
+
+commands:
+  statsmine:
+    description: Shows your current mining level and resource multipliers!
+  statsmoney:
+    description: Shows all money multipliers and the current exponent.
+  rebirth:
+    description: Open the rebirth menu.
+  tier:
+    description: Open the tier advancement menu.
+  upgrades:
+    description: Open the upgrades menu.
+  grind:
+    description: Open the grinding points menu.
+  perks:
+    description: Open the perks menu.
+  armor:
+    description: Open the armor upgrade menu (requires Tier 3).
+  production:
+    description: Open the production menu.
+  artifacts:
+    description: Open the artifacts menu.
+  blocks:
+    description: Give all 70 artifact blocks (OP only).
+    permission: multigainer.admin
+  multigainer:
+    description: Main plugin command.
+    permission: multigainer.admin
+  relo:
+    description: Save all data and reload the server (dev reload).
+    permission: multigainer.admin
+    permission-message: §cNo permission.

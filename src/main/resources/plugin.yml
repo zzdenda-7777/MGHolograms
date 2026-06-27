@@ -1,0 +1,28 @@
+name: MGHolograms
+version: '${version}'
+main: cz.mgholograms.MGHolograms
+api-version: '1.21'
+load: POSTWORLD
+depend:
+  - FancyHolograms
+softdepend:
+  - multigainer
+
+commands:
+  holotp:
+    description: Teleport a hologram group to your position
+    usage: /holotp <group_id>
+    permission: mgholograms.admin
+  holoreload:
+    description: Reload hologram configuration
+    usage: /holoreload
+    permission: mgholograms.admin
+  holocenter:
+    description: Center a hologram group at your position
+    usage: /holocenter <group_id>
+    permission: mgholograms.admin
+
+permissions:
+  mgholograms.admin:
+    description: Admin permission for MGHolograms commands
+    default: op
