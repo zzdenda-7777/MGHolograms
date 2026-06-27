@@ -60,7 +60,7 @@ groups:
   Production:
     world: voidworld
     x: 87.9
-    y: 17
+    y: 173
     z: -29.5
     yaw: 90
     pitch: 0.0
@@ -189,3 +189,20 @@ groups:
         background: transparent
         lines:
           - '&#55FFFF&lG&#4DDDE7&lE&#45BBD0&lM&#3D98B8&lS &#3B91B3&lM&#42ADC6&lU&#48C8D9&lL&#4FE4EC&lT&#55FFFF&lI'
+
+  artifacs:
+    world: voidworld
+    x: 57.5
+    y: 173.0
+    z: -78.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 3.0
+        background: transparent
+        lines:
+          - '&#9400FF&lA&#8E24DB&lR&#8848B7&lT&#8848B7&lI&#8848B7&lF&#8C30CF&lA&#9018E7&lC&#9400FF&lT'
+          - '&#A5A5A5BUY ARTIFACTS FOR'
+          - '&#C60000M&#D83F3FA&#EB7F7FS&#FDBEBES&#FE7F7FI&#FE3F3FV&#FF0000E &#FF544BB&#FF7E71O&#FFA896O&#FFD2BCS&#E3695ET&#C60000!'
