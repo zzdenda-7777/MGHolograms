@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MGHolograms.main.iml" filepath="$PROJECT_DIR$/.idea/modules/MGHolograms.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MGHolograms.test.iml" filepath="$PROJECT_DIR$/.idea/modules/MGHolograms.test.iml" />
     </modules>
   </component>
 </project>

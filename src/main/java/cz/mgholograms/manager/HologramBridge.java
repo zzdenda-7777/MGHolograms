@@ -228,12 +228,16 @@ public class HologramBridge {
             if (hologram.getData() instanceof TextHologramData textData) {
                 List<String> textLines = List.of(
                         "&#FFBA00&lPRODUCTION",
+                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
                         "",
-                        "&#F5DFA4Level: §f" + data.level,
-                        "&#F5DFA4Worker XP §f" + String.format("%.0f", data.workXp) + " / §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                        "&#F5DFA4Production: §f" + String.format("%.2f", data.energyPerMin) + "&#F5DFA4/min",
-                        "",
-                        "&#FFBA00&lYOU HAVE TOTAL §f" + String.format("%.2f", data.storedEnergy) + " &#FFBA00&lENERGY"
+                        "&#E8C97A§lLevel §f" + data.level,
+                        "&#E8C97A§lWorker XP §f" + String.format("%.0f", data.workXp) + " §7/ §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
+                        "&#E8C97A§lProduction §f" + String.format("%.2f", data.energyPerMin) + " &#C9A85C/min",
+                        "&#FF0000R&#BC0000E&#790000Q&#690B0B: &#4A2121T&#5A1616I&#690B0BE&#790000R &#FF00003",
+                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
+                        "&#FFBA00&lTOTAL ENERGY",
+                        "&#FFD466&l⚡ §f" + String.format("%.2f", data.storedEnergy) + " &#FFD466&l⚡"
+
                 );
                 textData.setText(textLines);
                 hologram.refreshHologram(player);
@@ -316,12 +320,15 @@ public class HologramBridge {
                 ProductionData data = getProductionDataFor(player.getUniqueId());
                 List<String> textLines = data != null ? List.of(
                         "&#FFBA00&lPRODUCTION",
+                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
                         "",
-                        "&#F5DFA4Level: §f" + data.level,
-                        "&#F5DFA4Worker XP §f" + String.format("%.0f", data.workXp) + " / §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                        "&#F5DFA4Production: §f" + String.format("%.2f", data.energyPerMin) + "§f/min",
-                        "",
-                        "&#FFBA00&lYOU HAVE TOTAL §f" + String.format("%.2f", data.storedEnergy) + " &#FFBA00&lENERGY"
+                        "&#E8C97A§lLevel §f" + data.level,
+                        "&#E8C97A§lWorker XP §f" + String.format("%.0f", data.workXp) + " §7/ §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
+                        "&#E8C97A§lProduction §f" + String.format("%.2f", data.energyPerMin) + " &#C9A85C/min",
+                        "&#FF0000R&#BC0000E&#790000Q&#690B0B: &#4A2121T&#5A1616I&#690B0BE&#790000R &#FF00003",
+                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
+                        "&#FFBA00&lTOTAL ENERGY",
+                        "&#FFD466&l⚡ §f" + String.format("%.2f", data.storedEnergy) + " &#FFD466&l⚡"
                 ) : List.of(
                         "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
                         "§7Loading..."

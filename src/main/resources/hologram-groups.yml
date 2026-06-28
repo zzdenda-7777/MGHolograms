@@ -2,8 +2,8 @@ groups:
   COBBLESTONE:
     world: voidworld
     x: 50.0
-    y: 175.0
-    z: -91.100
+    y: 174.8
+    z: -91.1
     yaw: -180.0
     pitch: 0.0
     displays:
@@ -26,13 +26,14 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li &#FFFFFF1×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+        &#FFFFFF1×'
           - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF1×'
   COBBLED:
     world: voidworld
     x: 54.0
-    y: 173.0
-    z: -98.900
+    y: 172.8
+    z: -98.9
     yaw: 0.0
     pitch: 0.0
     displays:
@@ -42,7 +43,7 @@ groups:
         material: COBBLED_DEEPSLATE
         brightness: 15
       - type: ITEM
-        x_offset: 0.200
+        x_offset: 0.35
         y_offset: 1.2
         z_offset: 0.05
         scale: 1.0
@@ -55,22 +56,23 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li &#FFFFFF2×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+        &#FFFFFF2×'
           - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF2×'
   Production:
     world: voidworld
-    x: 87.9
-    y: 173
-    z: -29.5
-    yaw: 90
-    pitch: 0.0
+    x: 43.343860376881715
+    y: 171.0
+    z: -30.412600940165817
+    yaw: -91.21661
+    pitch: -0.30003992
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 3
         background: transparent
         lines:
-          - '§7Loading...'
+          - §7Loading...
 
   artiminexp:
     world: voidworld
@@ -114,7 +116,8 @@ groups:
         scale: 2.0
         background: transparent
         lines:
-          - '&#DB4444&lG&#C43939&lR&#AD2D2D&lI&#962222&lN&#7F1717&lD&#680B0B&lI&#510000&lN&#5A0505&lG &#851A1A&lP&#962323&lO&#A72B2B&lI&#B93333&lN&#CA3C3C&lT&#CA3C3C&lS'
+          - '&#DB4444&lG&#C43939&lR&#AD2D2D&lI&#962222&lN&#7F1717&lD&#680B0B&lI&#510000&lN&#5A0505&lG
+        &#851A1A&lP&#962323&lO&#A72B2B&lI&#B93333&lN&#CA3C3C&lT&#CA3C3C&lS'
 
   artiexponent:
     world: voidworld
@@ -192,8 +195,8 @@ groups:
 
   artifacs:
     world: voidworld
-    x: 57.5
-    y: 173.0
+    x: 58.5
+    y: 174.0
     z: -78.5
     yaw: -90.0
     pitch: 0.0
@@ -203,6 +206,256 @@ groups:
         scale: 3.0
         background: transparent
         lines:
-          - '&#9400FF&lA&#8E24DB&lR&#8848B7&lT&#8848B7&lI&#8848B7&lF&#8C30CF&lA&#9018E7&lC&#9400FF&lT'
-          - '&#A5A5A5BUY ARTIFACTS FOR'
+          - '&#9400FF&lA&#8E24DB&lR&#8848B7&lT&#8848B7&lI&#8848B7&lF&#8C30CF&lA&#9018E7&lC&#9400FF&lT&#9400FF&lS'
+          - '&#A5A5A5Exchange your crops for'
           - '&#C60000M&#D83F3FA&#EB7F7FS&#FDBEBES&#FE7F7FI&#FE3F3FV&#FF0000E &#FF544BB&#FF7E71O&#FFA896O&#FFD2BCS&#E3695ET&#C60000!'
+
+  COPPERORE:
+    world: voidworld
+    x: 77
+    y: 173.8
+    z: -84
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: COPPER_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: 0.1
+        y_offset: 1.2
+        z_offset: -0.3
+        scale: 0.9
+        material: STONE_PICKAXE
+        brightness: 30
+        yaw: -90
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF4×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF3×'
+
+  COPPERDEEPSLATEORE:
+    world: voidworld
+    x: 86
+    y: 173.8
+    z: -80.0
+    yaw: 0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: DEEPSLATE_COPPER_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: 0.12
+        scale: 0.9
+        material: STONE_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF6×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF4×'
+
+  coalore:
+    world: voidworld
+    x: 79.0
+    y: 174.8
+    z: -69.0
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: COAL_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: 0.15
+        y_offset: 1.2
+        z_offset: 0.30
+        scale: 0.9
+        material: COPPER_PICKAXE
+        brightness: 30
+        yaw: 90.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF10×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF5×'
+
+  deepslatecoalore:
+    world: voidworld
+    x: 98.0
+    y: 173.8
+    z: -61.0
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: DEEPSLATE_COAL_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: -0.12
+        scale: 0.9
+        material: COPPER_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF15×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF7×'
+
+  ironore:
+    world: voidworld
+    x: 102.0
+    y: 174.8
+    z: -72.0
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: IRON_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: 0.15
+        y_offset: 1.2
+        z_offset: 0.33
+        scale: 0.9
+        material: COPPER_PICKAXE
+        brightness: 30
+        yaw: 90
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF25×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF9×'
+
+  deepslateironore:
+    world: voidworld
+    x: 111.0
+    y: 174.8
+    z: -67.0
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        x_offset: -0.04
+        y_offset: 0.5
+        scale: 0.5
+        material: DEEPSLATE_IRON_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: -0.15
+        y_offset: 1.2
+        z_offset: 0.30
+        scale: 0.9
+        material: IRON_PICKAXE
+        brightness: 30
+        yaw: 90
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF40×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF11×'
+
+  redstoneore:
+    world: voidworld
+    x: 115.0
+    y: 173.8
+    z: -54.0
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        z_offset: -0.05
+        y_offset: 0.5
+        scale: 0.5
+        material: REDSTONE_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: -0.10
+        scale: 0.9
+        material: IRON_PICKAXE
+        brightness: 30
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF70×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF13×'
+
+  deepslateredstoneore:
+    world: voidworld
+    x: 105.0
+    y: 174.8
+    z: -58.0
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: DEEPSLATE_REDSTONE_ORE
+        brightness: 30
+      - type: ITEM
+        x_offset: 0.15
+        y_offset: 1.2
+        z_offset: 0.30
+        scale: 0.9
+        material: DIAMOND_PICKAXE
+        brightness: 30
+        yaw: 90.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
+          &#FFFFFF120×'
+          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF15×'
