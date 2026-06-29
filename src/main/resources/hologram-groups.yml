@@ -26,9 +26,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-        &#FFFFFF1×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF1×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1×'
   COBBLED:
     world: voidworld
     x: 54.0
@@ -56,16 +55,15 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-        &#FFFFFF2×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF2×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF2×'
   Production:
     world: voidworld
-    x: 43.343860376881715
+    x: 44.31207323824406
     y: 171.0
-    z: -30.412600940165817
-    yaw: -91.21661
-    pitch: -0.30003992
+    z: -30.62548447341332
+    yaw: -90.42531
+    pitch: 2.4002426
     displays:
       - type: TEXT
         y_offset: -0.5
@@ -222,14 +220,14 @@ groups:
         y_offset: 0.5
         scale: 0.5
         material: COPPER_ORE
-        brightness: 30
+        brightness: 15
       - type: ITEM
         x_offset: 0.1
         y_offset: 1.2
         z_offset: -0.3
         scale: 0.9
         material: STONE_PICKAXE
-        brightness: 30
+        brightness: 15
         yaw: -90
         pitch: 0.0
       - type: TEXT
@@ -237,9 +235,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF4×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF3×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF4×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF3×'
 
   COPPERDEEPSLATEORE:
     world: voidworld
@@ -268,9 +265,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF6×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF4×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF6×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF4×'
 
   coalore:
     world: voidworld
@@ -284,14 +280,14 @@ groups:
         y_offset: 0.5
         scale: 0.5
         material: COAL_ORE
-        brightness: 30
+        brightness: 15
       - type: ITEM
         x_offset: 0.15
         y_offset: 1.2
-        z_offset: 0.30
+        z_offset: 0.3
         scale: 0.9
         material: COPPER_PICKAXE
-        brightness: 30
+        brightness: 15
         yaw: 90.0
         pitch: 0.0
       - type: TEXT
@@ -299,9 +295,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF10×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF5×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF10×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF5×'
 
   deepslatecoalore:
     world: voidworld
@@ -330,9 +325,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF15×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF7×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF15×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF7×'
 
   ironore:
     world: voidworld
@@ -346,14 +340,14 @@ groups:
         y_offset: 0.5
         scale: 0.5
         material: IRON_ORE
-        brightness: 30
+        brightness: 15
       - type: ITEM
         x_offset: 0.15
         y_offset: 1.2
         z_offset: 0.33
         scale: 0.9
         material: COPPER_PICKAXE
-        brightness: 30
+        brightness: 15
         yaw: 90
         pitch: 0.0
       - type: TEXT
@@ -361,9 +355,8 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF25×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF9×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF25×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF9×'
 
   deepslateironore:
     world: voidworld
@@ -378,14 +371,14 @@ groups:
         y_offset: 0.5
         scale: 0.5
         material: DEEPSLATE_IRON_ORE
-        brightness: 30
+        brightness: 15
       - type: ITEM
         x_offset: -0.15
         y_offset: 1.2
-        z_offset: 0.30
+        z_offset: 0.3
         scale: 0.9
         material: IRON_PICKAXE
-        brightness: 30
+        brightness: 15
         yaw: 90
         pitch: 0.0
       - type: TEXT
@@ -393,43 +386,74 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF40×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF11×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF40×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF11×'
 
   redstoneore:
     world: voidworld
-    x: 115.0
-    y: 173.8
-    z: -54.0
-    yaw: -180.0
+    x: 138
+    y: 169.8
+    z: -59.0
+    yaw: 90
     pitch: 0.0
     displays:
       - type: ITEM
         z_offset: -0.05
         y_offset: 0.5
+        x_offset: -0.05
         scale: 0.5
         material: REDSTONE_ORE
-        brightness: 30
+        brightness: 15
       - type: ITEM
-        x_offset: -0.3
+        x_offset: -0.15
         y_offset: 1.2
-        z_offset: -0.10
+        z_offset: 0.25
         scale: 0.9
         material: IRON_PICKAXE
-        brightness: 30
-        yaw: 180.0
+        brightness: 15
+        yaw: 90
         pitch: 0.0
       - type: TEXT
         y_offset: -0.5
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF70×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF13×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF70×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF13×'
 
   deepslateredstoneore:
+    world: voidworld
+    x: 137
+    y: 170.8
+    z: -53
+    yaw: 90
+    pitch: 0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        x_offset: -0.05
+        scale: 0.5
+        material: DEEPSLATE_REDSTONE_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.15
+        y_offset: 1.2
+        z_offset: 0.3
+        scale: 0.9
+        material: DIAMOND_PICKAXE
+        brightness: 15
+        yaw: 90.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF120×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF15×'
+
+
+  deepslatelapisore:
     world: voidworld
     x: 105.0
     y: 174.8
@@ -440,15 +464,15 @@ groups:
       - type: ITEM
         y_offset: 0.5
         scale: 0.5
-        material: DEEPSLATE_REDSTONE_ORE
-        brightness: 30
+        material: DEEPSLATE_LAPIS_ORE
+        brightness: 15
       - type: ITEM
         x_offset: 0.15
         y_offset: 1.2
-        z_offset: 0.30
+        z_offset: 0.3
         scale: 0.9
         material: DIAMOND_PICKAXE
-        brightness: 30
+        brightness: 15
         yaw: 90.0
         pitch: 0.0
       - type: TEXT
@@ -456,6 +480,195 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#3C82C1&lM&#3F94CA&lu&#43A6D3&ll&#47B8DC&lt&#4AC9E4&li
-          &#FFFFFF120×'
-          - '&#AAFF55&lX&#95DE4A&lP &#6A9C33&lM&#557B28&lu&#405A1D&ll&#557B28&lt&#6A9C33&li  &#FFFFFF15×'
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF450×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF25×'
+
+  lapisore:
+    world: voidworld
+    x: 115.0
+    y: 173.8
+    z: -54.0
+    yaw: 180
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        z_offset: -0.1
+        scale: 0.5
+        material: LAPIS_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: 0.35
+        y_offset: 1.2
+        z_offset: -0.15
+        scale: 0.9
+        material: DIAMOND_PICKAXE
+        brightness: 15
+        yaw: 0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF200×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF18×'
+
+  goldore:
+    world: voidworld
+    x: 130.0
+    y: 172.8
+    z: -39.0
+    yaw: 90
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        x_offset: -0.05
+        y_offset: 0.5
+        z_offset: -0.1
+        scale: 0.5
+        material: GOLD_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.15
+        y_offset: 1.2
+        z_offset: -0.15
+        scale: 0.9
+        material: NETHERITE_PICKAXE
+        brightness: 15
+        yaw: 90
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1K×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF35×'
+
+  deepslategoldore:
+    world: voidworld
+    x: 125.0
+    y: 172.8
+    z: -47.0
+    yaw: -90
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        x_offset: 0.05
+        y_offset: 0.5
+        z_offset: 0.0
+        scale: 0.5
+        material: DEEPSLATE_GOLD_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: 0.15
+        y_offset: 1.2
+        z_offset: 0.30
+        scale: 0.9
+        material: NETHERITE_PICKAXE
+        brightness: 15
+        yaw: 90
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2.5K×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF50×'
+
+
+  diamondore:
+    world: voidworld
+    x: 132.0
+    y: 167.8
+    z: -30.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        scale: 0.5
+        material: DIAMOND_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: 0.12
+        scale: 0.9
+        material: GOLDEN_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF10K×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF75×'
+
+  deepslatediamondore:
+    world: voidworld
+    x: 133.0
+    y: 167.8
+    z: -21.0
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        z_offset: -0.1
+        scale: 0.5
+        material: DEEPSLATE_DIAMOND_ORE
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: -0.15
+        scale: 0.9
+        material: GOLDEN_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF50K×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF150×'
+
+
+  netheriteblock:
+    world: voidworld
+    x: 148.0
+    y: 162.8
+    z: -21.0
+    yaw: 180.0
+    pitch: 0.0
+    displays:
+      - type: ITEM
+        y_offset: 0.5
+        z_offset: -0.1
+        scale: 0.5
+        material: NETHERITE_BLOCK
+        brightness: 15
+      - type: ITEM
+        x_offset: -0.3
+        y_offset: 1.2
+        z_offset: -0.15
+        scale: 0.9
+        material: GOLDEN_PICKAXE
+        brightness: 15
+        yaw: 180.0
+        pitch: 0.0
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        centered: false
+        lines:
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
+          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'

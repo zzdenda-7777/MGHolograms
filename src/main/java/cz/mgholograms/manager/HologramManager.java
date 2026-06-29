@@ -13,6 +13,7 @@ import de.oliver.fancyholograms.api.data.TextHologramData;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TextDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.joml.Vector3f;
 
@@ -133,6 +134,7 @@ public class HologramManager {
                     textData.setText(display.getLines());
                 }
 
+
                 // Set background transparency
                 if (display.getBackground() != null && !display.getBackground().isEmpty()) {
                     if (display.getBackground().equalsIgnoreCase("transparent")) {
@@ -152,7 +154,7 @@ public class HologramManager {
                 if (display.getBrightness() != null) {
                     try {
                         org.bukkit.entity.Display.Brightness brightness =
-                                new org.bukkit.entity.Display.Brightness(0, display.getBrightness()); // 0 = block
+                                new org.bukkit.entity.Display.Brightness(15, display.getBrightness()); // 0 = block
                         textData.setBrightness(brightness);
                     } catch (Exception e) {
                         plugin.getLogger().warning("Failed to set brightness: " + e.getMessage());
@@ -192,7 +194,7 @@ public class HologramManager {
                 if (display.getBrightness() != null) {
                     try {
                         org.bukkit.entity.Display.Brightness brightness =
-                                new org.bukkit.entity.Display.Brightness(0, display.getBrightness()); // 0 = block
+                                new org.bukkit.entity.Display.Brightness(15, display.getBrightness()); // 0 = block
                         itemData.setBrightness(brightness);
                     } catch (Exception e) {
                         plugin.getLogger().warning("Failed to set brightness: " + e.getMessage());
