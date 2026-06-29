@@ -525,14 +525,14 @@ groups:
       - type: ITEM
         x_offset: -0.05
         y_offset: 0.5
-        z_offset: -0.1
+        z_offset: 0.0
         scale: 0.5
         material: GOLD_ORE
         brightness: 15
       - type: ITEM
         x_offset: -0.15
         y_offset: 1.2
-        z_offset: -0.15
+        z_offset: 0.3
         scale: 0.9
         material: NETHERITE_PICKAXE
         brightness: 15
@@ -668,7 +668,6 @@ groups:
         y_offset: -0.5
         scale: 1.5
         background: transparent
-        centered: false
         lines:
           - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'
