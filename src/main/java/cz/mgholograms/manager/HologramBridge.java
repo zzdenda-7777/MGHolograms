@@ -2,69 +2,30 @@ package cz.mgholograms.manager;
 
 
 import cz.mgholograms.MGHolograms;
-import cz.mgholograms.model.Display;
-import cz.mgholograms.model.DisplayType;
-import cz.mgholograms.model.HologramGroup;
-import de.oliver.fancyholograms.api.FancyHologramsPlugin;
-import de.oliver.fancyholograms.api.data.ItemHologramData;
-import de.oliver.fancyholograms.api.data.TextHologramData;
-import de.oliver.fancyholograms.api.data.property.Visibility;
-import de.oliver.fancyholograms.api.hologram.Hologram;
-import multigainer.multigainer.Multigainer;
-import multigainer.multigainer.data.PlayerProfile;
-import multigainer.multigainer.formatting.NumberFormatter;
-import multigainer.multigainer.math.BigNumber;
-import multigainer.multigainer.production.ProductionManager;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import cz.mgholograms.manager.bridge.content.ProductionHologramProvider;
+import cz.mgholograms.manager.bridge.content.TierHologramProvider;
+import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.Plugin;
-import org.joml.Vector3f;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
 
 /**
  * HologramBridge
  * ----------------
- * Propojuje MultiGainer (přímé Java API, bez Vault/PlaceholderAPI) s FancyHolograms.
- * <p>
- * MultiGainer NEMÁ Vault economy hook ani PlaceholderAPI expansion - peníze
- * (BigNumber mantissa/exponent) se čtou přímo přes
- * {@code multigainer.getPlayerDataManager().getProfile(uuid).getMoney()}.
- * <p>
- * Protože FancyHolograms text je sdílený pro všechny viewery jednoho hologramu,
- * a my chceme aby každý hráč viděl SVŮJ zůstatek, vytváříme pro každého hráče
- * v dosahu jeho VLASTNÍ hologram entitu (název "money_balance_&lt;uuid&gt;"),
- * viditelnou jen jemu (Visibility.MANUAL + showHologram(player)).
- * <p>
- * Pozice šablony (odkud se klonují per-player hologramy) je uložena ve stejném
- * hologram-groups.yml jako ostatní hologramy, pod groupId "money_balance" -
- * lze ji tedy posouvat přes /holotp money_balance a /holocenter money_balance.
+ * Wiring class that initializes and manages per-player hologram engines.
+ * Delegates to PlayerHologramEngine instances for each content provider.
  */
 public class HologramBridge {
 
+    // Keep for backward compatibility with HologramManager
     public static final String GROUP_ID = "Production";
-    private static final long CHECK_INTERVAL_TICKS = 100L; // jak často kontrolujeme vzdálenost (5s)
-    private static final long TEXT_REFRESH_INTERVAL_TICKS = 40L; // jak často refreshujeme částku (2s)
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
 
-    private Multigainer multigainer;
-    private final Set<UUID> activeViewers = new HashSet<>();
-    private final Map<UUID, Integer> hologramCreationCount = new HashMap<>();
-
-    private org.bukkit.scheduler.BukkitTask distanceCheckTask;
-    private org.bukkit.scheduler.BukkitTask textRefreshTask;
+    private final Map<String, PlayerHologramEngine> engines = new HashMap<>();
 
     public HologramBridge(MGHolograms plugin, cz.mgholograms.manager.HologramManager hologramManager) {
         this.plugin = plugin;
@@ -75,46 +36,46 @@ public class HologramBridge {
      * Zavolat z MGHolograms#onEnable po hologramManager.init().
      */
     public void init() {
-        hookMultigainer();
-        ensureConfigEntry();
+        // Create and register content providers
+        ProductionHologramProvider productionProvider = new ProductionHologramProvider(plugin);
+        TierHologramProvider tierProvider = new TierHologramProvider(plugin);
 
-        if (multigainer == null) {
-            plugin.getLogger().warning("Multigainer plugin not found - money hologram disabled. "
+        // Ensure config entries exist for both groups
+        ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("Tier", "voidworld", 0.0, 0.0, 0.0);
+
+        // Check if multigainer is available
+        if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null) {
+            plugin.getLogger().warning("Multigainer plugin not found - holograms disabled. "
                     + "Make sure 'multigainer' is installed and loaded before MGHolograms.");
             return;
         }
 
-        // Force cleanup všech starých Production hologramů při startu
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-        for (int i = 0; i < 100; i++) {
-            if (manager.getHologram("Production_" + i).isPresent()) {
-                manager.removeHologram(manager.getHologram("Production_" + i).get());
-            }
-        }
+        // Create engines for each provider
+        PlayerHologramEngine productionEngine = new PlayerHologramEngine(plugin, hologramManager, productionProvider);
+        PlayerHologramEngine tierEngine = new PlayerHologramEngine(plugin, hologramManager, tierProvider);
 
-        startTasks();
+        engines.put("Production", productionEngine);
+        engines.put("Tier", tierEngine);
+
+        // Initialize engines
+        productionEngine.init();
+        tierEngine.init();
+
+        plugin.getLogger().info("HologramBridge initialized with Production and Tier engines");
     }
 
     public void shutdown() {
-        if (distanceCheckTask != null) distanceCheckTask.cancel();
-        if (textRefreshTask != null) textRefreshTask.cancel();
-        removeAllPlayerHolograms();
-    }
-
-    private void hookMultigainer() {
-        Plugin found = Bukkit.getPluginManager().getPlugin("multigainer");
-        if (found instanceof Multigainer mg) {
-            this.multigainer = mg;
-        } else {
-            this.multigainer = null;
+        for (PlayerHologramEngine engine : engines.values()) {
+            engine.shutdown();
         }
+        engines.clear();
     }
 
     /**
      * Zapíše výchozí šablonu skupiny do hologram-groups.yml, pokud tam ještě není.
-     * Vyžaduje doplněnou metodu createGroupIfMissing v HologramConfigLoader.
      */
-    private void ensureConfigEntry() {
+    private void ensureConfigEntry(String groupId, String world, double x, double y, double z) {
         Map<String, Object> displayData = new HashMap<>();
         displayData.put("type", "TEXT");
         displayData.put("x_offset", 0.0);
@@ -122,319 +83,59 @@ public class HologramBridge {
         displayData.put("z_offset", 0.0);
         displayData.put("scale", 1.0f);
         displayData.put("background", "transparent");
-        // "lines" se zde nepoužívá jako finální text (ten je per-player),
-        // jen jako fallback/needitovaný popis pro případ, že by ho někdo
-        // zobrazil bez aktivního MultiGainer profilu.
-        displayData.put("lines", List.of(
-                "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
-                "§7Worker System"
-        ));
+        
+        // Different fallback text for different groups
+        if (groupId.equals("Production")) {
+            displayData.put("lines", List.of(
+                    "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
+                    "§7Worker System"
+            ));
+        } else if (groupId.equals("Tier")) {
+            displayData.put("lines", List.of(
+                    "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463",
+                    "§7Tier System"
+            ));
+        }
 
         hologramManager.getConfigLoader().createGroupIfMissing(
-                GROUP_ID,
-                "voidworld",
-                0.0, 0.0, 0.0,
+                groupId,
+                world,
+                x, y, z,
                 0.0f, 0.0f,
                 List.of(displayData)
         );
     }
 
-    private void startTasks() {
-        distanceCheckTask = Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::checkAllPlayers, 0L, CHECK_INTERVAL_TICKS);
-        textRefreshTask = Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::refreshAllTexts, 20L, TEXT_REFRESH_INTERVAL_TICKS);
-    }
-
     /**
-     * Pro každého online hráče zkontroluje vzdálenost k pozici šablony.
-     * V dosahu -&gt; vytvoří/zviditelní jeho osobní hologram.
-     * Mimo dosah -&gt; skryje/smaže jeho osobní hologram.
+     * Returns the template location for the Production group (for backward compatibility).
      */
-    private void checkAllPlayers() {
-        HologramGroup group = findGroup(GROUP_ID);
-        if (group == null) return;
-        if (multigainer == null) return;
-
-        Location templateLocation = templateLocation(group);
-        if (templateLocation == null || templateLocation.getWorld() == null) return;
-
-        int viewDistance = plugin.getConfig().getInt("view-distance", 100);
-        double maxDistSq = (double) viewDistance * viewDistance;
-
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            boolean sameWorld = player.getWorld().equals(templateLocation.getWorld());
-            boolean inRange = sameWorld && player.getLocation().distanceSquared(templateLocation) <= maxDistSq;
-            boolean hasLineOfSight = inRange && player.hasLineOfSight(templateLocation);
-            boolean currentlyActive = activeViewers.contains(player.getUniqueId());
-
-            if (hasLineOfSight && !currentlyActive) {
-                createPlayerHologram(player, templateLocation, group);
-                activeViewers.add(player.getUniqueId());
-            } else if (!hasLineOfSight && currentlyActive) {
-                removePlayerHologram(player.getUniqueId());
-                activeViewers.remove(player.getUniqueId());
-            }
-        }
-    }
-
-    /**
-     * Pro každého aktuálně aktivního viewera přepočítá text z MultiGainer
-     * profilu a aktualizuje jeho osobní hologram.
-     */
-    private void refreshAllTexts() {
-        if (multigainer == null || activeViewers.isEmpty()) return;
-
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-
-        for (UUID uuid : new HashSet<>(activeViewers)) {
-            Player player = Bukkit.getPlayer(uuid);
-            if (player == null || !player.isOnline()) {
-                removePlayerHologram(uuid);
-                activeViewers.remove(uuid);
-                continue;
-            }
-
-            ProductionData data = getProductionDataFor(uuid);
-            if (data == null) {
-                plugin.getLogger().warning("[Production] Data is null for player " + player.getName());
-                continue;
-            }
-
-            HologramGroup group = findGroup(GROUP_ID);
-            if (group != null) {
-                updatePlayerHologramText(player, uuid, group, data);
-            }
-        }
-    }
-
-    private void updatePlayerHologramText(Player player, UUID uuid, HologramGroup group, ProductionData data) {
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-
-        for (int i = 0; i < group.getDisplays().size(); i++) {
-            Display display = group.getDisplays().get(i);
-            if (display.getType() != DisplayType.TEXT) continue;
-
-            String name = hologramName(uuid) + "_" + i;
-            Optional<Hologram> holoOpt = manager.getHologram(name);
-
-            if (holoOpt.isEmpty()) {
-                Location templateLocation = templateLocation(group);
-                if (templateLocation != null) {
-                    createPlayerHologram(player, templateLocation, group);
-                }
-                return;
-            }
-
-            Hologram hologram = holoOpt.get();
-            if (hologram.getData() instanceof TextHologramData textData) {
-                List<String> textLines = List.of(
-                        "&#FFBA00&lPRODUCTION",
-                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
-                        "",
-                        "&#E8C97A§lLevel §f" + data.level,
-                        "&#E8C97A§lWorker XP §f" + String.format("%.0f", data.workXp) + " §7/ §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                        "&#E8C97A§lProduction §f" + String.format("%.2f", data.energyPerMin) + " &#C9A85C/min",
-                        "&#FF0000R&#BC0000E&#790000Q&#690B0B: &#4A2121T&#5A1616I&#690B0BE&#790000R &#FF00003",
-                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
-                        "&#FFBA00&lTOTAL ENERGY",
-                        "&#FFD466&l⚡ §f" + String.format("%.2f", data.storedEnergy) + " &#FFD466&l⚡"
-
-                );
-                textData.setText(textLines);
-                hologram.refreshHologram(player);
-            }
-        }
-    }
-
-    /**
-    * Přečte Production data z MultiGainer profilu hráče.
-     * Vrací null, pokud profil ještě není načtený.
-     */
-    private ProductionData getProductionDataFor(UUID uuid) {
-        if (multigainer == null) {
-            plugin.getLogger().warning("[Production] Multigainer is null!");
-            return null;
-        }
-
-        PlayerProfile profile = multigainer.getPlayerDataManager().getProfile(uuid);
-        if (profile == null) {
-            plugin.getLogger().warning("[Production] Profile is null for " + uuid);
-            return null;
-        }
-
-        try {
-            int level = profile.getWorkerLevel();
-            double workXp = profile.getWorkerXp();
-            double xpForNext = ProductionManager.getXpForNextLevel(level);
-            double energyPerMin = ProductionManager.getEnergyPerMinute(level);
-            double storedEnergy = profile.getWorkerEnergy();
-
-            return new ProductionData(level, workXp, xpForNext, energyPerMin, storedEnergy);
-        } catch (Exception e) {
-            plugin.getLogger().severe("Failed to get production data for " + uuid + ": " + e.getMessage());
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private static class ProductionData {
-        int level;
-        double workXp;
-        double xpForNext;
-        double energyPerMin;
-        double storedEnergy;
-
-        ProductionData(int level, double workXp, double xpForNext, double energyPerMin, double storedEnergy) {
-            this.level = level;
-            this.workXp = workXp;
-            this.xpForNext = xpForNext;
-            this.energyPerMin = energyPerMin;
-            this.storedEnergy = storedEnergy;
-        }
-    }
-
-    private void createPlayerHologram(Player player, Location templateLocation, HologramGroup group) {
-        int count = hologramCreationCount.getOrDefault(player.getUniqueId(), 0);
-        hologramCreationCount.put(player.getUniqueId(), count + 1);
-
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-
-        for (int i = 0; i < group.getDisplays().size(); i++) {
-            Display display = group.getDisplays().get(i);
-            String name = hologramName(player.getUniqueId()) + "_" + i;
-
-            manager.getHologram(name).ifPresent(manager::removeHologram);
-
-            float scale = display.getScale() * 1.2f;
-            boolean transparent = "transparent".equalsIgnoreCase(display.getBackground());
-
-            Location displayLocation = new Location(
-                    templateLocation.getWorld(),
-                    templateLocation.getX() + display.getXOffset(),
-                    templateLocation.getY() + display.getYOffset(),
-                    templateLocation.getZ() + display.getZOffset(),
-                    templateLocation.getYaw(),
-                    templateLocation.getPitch()
-            );
-
-            if (display.getType() == DisplayType.TEXT) {
-                ProductionData data = getProductionDataFor(player.getUniqueId());
-                List<String> textLines = data != null ? List.of(
-                        "&#FFBA00&lPRODUCTION",
-                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
-                        "",
-                        "&#E8C97A§lLevel §f" + data.level,
-                        "&#E8C97A§lWorker XP §f" + String.format("%.0f", data.workXp) + " §7/ §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                        "&#E8C97A§lProduction §f" + String.format("%.2f", data.energyPerMin) + " &#C9A85C/min",
-                        "&#FF0000R&#BC0000E&#790000Q&#690B0B: &#4A2121T&#5A1616I&#690B0BE&#790000R &#FF00003",
-                        "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
-                        "&#FFBA00&lTOTAL ENERGY",
-                        "&#FFD466&l⚡ §f" + String.format("%.2f", data.storedEnergy) + " &#FFD466&l⚡"
-                ) : List.of(
-                        "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
-                        "§7Loading..."
-                );
-
-                TextHologramData textData = new TextHologramData(name, displayLocation);
-                textData.setText(textLines);
-                textData.setBillboard(org.bukkit.entity.Display.Billboard.FIXED);
-                textData.setScale(new Vector3f(scale, scale, scale));
-                if (transparent) {
-                    textData.setBackground(org.bukkit.Color.fromARGB(0, 0, 0, 0));
-                    textData.setSeeThrough(true);
-                }
-                textData.setVisibility(Visibility.MANUAL);
-                textData.setVisibilityDistance(plugin.getConfig().getInt("view-distance", 100));
-
-                Hologram hologram = manager.create(textData);
-                hologram.getData().setPersistent(false);
-                manager.addHologram(hologram);
-
-                Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                    hologram.forceShowHologram(player);
-                }, 2L);
-
-            } else if (display.getType() == DisplayType.ITEM) {
-                ItemHologramData data = new ItemHologramData(name, displayLocation);
-                if (display.getMaterial() != null && !display.getMaterial().isEmpty()) {
-                    Material material = Material.matchMaterial(display.getMaterial());
-                    if (material != null) data.setItemStack(new ItemStack(material));
-                }
-                data.setBillboard(org.bukkit.entity.Display.Billboard.CENTER);
-                data.setScale(new Vector3f(scale, scale, scale));
-                data.setVisibility(Visibility.MANUAL);
-                data.setVisibilityDistance(plugin.getConfig().getInt("view-distance", 100));
-
-                Hologram hologram = manager.create(data);
-                hologram.getData().setPersistent(false);
-                manager.addHologram(hologram);
-
-                Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                    hologram.forceShowHologram(player);
-                }, 2L);
-            }
-        }
-    }
-
-    private void removePlayerHologram(UUID uuid) {
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-        // Smažeme všechny displays pro hráče (money_balance_uuid_0, money_balance_uuid_1, ...)
-        for (int i = 0; i < 10; i++) { // Max 10 displays by mělo stačit
-            String name = hologramName(uuid) + "_" + i;
-            manager.getHologram(name).ifPresent(manager::removeHologram);
-        }
-    }
-
-    private void removeAllPlayerHolograms() {
-        for (UUID uuid : new HashSet<>(activeViewers)) {
-            removePlayerHologram(uuid);
-        }
-        activeViewers.clear();
-    }
-
-    private String hologramName(UUID uuid) {
-        return GROUP_ID + "_" + uuid;
-    }
-
-    private Location templateLocation(HologramGroup group) {
-        Display display = group.getDisplays().isEmpty() ? null : group.getDisplays().get(0);
-        double xOff = display != null ? display.getXOffset() : 0.0;
-        double yOff = display != null ? display.getYOffset() : 0.0;
-        double zOff = display != null ? display.getZOffset() : 0.0;
-
-        return new Location(
-                Bukkit.getWorld(group.getWorld()),
-                group.getX() + xOff,
-                group.getY() + yOff,
-                group.getZ() + zOff,
-                group.getYaw(),
-                group.getPitch()
-        );
-    }
-
-    private HologramGroup findGroup(String groupId) {
-        if (hologramManager.getLoadedGroups() == null) {
-            return null;
-        }
-        for (HologramGroup group : hologramManager.getLoadedGroups()) {
-            if (group.getGroupId().equals(groupId)) {
-                return group;
-            }
-        }
-        return null;
-    }
-
     public Location getTemplateLocation() {
-        HologramGroup group = findGroup(GROUP_ID);
-        return group != null ? templateLocation(group) : null;
+        PlayerHologramEngine engine = engines.get(GROUP_ID);
+        return engine != null ? engine.getTemplateLocation() : null;
     }
 
     /**
-     * Voláno z HologramManager#teleportGroup() / reload() pro groupId == GROUP_ID.
-     * Protože pozice šablony se mezitím změnila v configu, smažeme aktivní
-     * per-player hologramy - checkAllPlayers() je při nejbližším běhu znovu
-     * vytvoří na nové pozici (nebo je smaže, pokud hráč už není v dosahu).
+     * Called from HologramManager#teleportGroup() / reload() for a specific groupId.
+     * Delegates to the appropriate engine.
+     */
+    public void createOrUpdateHologram(String groupId) {
+        PlayerHologramEngine engine = engines.get(groupId);
+        if (engine != null) {
+            engine.createOrUpdateHologram();
+        }
+    }
+
+    /**
+     * Legacy method for backward compatibility - calls createOrUpdateHologram for Production.
      */
     public void createOrUpdateHologram() {
-        removeAllPlayerHolograms();
+        createOrUpdateHologram(GROUP_ID);
+    }
+
+    /**
+     * Checks if a groupId is managed by this bridge (i.e., it's a per-player hologram).
+     */
+    public boolean isManagedGroup(String groupId) {
+        return engines.containsKey(groupId);
     }
 }

@@ -3,9 +3,95 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="claude-haiku-4.5" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="ssss">
+      <change beforePath="$PROJECT_DIR$/.devin/config.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.devin/config.local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/Multigainer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/Multigainer$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/Multigainer$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/Multigainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/armor/ArmorGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/armor/ArmorManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/armor/ArmorType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/artifacts/ArtifactGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/artifacts/ArtifactManager$ArtifactRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/artifacts/ArtifactManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/artifacts/ArtifactStorageGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/artifacts/ArtifactType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/GiveBlocksCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/GiveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/ReloadCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/ResetCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/StatsCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/commands/StatsMoneyCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/data/PlayerDataManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/data/PlayerProfile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/data/StorageManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/farming/CropSelectionGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/farming/EnchantToggleGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/farming/FarmingManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/farming/FarmingManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/farming/FarmingStorageGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/formatting/NumberFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/grind/GrindGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/grind/GrindManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/income/IncomeManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/income/IncomeManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/levels/FarmingLevelManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/levels/MiningLevelManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/FarmingListener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/FarmingListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/JoinListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/listeners/MiningListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/math/BigNumber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/packet/PacketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/perks/PerkGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/perks/PerkManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/production/ProductionGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/production/ProductionManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/rebirth/RebirthGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/rebirth/RebirthListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/rebirth/RebirthManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/ScoreboardManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoardBase$ObjectiveMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoardBase$ScoreboardAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoardBase$TeamMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoardBase$VersionType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastBoardBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/FastReflection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/scoreboard/fastboard/fastboard/adventure/FastBoard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tier/TierGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tier/TierListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tier/TierManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/PickaxeBlockStorageGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/PickaxeGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/PickaxeManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/PickaxeUpgradeGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/ToolGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/tools/ToolItemHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/upgrades/UpgradeGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/upgrades/UpgradeItemHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer/multigainer/upgrades/UpgradeManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" afterDir="false" />
     </list>
@@ -93,22 +179,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.MGHolograms [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MGHolograms [jar].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.MGHolograms [build].executor": "Run",
+    "Gradle.MGHolograms [clean].executor": "Run",
+    "Gradle.MGHolograms [jar].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Gradle.MGHolograms [jar]">
     <configuration name="MGHolograms [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -122,6 +209,31 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MGHolograms [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -163,6 +275,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MGHolograms [jar]" />
+        <item itemvalue="Gradle.MGHolograms [clean]" />
         <item itemvalue="Gradle.MGHolograms [build]" />
       </list>
     </recent_temporary>

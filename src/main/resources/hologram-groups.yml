@@ -1,4 +1,34 @@
 groups:
+  Production:
+    world: voidworld
+    x: 44.31207323824406
+    y: 171.0
+    z: -30.62548447341332
+    yaw: -90.42531
+    pitch: 2.4002426
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 3
+        background: transparent
+        lines:
+          - §7Loading...
+
+  Tier:
+    world: voidworld
+    x: 49.31207323824406
+    y: 171.0
+    z: -30.62548447341332
+    yaw: -90.42531
+    pitch: 2.4002426
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 3
+        background: transparent
+        lines:
+          - §7Loading...
+
   COBBLESTONE:
     world: voidworld
     x: 50.0
@@ -57,20 +87,6 @@ groups:
         lines:
           - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF2×'
-  Production:
-    world: voidworld
-    x: 44.31207323824406
-    y: 171.0
-    z: -30.62548447341332
-    yaw: -90.42531
-    pitch: 2.4002426
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 3
-        background: transparent
-        lines:
-          - §7Loading...
 
   artiminexp:
     world: voidworld

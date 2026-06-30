@@ -18,7 +18,8 @@
       "Exec(mkdir libs)",
       "Exec(curl)",
       "Exec(jar)",
-      "Exec(javap)"
+      "Exec(javap)",
+      "Exec(mkdir)"
     ]
   }
 }

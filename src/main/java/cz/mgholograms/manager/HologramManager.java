@@ -78,10 +78,9 @@ public class HologramManager {
         plugin.getLogger().info("View distance from config: " + viewDistance);
 
         for (HologramGroup group : loadedGroups) {
-            // money_balance je šablona pro HologramBridge (per-player hologramy) -
-            // obecná logika by z ní vytvořila jeden veřejný hologram "money_balance_0",
-            // viditelný všem se stejným textem, což nechceme.
-            if (hologramBridge != null && group.getGroupId().equals(HologramBridge.GROUP_ID)) {
+            // Groups managed by HologramBridge (per-player holograms) should be skipped here
+            // - they create their own holograms via the engine
+            if (hologramBridge != null && hologramBridge.isManagedGroup(group.getGroupId())) {
                 continue;
             }
 
@@ -229,10 +228,8 @@ public class HologramManager {
         plugin.getLogger().info("Current group location: " + group.getWorld() + ", X=" + group.getX() + ", Y=" + group.getY() + ", Z=" + group.getZ());
 
         // Remove existing holograms for this group
-        // (money_balance je řízeno HologramBridge per-player hologramy -
-        // ty se "money_balance_0" stylem nejmenují, takže by zde stejně
-        // nic nenašlo, ale pro jasnost a bezpečnost to explicitně přeskočíme)
-        if (!(hologramBridge != null && groupId.equals(HologramBridge.GROUP_ID))) {
+        // Groups managed by HologramBridge (per-player holograms) should skip this
+        if (!(hologramBridge != null && hologramBridge.isManagedGroup(groupId))) {
             removeGroupHolograms(groupId);
         }
 
@@ -271,12 +268,12 @@ public class HologramManager {
             }
             plugin.getLogger().info("Updated group in loaded list");
 
-            // money_balance je šablona řízená HologramBridge (per-player hologramy).
-            // Po přesunu pozice deleguj na bridge - ten zruší aktivní per-player
-            // hologramy, a checkAllPlayers() je při nejbližším běhu znovu vytvoří
-            // na nové pozici pro hráče, kteří jsou v dosahu.
-            if (hologramBridge != null && groupId.equals(HologramBridge.GROUP_ID)) {
-                hologramBridge.createOrUpdateHologram();
+            // Groups managed by HologramBridge (per-player holograms) delegate to the bridge
+            // After position change, delegate to bridge - it will remove active per-player
+            // holograms, and checkAllPlayers() will recreate them at the new position
+            // for players who are in range.
+            if (hologramBridge != null && hologramBridge.isManagedGroup(groupId)) {
+                hologramBridge.createOrUpdateHologram(groupId);
                 plugin.getLogger().info("=== TELEPORT COMPLETE FOR GROUP '" + groupId + "' (via HologramBridge) ===");
                 return;
             }
