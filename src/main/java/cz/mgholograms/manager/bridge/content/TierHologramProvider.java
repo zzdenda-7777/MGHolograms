@@ -57,20 +57,20 @@ public class TierHologramProvider implements HologramContentProvider {
         boolean canTierUp = data.curPoints.compareTo(data.nextCost) >= 0;
 
         java.util.ArrayList<String> lines = new java.util.ArrayList<>(List.of(
-                "&#FFD466&lTIER ADVANCEMENT",
-                "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
+                "§b§lTIER",
+                "&#55FFFF&l―&#4DE8E8&l―&#45D6D6&l―&#3AB8B8&l―&#2E9999&l―&#227A7A&l―&#156060&l―&#1D6B6B&l―&#227A7A&l―&#2E9999&l―&#3AB8B8&l―&#45D6D6&l―&#4DE8E8&l―&#55FFFF&l―",
                 "",
-                "&#E8C97A§lCurrent Tier §f" + data.tier,
-                "&#E8C97A§lTier Points §d" + NumberFormatter.format(new BigNumber(data.tierPointsTotal)),
-                "&#E8C97A§lProgress §b" + NumberFormatter.format(data.curPoints) + " §7/§6 " + NumberFormatter.format(data.nextCost),
+                "§3Current Tier §f" + data.tier,
+                "§3Tier Points §f" + NumberFormatter.format(new BigNumber(data.tierPointsTotal)),
+                "§3Progress §f" + NumberFormatter.format(data.curPoints) + " §7/§f " + NumberFormatter.format(data.nextCost),
                 ""
         ));
 
         if (canTierUp) {
-            lines.set(6, "&#55FF55&l✔ YOU CAN TIER UP!");
+            lines.set(6, "&#9DFD3A&lY&#ACFC56&lO&#BAFB73&lU &#CBF997&lC&#CDF89D&lA&#CEF7A4&lN &#CFF7A5&lT&#CDF8A0&lI&#CCF89A&lE&#CAF995&lR &#BAFB73&lU&#ACFC56&lP");
         }
 
-        lines.add("&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―");
+        lines.add("&#55FFFF&l―&#4DE8E8&l―&#45D6D6&l―&#3AB8B8&l―&#2E9999&l―&#227A7A&l―&#156060&l―&#1D6B6B&l―&#227A7A&l―&#2E9999&l―&#3AB8B8&l―&#45D6D6&l―&#4DE8E8&l―&#55FFFF&l―");
 
         return lines;
     }
