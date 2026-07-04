@@ -4,6 +4,7 @@ import cz.mgholograms.command.HoloCenterCommand;
 import cz.mgholograms.command.HoloReloadCommand;
 import cz.mgholograms.command.HoloTpCommand;
 import cz.mgholograms.listener.HologramClickListener;
+import cz.mgholograms.listener.PlayerJoinTrackerListener;
 import cz.mgholograms.manager.HologramBridge;
 import cz.mgholograms.manager.HologramManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -39,6 +40,7 @@ public final class MGHolograms extends JavaPlugin {
 
         // Register listeners
         getServer().getPluginManager().registerEvents(new HologramClickListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinTrackerListener(), this);
 
         getLogger().info("MGHolograms enabled successfully!");
     }

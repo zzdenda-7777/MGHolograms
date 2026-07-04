@@ -69,8 +69,7 @@ public class ProductionHologramProvider implements HologramContentProvider {
     @Override
     public List<String> getLoadingLines() {
         return List.of(
-                "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
-                "§7Loading..."
+                "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln"
         );
     }
 

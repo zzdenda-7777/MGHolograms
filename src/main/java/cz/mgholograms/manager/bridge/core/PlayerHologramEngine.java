@@ -4,6 +4,7 @@ import cz.mgholograms.MGHolograms;
 import cz.mgholograms.model.Display;
 import cz.mgholograms.model.DisplayType;
 import cz.mgholograms.model.HologramGroup;
+import cz.mgholograms.util.PlayerJoinTracker;
 import de.oliver.fancyholograms.api.FancyHologramsPlugin;
 import de.oliver.fancyholograms.api.data.ItemHologramData;
 import de.oliver.fancyholograms.api.data.TextHologramData;
@@ -90,6 +91,10 @@ public class PlayerHologramEngine {
         double maxDistSq = (double) viewDistance * viewDistance;
 
         for (Player player : Bukkit.getOnlinePlayers()) {
+            if (!PlayerJoinTracker.isReady(player.getUniqueId())) {
+                continue; // Player joined less than 2s ago - wait before showing/checking their hologram
+            }
+
             boolean sameWorld = player.getWorld().equals(templateLocation.getWorld());
             boolean inRange = sameWorld && player.getLocation().distanceSquared(templateLocation) <= maxDistSq;
             boolean hasLineOfSight = inRange && player.hasLineOfSight(templateLocation);

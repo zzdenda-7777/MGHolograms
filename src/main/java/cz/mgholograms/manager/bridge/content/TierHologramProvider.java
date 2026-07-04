@@ -78,8 +78,7 @@ public class TierHologramProvider implements HologramContentProvider {
     @Override
     public List<String> getLoadingLines() {
         return List.of(
-                "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463",
-                "§7Loading..."
+                "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463"
         );
     }
 

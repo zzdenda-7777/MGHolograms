@@ -1,33 +1,48 @@
 groups:
   Production:
     world: voidworld
-    x: 44.31207323824406
+    x: 44.0
     y: 171.0
-    z: -30.62548447341332
-    yaw: -90.42531
-    pitch: 2.4002426
+    z: -30.0
+    yaw: -90.0
+    pitch: 2.0
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 3
         background: transparent
-        lines:
-          - §7Loading...
+
 
   Tier:
     world: voidworld
-    x: 49.31207323824406
-    y: 171.0
-    z: -30.62548447341332
-    yaw: -90.42531
-    pitch: 2.4002426
+    x: 47.5
+    y: 172.0
+    z: -12.5
+    yaw: -90.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 3
         background: transparent
         lines:
-          - §7Loading...
+          - ''
+
+  Income:
+    world: voidworld
+    x: 57.500
+    y: 173.5
+    z: -10.5
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 3
+        background: transparent
+        lines:
+          - ''
+
 
   COBBLESTONE:
     world: voidworld
@@ -580,7 +595,7 @@ groups:
       - type: ITEM
         x_offset: 0.15
         y_offset: 1.2
-        z_offset: 0.30
+        z_offset: 0.3
         scale: 0.9
         material: NETHERITE_PICKAXE
         brightness: 15

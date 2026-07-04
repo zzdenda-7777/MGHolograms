@@ -4,6 +4,7 @@ package cz.mgholograms.manager;
 import cz.mgholograms.MGHolograms;
 import cz.mgholograms.manager.bridge.content.ProductionHologramProvider;
 import cz.mgholograms.manager.bridge.content.TierHologramProvider;
+import cz.mgholograms.manager.bridge.content.IncomeHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -22,6 +23,15 @@ public class HologramBridge {
     // Keep for backward compatibility with HologramManager
     public static final String GROUP_ID = "Production";
 
+    // Known ahead of time, independent of init() ordering - fixes a race condition where
+    // HologramManager.init() (and its reload()) could run BEFORE HologramBridge.init()
+    // populates the `engines` map below. If isManagedGroup() relied on `engines.containsKey()`,
+    // it would incorrectly report false during that window and HologramManager would create
+    // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
+    // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
+    private static final java.util.Set<String> MANAGED_GROUP_IDS =
+            java.util.Set.of("Production", "Tier", "Income");
+
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
 
@@ -39,13 +49,16 @@ public class HologramBridge {
         // Create and register content providers
         ProductionHologramProvider productionProvider = new ProductionHologramProvider(plugin);
         TierHologramProvider tierProvider = new TierHologramProvider(plugin);
+        IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin);
 
         // Ensure config entries exist for both groups
         ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Tier", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("Income", "voidworld", 0.0, 0.0, 0.0);
 
         // Check if multigainer is available
-        if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null) {
+        if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
+                && incomeProvider.getMultigainer() == null) {
             plugin.getLogger().warning("Multigainer plugin not found - holograms disabled. "
                     + "Make sure 'multigainer' is installed and loaded before MGHolograms.");
             return;
@@ -54,15 +67,18 @@ public class HologramBridge {
         // Create engines for each provider
         PlayerHologramEngine productionEngine = new PlayerHologramEngine(plugin, hologramManager, productionProvider);
         PlayerHologramEngine tierEngine = new PlayerHologramEngine(plugin, hologramManager, tierProvider);
+        PlayerHologramEngine incomeEngine = new PlayerHologramEngine(plugin, hologramManager, incomeProvider);
 
         engines.put("Production", productionEngine);
         engines.put("Tier", tierEngine);
+        engines.put("Income", incomeEngine);
 
         // Initialize engines
         productionEngine.init();
         tierEngine.init();
+        incomeEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production and Tier engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier and Income engines");
     }
 
     public void shutdown() {
@@ -83,7 +99,7 @@ public class HologramBridge {
         displayData.put("z_offset", 0.0);
         displayData.put("scale", 1.0f);
         displayData.put("background", "transparent");
-        
+
         // Different fallback text for different groups
         if (groupId.equals("Production")) {
             displayData.put("lines", List.of(
@@ -94,6 +110,11 @@ public class HologramBridge {
             displayData.put("lines", List.of(
                     "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463",
                     "§7Tier System"
+            ));
+        } else if (groupId.equals("Income")) {
+            displayData.put("lines", List.of(
+                    "&#9DFD3A&l&#84FC33&li&#6BFB2D&ln&#52FA26&lc&#3AF920&lo&#52FA26&lm&#6BFB2D&le",
+                    "§7Income System"
             ));
         }
 
@@ -134,8 +155,12 @@ public class HologramBridge {
 
     /**
      * Checks if a groupId is managed by this bridge (i.e., it's a per-player hologram).
+     * Uses a fixed, always-known set rather than the `engines` map, since that map is
+     * only populated inside init() - checking it here would be wrong (always false)
+     * for any call that happens before init() runs, e.g. from HologramManager's first
+     * reload() during its own init().
      */
     public boolean isManagedGroup(String groupId) {
-        return engines.containsKey(groupId);
+        return MANAGED_GROUP_IDS.contains(groupId);
     }
 }

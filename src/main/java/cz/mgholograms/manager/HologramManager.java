@@ -2,28 +2,28 @@ package cz.mgholograms.manager;
 
 import cz.mgholograms.MGHolograms;
 import cz.mgholograms.config.HologramConfigLoader;
-import cz.mgholograms.model.Display;
-import cz.mgholograms.model.DisplayType;
 import cz.mgholograms.model.HologramGroup;
 import de.oliver.fancyholograms.api.FancyHologramsPlugin;
 import de.oliver.fancyholograms.api.hologram.Hologram;
-import de.oliver.fancyholograms.api.data.DisplayHologramData;
-import de.oliver.fancyholograms.api.data.ItemHologramData;
-import de.oliver.fancyholograms.api.data.TextHologramData;
-import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.TextDisplay;
-import org.bukkit.inventory.ItemStack;
-import org.joml.Vector3f;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 public class HologramManager {
     private final MGHolograms plugin;
     private final HologramConfigLoader configLoader;
     private List<HologramGroup> loadedGroups;
+
+    // Per-player engines for STATIC (config-only) groups, e.g. cobblestone, goldore.
+    // These now behave exactly like the Production/Tier holograms from HologramBridge:
+    // visible up to view-distance AND only with direct line of sight.
+    private final Map<String, StaticGroupEngine> staticEngines = new HashMap<>();
 
     // Nastaveno zvenčí (z MGHolograms#onEnable) po vytvoření HologramBridge.
     // Umožňuje teleportGroup()/reload() delegovat groupId "money_balance"
@@ -54,6 +54,12 @@ public class HologramManager {
     }
 
     public void shutdown() {
+        // Stop and clean up per-player static engines
+        for (StaticGroupEngine engine : staticEngines.values()) {
+            engine.shutdown();
+        }
+        staticEngines.clear();
+
         // FancyHolograms handles persistence automatically
         plugin.getLogger().info("HologramManager shutdown");
     }
@@ -66,148 +72,57 @@ public class HologramManager {
         // Load groups
         loadedGroups = configLoader.loadGroups();
 
-        // Create holograms via FancyHolograms API
-        createHologramsFromConfig();
+        // Create/refresh per-player engines for static (config-only) groups
+        // (Production/Tier are skipped - HologramBridge handles those)
+        syncStaticEngines();
 
         plugin.getLogger().info("HologramManager reloaded - " + loadedGroups.size() + " groups loaded");
     }
 
-    private void createHologramsFromConfig() {
-        de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
+    /**
+     * Ensures every non-bridge-managed group has a running {@link StaticGroupEngine}
+     * with up-to-date data, and stops engines for groups that were removed from config.
+     * Replaces the old approach of creating one shared, always-visible-through-walls
+     * hologram per display via the FancyHolograms API directly.
+     */
+    private void syncStaticEngines() {
         int viewDistance = plugin.getConfig().getInt("view-distance", 100);
         plugin.getLogger().info("View distance from config: " + viewDistance);
 
+        Set<String> currentGroupIds = new HashSet<>();
+
         for (HologramGroup group : loadedGroups) {
-            // Groups managed by HologramBridge (per-player holograms) should be skipped here
-            // - they create their own holograms via the engine
-            if (hologramBridge != null && hologramBridge.isManagedGroup(group.getGroupId())) {
+            String groupId = group.getGroupId();
+
+            // Groups managed by HologramBridge (Production/Tier) are skipped here
+            // - they create their own per-player holograms via PlayerHologramEngine
+            if (hologramBridge != null && hologramBridge.isManagedGroup(groupId)) {
                 continue;
             }
 
-            Location location = new Location(
-                    plugin.getServer().getWorld(group.getWorld()),
-                    group.getX(),
-                    group.getY(),
-                    group.getZ(),
-                    group.getYaw(),
-                    group.getPitch()
-            );
+            currentGroupIds.add(groupId);
 
-            for (int i = 0; i < group.getDisplays().size(); i++) {
-                Display display = group.getDisplays().get(i);
-                double displayX = group.getX() + display.getXOffset();
-                double displayY = group.getY() + display.getYOffset();
-                double displayZ = group.getZ() + display.getZOffset();
-                float displayYaw = display.getYaw() != null ? display.getYaw() : location.getYaw();
-                float displayPitch = display.getPitch() != null ? display.getPitch() : location.getPitch();
-                Location displayLocation = new Location(
-                        location.getWorld(),
-                        displayX,
-                        displayY,
-                        displayZ,
-                        displayYaw,
-                        displayPitch
-                );
-
-                String hologramName = group.getGroupId() + "_" + i;
-                DisplayHologramData hologramData = createHologramData(hologramName, displayLocation, display);
-
-                if (hologramData != null) {
-                    Hologram hologram = manager.create(hologramData);
-                    hologram.getData().setPersistent(false); // Runtime holograms managed by our config
-                    hologram.getData().setVisibilityDistance(viewDistance); // Set view distance from config
-                    manager.addHologram(hologram);
-                    plugin.getLogger().info("Created hologram: " + hologramName + " with view distance: " + viewDistance);
-                }
+            StaticGroupEngine engine = staticEngines.get(groupId);
+            if (engine == null) {
+                engine = new StaticGroupEngine(plugin, group);
+                staticEngines.put(groupId, engine);
+                engine.init();
+                plugin.getLogger().info("Created static hologram engine for group: " + groupId);
+            } else {
+                engine.updateGroup(group);
             }
         }
-    }
 
-    private DisplayHologramData createHologramData(String name, Location location, Display display) {
-        try {
-            if (display.getType() == DisplayType.TEXT) {
-                TextHologramData textData = new TextHologramData(name, location);
-
-                // Set text content
-                if (display.getLines() != null && !display.getLines().isEmpty()) {
-                    textData.setText(display.getLines());
-                }
-
-
-                // Set background transparency
-                if (display.getBackground() != null && !display.getBackground().isEmpty()) {
-                    if (display.getBackground().equalsIgnoreCase("transparent")) {
-                        textData.setBackground(org.bukkit.Color.fromARGB(0, 0, 0, 0));
-                        textData.setSeeThrough(true);
-                    }
-                }
-
-                // Set billboard
-                textData.setBillboard(org.bukkit.entity.Display.Billboard.FIXED);
-
-                // Set scale
-                float scale = display.getScale();
-                textData.setScale(new Vector3f(scale, scale, scale));
-
-                // Set brightness if specified
-                if (display.getBrightness() != null) {
-                    try {
-                        org.bukkit.entity.Display.Brightness brightness =
-                                new org.bukkit.entity.Display.Brightness(15, display.getBrightness()); // 0 = block
-                        textData.setBrightness(brightness);
-                    } catch (Exception e) {
-                        plugin.getLogger().warning("Failed to set brightness: " + e.getMessage());
-                    }
-                }
-
-                return textData;
-
-            } else if (display.getType() == DisplayType.ITEM) {
-                ItemHologramData itemData = new ItemHologramData(name, location);
-
-                // Set item stack
-                if (display.getMaterial() != null && !display.getMaterial().isEmpty()) {
-                    try {
-                        Material material = Material.matchMaterial(display.getMaterial());
-                        if (material != null) {
-                            ItemStack itemStack = new ItemStack(material);
-                            itemData.setItemStack(itemStack);
-                        } else {
-                            plugin.getLogger().warning("Invalid material: " + display.getMaterial());
-                            return null;
-                        }
-                    } catch (Exception e) {
-                        plugin.getLogger().warning("Failed to set item: " + e.getMessage());
-                        return null;
-                    }
-                }
-
-                // Set billboard
-                itemData.setBillboard(org.bukkit.entity.Display.Billboard.FIXED);
-
-                // Set scale
-                float scale = display.getScale();
-                itemData.setScale(new Vector3f(scale, scale, scale));
-
-                // Set brightness if specified
-                if (display.getBrightness() != null) {
-                    try {
-                        org.bukkit.entity.Display.Brightness brightness =
-                                new org.bukkit.entity.Display.Brightness(15, display.getBrightness()); // 0 = block
-                        itemData.setBrightness(brightness);
-                    } catch (Exception e) {
-                        plugin.getLogger().warning("Failed to set brightness: " + e.getMessage());
-                    }
-                }
-
-                return itemData;
+        // Stop and remove engines for groups no longer present in config
+        Iterator<Map.Entry<String, StaticGroupEngine>> it = staticEngines.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, StaticGroupEngine> entry = it.next();
+            if (!currentGroupIds.contains(entry.getKey())) {
+                entry.getValue().shutdown();
+                it.remove();
+                plugin.getLogger().info("Removed static hologram engine for deleted group: " + entry.getKey());
             }
-        } catch (Exception e) {
-            plugin.getLogger().severe("Failed to create hologram data: " + e.getMessage());
-            e.printStackTrace();
         }
-
-        return null;
     }
 
     public void centerGroup(String groupId, Player player) {
@@ -227,9 +142,12 @@ public class HologramManager {
 
         plugin.getLogger().info("Current group location: " + group.getWorld() + ", X=" + group.getX() + ", Y=" + group.getY() + ", Z=" + group.getZ());
 
-        // Remove existing holograms for this group
-        // Groups managed by HologramBridge (per-player holograms) should skip this
-        if (!(hologramBridge != null && hologramBridge.isManagedGroup(groupId))) {
+        // Remove any leftover legacy shared holograms for this group.
+        // Groups managed by HologramBridge or by a StaticGroupEngine handle their
+        // own per-player holograms and should skip this.
+        boolean isManagedOrStatic = (hologramBridge != null && hologramBridge.isManagedGroup(groupId))
+                || staticEngines.containsKey(groupId);
+        if (!isManagedOrStatic) {
             removeGroupHolograms(groupId);
         }
 
@@ -278,49 +196,23 @@ public class HologramManager {
                 return;
             }
 
-            // Recreate holograms at new position
-            Location location = new Location(
-                    plugin.getServer().getWorld(updatedGroup.getWorld()),
-                    updatedGroup.getX(),
-                    updatedGroup.getY(),
-                    updatedGroup.getZ(),
-                    updatedGroup.getYaw(),
-                    updatedGroup.getPitch()
-            );
-
-            de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
-            int viewDistance = plugin.getConfig().getInt("view-distance", 100);
-            plugin.getLogger().info("View distance from config: " + viewDistance);
-
-            for (int i = 0; i < updatedGroup.getDisplays().size(); i++) {
-                Display display = updatedGroup.getDisplays().get(i);
-                double displayX = updatedGroup.getX() + display.getXOffset();
-                double displayY = updatedGroup.getY() + display.getYOffset();
-                double displayZ = updatedGroup.getZ() + display.getZOffset();
-                float displayYaw = display.getYaw() != null ? display.getYaw() : location.getYaw();
-                float displayPitch = display.getPitch() != null ? display.getPitch() : location.getPitch();
-                Location displayLocation = new Location(
-                        location.getWorld(),
-                        displayX,
-                        displayY,
-                        displayZ,
-                        displayYaw,
-                        displayPitch
-                );
-
-                String hologramName = groupId + "_" + i;
-                DisplayHologramData hologramData = createHologramData(hologramName, displayLocation, display);
-
-                if (hologramData != null) {
-                    Hologram hologram = manager.create(hologramData);
-                    hologram.getData().setPersistent(false);
-                    hologram.getData().setVisibilityDistance(viewDistance); // Set view distance from config
-                    manager.addHologram(hologram);
-                    plugin.getLogger().info("Recreated hologram: " + hologramName + " with view distance: " + viewDistance);
-                }
+            // Static (config-only) groups are per-player too now - delegate to their engine.
+            // It removes currently active per-player holograms; checkAllPlayers() will
+            // recreate them at the new position for whichever players are in range.
+            StaticGroupEngine engine = staticEngines.get(groupId);
+            if (engine != null) {
+                engine.updateGroup(updatedGroup);
+                engine.createOrUpdateHologram();
+                plugin.getLogger().info("=== TELEPORT COMPLETE FOR GROUP '" + groupId + "' (via StaticGroupEngine) ===");
+            } else {
+                // Shouldn't normally happen, but create the engine now rather than
+                // silently doing nothing.
+                engine = new StaticGroupEngine(plugin, updatedGroup);
+                staticEngines.put(groupId, engine);
+                engine.init();
+                plugin.getLogger().warning("No StaticGroupEngine existed for group '" + groupId + "' - created a new one");
+                plugin.getLogger().info("=== TELEPORT COMPLETE FOR GROUP '" + groupId + "' (created new StaticGroupEngine) ===");
             }
-
-            plugin.getLogger().info("=== TELEPORT COMPLETE FOR GROUP '" + groupId + "' ===");
         } else {
             plugin.getLogger().severe("Failed to reload group '" + groupId + "' after position update");
         }
