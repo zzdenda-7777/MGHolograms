@@ -8,16 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="ssss">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/listener/PlayerJoinTrackerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/util/PlayerJoinTracker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/MGHolograms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/MGHolograms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/core/PlayerHologramEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/core/PlayerHologramEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,16 +108,20 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/zdene/IdeaProjects/MGHolograms/src/main/java/cz/mgholograms/util"
+    "last_opened_file_path": "C:/Users/zdene/IdeaProjects/MGHolograms/libs",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.validation"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\libs" />
+      <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\src\main\java\cz\mgholograms\manager\bridge\content" />
       <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\src\main\java\cz\mgholograms\util" />
       <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\src\main\java\cz\mgholograms\listener" />
-      <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\src\main\java\cz\mgholograms\manager\bridge\content" />
       <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\src\main\java\cz\mgholograms\manager" />
-      <recent name="C:\Users\zdene\IdeaProjects\MGHolograms\libs" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.MGHolograms [jar]">
@@ -249,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783154031647</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ssss">
+      <option name="closed" value="true" />
+      <created>1783176640001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1783176640001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

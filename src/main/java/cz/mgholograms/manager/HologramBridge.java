@@ -5,6 +5,7 @@ import cz.mgholograms.MGHolograms;
 import cz.mgholograms.manager.bridge.content.ProductionHologramProvider;
 import cz.mgholograms.manager.bridge.content.TierHologramProvider;
 import cz.mgholograms.manager.bridge.content.IncomeHologramProvider;
+import cz.mgholograms.manager.bridge.content.RebirthHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -30,7 +31,7 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-            java.util.Set.of("Production", "Tier", "Income");
+            java.util.Set.of("Production", "Tier", "Income", "Rebirth");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -50,15 +51,17 @@ public class HologramBridge {
         ProductionHologramProvider productionProvider = new ProductionHologramProvider(plugin);
         TierHologramProvider tierProvider = new TierHologramProvider(plugin);
         IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin);
+        RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin);
 
-        // Ensure config entries exist for both groups
+        // Ensure config entries exist for all groups
         ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Tier", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Income", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("Rebirth", "voidworld", 0.0, 0.0, 0.0);
 
         // Check if multigainer is available
         if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
-                && incomeProvider.getMultigainer() == null) {
+                && incomeProvider.getMultigainer() == null && rebirthProvider.getMultigainer() == null) {
             plugin.getLogger().warning("Multigainer plugin not found - holograms disabled. "
                     + "Make sure 'multigainer' is installed and loaded before MGHolograms.");
             return;
@@ -68,17 +71,20 @@ public class HologramBridge {
         PlayerHologramEngine productionEngine = new PlayerHologramEngine(plugin, hologramManager, productionProvider);
         PlayerHologramEngine tierEngine = new PlayerHologramEngine(plugin, hologramManager, tierProvider);
         PlayerHologramEngine incomeEngine = new PlayerHologramEngine(plugin, hologramManager, incomeProvider);
+        PlayerHologramEngine rebirthEngine = new PlayerHologramEngine(plugin, hologramManager, rebirthProvider);
 
         engines.put("Production", productionEngine);
         engines.put("Tier", tierEngine);
         engines.put("Income", incomeEngine);
+        engines.put("Rebirth", rebirthEngine);
 
         // Initialize engines
         productionEngine.init();
         tierEngine.init();
         incomeEngine.init();
+        rebirthEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier and Income engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income and Rebirth engines");
     }
 
     public void shutdown() {
@@ -115,6 +121,11 @@ public class HologramBridge {
             displayData.put("lines", List.of(
                     "&#9DFD3A&l&#84FC33&li&#6BFB2D&ln&#52FA26&lc&#3AF920&lo&#52FA26&lm&#6BFB2D&le",
                     "§7Income System"
+            ));
+        } else if (groupId.equals("Rebirth")) {
+            displayData.put("lines", List.of(
+                    "§5§lRebirth",
+                    "§7Loading..."
             ));
         }
 

@@ -28,9 +28,24 @@ groups:
         lines:
           - ''
 
+  Rebirth:
+    world: voidworld
+    x: 68.45043296135556
+    y: 173.0
+    z: -9.733243083312155
+    yaw: -178.61572
+    pitch: 1.4267519
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 3
+        background: transparent
+        lines:
+          - ''
+
   Income:
     world: voidworld
-    x: 57.500
+    x: 57.5
     y: 173.5
     z: -10.5
     yaw: -180.0

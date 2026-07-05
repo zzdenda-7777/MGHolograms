@@ -14,11 +14,19 @@ import java.util.UUID;
 
 /**
  * Content provider for the Income hologram.
- * Displays current money/second (passive income) and total balance.
+ * Displays current money/second (passive income), current total money
+ * multiplier, and total balance.
  * <p>
- * Reads {@code profile.getLastIncomePerSecond()}, which is set every second
- * in {@code IncomeManager#startPassiveIncomeTask()} right after totalEarned
- * is calculated - see multigainer.multigainer.income.IncomeManager.
+ * incomePerSecond and moneyMultiplier are set every second in
+ * IncomeManager#startPassiveIncomeTask() right after totalEarned/allMulti
+ * are calculated - see multigainer.multigainer.income.IncomeManager:
+ * <pre>
+ *   profile.setLastIncomePerSecond(totalEarned);
+ *   profile.setLastMoneyMultiplier(allMulti);
+ * </pre>
+ * <p>
+ * NumberFormatter.format() takes (BigNumber value, UUID uid) - confirmed from
+ * RebirthGUI.java / RebirthListener.java usage.
  */
 public class IncomeHologramProvider implements HologramContentProvider {
 
@@ -59,8 +67,9 @@ public class IncomeHologramProvider implements HologramContentProvider {
                 "&#39FF14&lINCOME",
                 "&#B9FF00&l―&#C8FF34&l―&#D6FF68&l―&#B0C870&l―&#8EA84A&l―&#6C8823&l―&#4F621B&l―&#5E751F&l―&#6C8823&l―&#8EA84A&l―&#B0C870&l―&#D6FF68&l―&#C8FF34&l―&#B9FF00&l―",
                 "",
-                "&#7CFC00&lIncome §f" + NumberFormatter.format(data.incomePerSecond) + " &#8FCB6B/s",
-                "&#7CFC00&lBalance §f" + NumberFormatter.format(data.money),
+                "&#7CFC00&lIncome §f" + NumberFormatter.format(data.incomePerSecond, playerUuid) + " &#8FCB6B/s",
+                "&#7CFC00&lMulti §f" + NumberFormatter.format(data.moneyMultiplier, playerUuid) + "x",
+                "&#7CFC00&lBalance §f" + NumberFormatter.format(data.money, playerUuid),
                 "&#B9FF00&l―&#C8FF34&l―&#D6FF68&l―&#B0C870&l―&#8EA84A&l―&#6C8823&l―&#4F621B&l―&#5E751F&l―&#6C8823&l―&#8EA84A&l―&#B0C870&l―&#D6FF68&l―&#C8FF34&l―&#B9FF00&l―"
         );
     }
@@ -68,8 +77,8 @@ public class IncomeHologramProvider implements HologramContentProvider {
     @Override
     public List<String> getLoadingLines() {
         return List.of(
-                "&#9DFD3A&l&#84FC33&li&#6BFB2D&ln&#52FA26&lc&#3AF920&lo&#52FA26&lm&#6BFB2D&le"
-
+                "&#9DFD3A&l&#84FC33&li&#6BFB2D&ln&#52FA26&lc&#3AF920&lo&#52FA26&lm&#6BFB2D&le",
+                "§7Loading..."
         );
     }
 
@@ -92,8 +101,9 @@ public class IncomeHologramProvider implements HologramContentProvider {
         try {
             BigNumber incomePerSecond = profile.getLastIncomePerSecond();
             BigNumber money = profile.getMoney();
+            BigNumber moneyMultiplier = profile.getLastMoneyMultiplier();
 
-            return new IncomeData(incomePerSecond, money);
+            return new IncomeData(incomePerSecond, money, moneyMultiplier);
         } catch (Exception e) {
             plugin.getLogger().severe("Failed to get income data for " + uuid + ": " + e.getMessage());
             e.printStackTrace();
@@ -104,10 +114,12 @@ public class IncomeHologramProvider implements HologramContentProvider {
     private static class IncomeData {
         BigNumber incomePerSecond;
         BigNumber money;
+        BigNumber moneyMultiplier;
 
-        IncomeData(BigNumber incomePerSecond, BigNumber money) {
+        IncomeData(BigNumber incomePerSecond, BigNumber money, BigNumber moneyMultiplier) {
             this.incomePerSecond = incomePerSecond;
             this.money = money;
+            this.moneyMultiplier = moneyMultiplier;
         }
     }
 }
