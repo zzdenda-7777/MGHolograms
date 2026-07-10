@@ -73,7 +73,9 @@ public class StaticGroupEngine {
             manager.getHologram(legacyName).ifPresent(manager::removeHologram);
         }
 
-        distanceCheckTask = Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::checkAllPlayers, 0L, CHECK_INTERVAL_TICKS);
+        distanceCheckTask = Bukkit.getScheduler().runTaskTimer(plugin, this::checkAllPlayers, 0L, CHECK_INTERVAL_TICKS);
+
+
     }
 
     public void shutdown() {

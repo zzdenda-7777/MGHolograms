@@ -66,13 +66,12 @@ public class RebirthHologramProvider implements HologramContentProvider {
 
         return List.of(
                 "§5§lREBIRTH",
-                "&#B565EA&l―&#C186ED&l―&#CDA6EF&l―&#B08FCB&l―&#9377A7&l―&#765F83&l―&#5A4761&l―&#684F6D&l―&#765F83&l―&#9377A7&l―&#B08FCB&l―&#CDA6EF&l―&#C186ED&l―&#B565EA&l―",
                 "",
-                "§dFor rebirth you receive §f" + NumberFormatter.format(data.pointsOnRebirth, playerUuid) + " §drebirth points",
-                "§5§lRebirth points §f" + NumberFormatter.format(data.rebirthPoints, playerUuid),
-                "§5§lRebirth multi §f" + NumberFormatter.format(data.rebirthMulti, playerUuid) + "x",
-                "&#B565EA&l―&#C186ED&l―&#CDA6EF&l―&#B08FCB&l―&#9377A7&l―&#765F83&l―&#5A4761&l―&#684F6D&l―&#765F83&l―&#9377A7&l―&#B08FCB&l―&#CDA6EF&l―&#C186ED&l―&#B565EA&l―"
-        );
+                "§fYou will get §5",
+                ""+ NumberFormatter.format(data.pointsOnRebirth, playerUuid) + " §frebirth points",
+                "§fYour rebirth multi §5" + NumberFormatter.format(data.rebirthMulti, playerUuid) + "§fx",
+                "§fRebirth points §5" + NumberFormatter.format(data.rebirthPoints, playerUuid)
+                );
     }
 
     @Override

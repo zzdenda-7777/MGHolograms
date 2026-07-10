@@ -63,14 +63,15 @@ public class IncomeHologramProvider implements HologramContentProvider {
             return null;
         }
 
-        return List.of(
+        return List.of( //ɪɴᴄᴏᴍᴇ ᴍᴜʟᴛɪ ʙᴀʟᴀɴᴄᴇ
                 "&#39FF14&lINCOME",
-                "&#B9FF00&l―&#C8FF34&l―&#D6FF68&l―&#B0C870&l―&#8EA84A&l―&#6C8823&l―&#4F621B&l―&#5E751F&l―&#6C8823&l―&#8EA84A&l―&#B0C870&l―&#D6FF68&l―&#C8FF34&l―&#B9FF00&l―",
                 "",
-                "&#7CFC00&lIncome §f" + NumberFormatter.format(data.incomePerSecond, playerUuid) + " &#8FCB6B/s",
-                "&#7CFC00&lMulti §f" + NumberFormatter.format(data.moneyMultiplier, playerUuid) + "x",
-                "&#7CFC00&lBalance §f" + NumberFormatter.format(data.money, playerUuid),
-                "&#B9FF00&l―&#C8FF34&l―&#D6FF68&l―&#B0C870&l―&#8EA84A&l―&#6C8823&l―&#4F621B&l―&#5E751F&l―&#6C8823&l―&#8EA84A&l―&#B0C870&l―&#D6FF68&l―&#C8FF34&l―&#B9FF00&l―"
+                "§fYour income is §a" + NumberFormatter.format(data.incomePerSecond, playerUuid) + " §f/s",
+                "§fYour total multi is §a" + NumberFormatter.format(data.moneyMultiplier, playerUuid) + "x",
+                "§fYour balance is §a" + NumberFormatter.format(data.money, playerUuid),
+                "",
+                "§7 -- §7§oMoney is currency for buying §7--",
+                "§7§o/upgrades and /rebirth"
         );
     }
 

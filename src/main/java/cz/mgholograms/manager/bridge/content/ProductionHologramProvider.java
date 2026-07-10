@@ -53,23 +53,22 @@ public class ProductionHologramProvider implements HologramContentProvider {
         }
 
         return List.of(
-                "&#FFBA00&lPRODUCTION",
-                "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
+                "§e§lPRODUCTION",
                 "",
-                "&#E8C97A§lLevel §f" + data.level,
-                "&#E8C97A§lWorker XP §f" + NumberFormatter.format(new BigNumber(data.workXp)) + " §7/ §f" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                "&#E8C97A§lProduction §f" + NumberFormatter.format(new BigNumber(data.energyPerMin)) + " &#C9A85C/min",
-                "&#FF0000R&#BC0000E&#790000Q&#690B0B: &#4A2121T&#5A1616I&#690B0BE&#790000R &#FF00003",
-                "&#FFB900&l―&#FFC834&l―&#FFD668&l―&#C8B070&l―&#A88E4A&l―&#886C23&l―&#624F1B&l―&#755E1F&l―&#886C23&l―&#A88E4A&l―&#C8B070&l―&#FFD668&l―&#FFC834&l―&#FFB900&l―",
-                "&#FFBA00&lTOTAL ENERGY",
-                "&#FFD466&l⚡ §f" + NumberFormatter.format(new BigNumber(data.storedEnergy)) + " &#FFD466&l⚡"
+                "§fYour level §e" + data.level,
+                "§fYour Worker's XP §e" + NumberFormatter.format(new BigNumber(data.workXp)) + " §f/ §e" + NumberFormatter.format(new BigNumber(data.xpForNext)),
+                "§fYour production rate §e" + NumberFormatter.format(new BigNumber(data.energyPerMin)) + " §f/min",
+                "§f§lTotal Energy " + "§f" + NumberFormatter.format(new BigNumber(data.storedEnergy)) + " §e§l⚡",
+                "",
+                "§4§oRequires at least TIER 3"
         );
     }
 
     @Override
     public List<String> getLoadingLines() {
         return List.of(
-                "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln"
+                "§e§lPRODUCTION",
+                "§7Loading..."
         );
     }
 

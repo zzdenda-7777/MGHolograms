@@ -71,8 +71,19 @@ public class PlayerHologramEngine {
     }
 
     private void startTasks() {
-        distanceCheckTask = Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::checkAllPlayers, 0L, CHECK_INTERVAL_TICKS);
-        textRefreshTask = Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, this::refreshAllTexts, 20L, TEXT_REFRESH_INTERVAL_TICKS);
+        // IMPORTANT: this MUST run on the main thread (runTaskTimer, not
+        // runTaskTimerAsynchronously). player.hasLineOfSight() reads block/chunk
+        // data and isn't thread-safe off the main thread - calling it async can
+        // silently give wrong results (holograms never detected as blocked by
+        // walls). The FancyHolograms create/remove calls below aren't safe
+        // async either.
+        distanceCheckTask = Bukkit.getScheduler().runTaskTimer(plugin, this::checkAllPlayers, 0L, CHECK_INTERVAL_TICKS);
+        // IMPORTANT: also main thread, not async. refreshAllTexts() calls
+        // hologram.refreshHologram(player), manager.getHologram(), and can even
+        // call createPlayerHologram() (spawns entities) - all unsafe off the
+        // main thread and a likely cause of the same client-side entity
+        // metadata corruption/crash as the distance-check task above.
+        textRefreshTask = Bukkit.getScheduler().runTaskTimer(plugin, this::refreshAllTexts, 20L, TEXT_REFRESH_INTERVAL_TICKS);
     }
 
     /**
