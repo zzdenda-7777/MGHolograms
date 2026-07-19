@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackgroundAgentGlobalSettings">
-    <option name="selectedModelId" value="models/gemini-3.5-flash" />
-    <option name="selectedProviderName" value="Gemini" />
+    <option name="selectedModelId" value="claude-sonnet-5" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="ssss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/StaticGroupEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/StaticGroupEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/command/HoloReloadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/command/HoloReloadCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/core/PlayerHologramEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/core/PlayerHologramEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,9 +84,8 @@
         <option name="modeId" value="Ask" />
         <option name="model">
           <model>
-            <option name="modelProviderName" value="Gemini" />
-            <option name="modelType" value="byok_id" />
-            <option name="modelValue" value="models/gemini-3.5-flash" />
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="claude-sonnet-5" />
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
@@ -269,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1783247496847</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ssss">
+      <option name="closed" value="true" />
+      <created>1783717990639</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1783717990639</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

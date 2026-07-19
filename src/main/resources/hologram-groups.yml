@@ -9,54 +9,86 @@ groups:
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 3
+        scale: 2
         background: transparent
-
-
+        lines:
+          - §e§l§nPRODUCTION
+          - §fYour level is §e{level}
+          - §fYour worker's XP is §e{work_xp} §f/ §e{xp_for_next}
+          - §fYour production rate is §e{energy_per_min} §f⚡/min
+          - §f§lYour stored energy is §f{stored_energy} §e⚡
+          - ''
+          - §4§oRequires at least Tier 3
   Tier:
     world: voidworld
-    x: 47.5
-    y: 172.0
-    z: -12.5
-    yaw: -90.0
-    pitch: 0.0
+    x: 61.515659546687154
+    y: 174.0
+    z: 3.9669364767189794
+    yaw: 179.5176
+    pitch: -0.45002246
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 3
+        scale: 2
         background: transparent
         lines:
-          - ''
-
+          - §b§l§nTIER
+          - §fYour current tier is §3{tier}
+          - §fYou have §3{tier_points} §ftier points
+          - §fYour progress is §3{progress_cur} §7/ §3{progress_next}
+          - '{tier_up}'
   Rebirth:
     world: voidworld
-    x: 68.45043296135556
-    y: 173.0
-    z: -9.733243083312155
-    yaw: -178.61572
-    pitch: 1.4267519
+    x: 43.01486778536381
+    y: 174.0
+    z: -9.515747078980242
+    yaw: -89.12451
+    pitch: 1.3499833
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 3
+        scale: 1.5
         background: transparent
         lines:
-          - ''
-
+          - §5§l§nREBIRTH
+          - §fYour rebirth multiplier is §5{rebirth_multi}x
+          - §fYou have a total of §5{rebirth_points} §frebirth points
+          - §fAfter rebirth, you will get §5{points_on_rebirth} §frebirth points
   Income:
     world: voidworld
-    x: 57.5
-    y: 173.5
-    z: -10.5
-    yaw: -180.0
-    pitch: 0.0
+    x: 56.02533006635511
+    y: 173.0
+    z: -53.481357062493025
+    yaw: -90.18219
+    pitch: 0.5999908
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - §a§n&lINCOME
+          - §fYour balance is §a{balance}
+          - §fYour multiplier is §a{money_multiplier}x
+          - §fYour income is §a{income_per_second} §f/s
+  AFK:
+    world: voidworld
+    x: 80.59078981536028
+    y: 174.0
+    z: -9.452931972963139
+    yaw: 139.77258
+    pitch: 10.200137
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 3
         background: transparent
         lines:
-          - ''
+          - §e§l§nAFK
+          - §fEarn §e1 AFK Point §fevery 60 seconds
+          - §fRank §5IMMORTAL §fearns §e1.5x §fmore AFK points
+          - §fSpend your §eAFK Points§f on §ePERMANENT REWARDS! §0/afk
+
 
 
   COBBLESTONE:
@@ -715,5 +747,5 @@ groups:
         scale: 1.5
         background: transparent
         lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'g
+          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'

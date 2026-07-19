@@ -23,12 +23,24 @@ public class HoloReloadCommand implements CommandExecutor {
         }
 
         sender.sendMessage("§e[MGHolograms] §fReloading hologram configuration...");
-        
-        hologramManager.reload();
-        MGHolograms.getInstance().getHologramBridge().init();
-        
+
+        cz.mgholograms.manager.HologramBridge hologramBridge = MGHolograms.getInstance().getHologramBridge();
+
+        // 1) Úplné vypnutí - zruší všechny běžící tasky (static i per-player engines)
+        //    a smaže VŠECHNY aktuálně zobrazené hologram entity u všech hráčů.
+        //    Bez tohoto kroku by staré entity/tasky mohly zůstat viset a
+        //    překrývat se s nově vytvořenými (duplicitní text/čísla).
+        hologramBridge.shutdown();
+        hologramManager.shutdown();
+
+        // 2) Úplné znovu-vytvoření - načte config-y čerstvě z disku a vytvoří
+        //    úplně nové engines i hologram entity, přesně jako při startu serveru,
+        //    ale bez nutnosti server restartovat.
+        hologramManager.init();
+        hologramBridge.init();
+
         sender.sendMessage("§a[MGHolograms] §fHologram configuration reloaded successfully!");
-        
+
         return true;
     }
 }

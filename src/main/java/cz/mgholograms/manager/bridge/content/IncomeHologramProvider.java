@@ -1,6 +1,7 @@
 package cz.mgholograms.manager.bridge.content;
 
 import cz.mgholograms.MGHolograms;
+import cz.mgholograms.manager.HologramManager;
 import cz.mgholograms.manager.bridge.core.HologramContentProvider;
 import multigainer.multigainer.Multigainer;
 import multigainer.multigainer.data.PlayerProfile;
@@ -9,7 +10,9 @@ import multigainer.multigainer.math.BigNumber;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -27,13 +30,19 @@ import java.util.UUID;
  * <p>
  * NumberFormatter.format() takes (BigNumber value, UUID uid) - confirmed from
  * RebirthGUI.java / RebirthListener.java usage.
+ * <p>
+ * Wording is a template read from hologram-groups.yml (group "Income", first
+ * TEXT display's "lines") with {placeholder} tokens - see
+ * {@link #getDefaultTemplate()}. Edit config + /holoreload to change wording
+ * without touching Java code.
  */
-public class IncomeHologramProvider implements HologramContentProvider {
+public class IncomeHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
     private final MGHolograms plugin;
     private Multigainer multigainer;
 
-    public IncomeHologramProvider(MGHolograms plugin) {
+    public IncomeHologramProvider(MGHolograms plugin, HologramManager hologramManager) {
+        super(hologramManager);
         this.plugin = plugin;
         hookMultigainer();
     }
@@ -56,6 +65,23 @@ public class IncomeHologramProvider implements HologramContentProvider {
         return "Income";
     }
 
+    /**
+     * Placeholders: {income_per_second}, {money_multiplier}, {balance}.
+     */
+    @Override
+    protected List<String> getDefaultTemplate() {
+        return List.of(
+                "&#39FF14&lINCOME",
+                "",
+                "§fYour income is §a{income_per_second} §f/s",
+                "§fYour total multi is §a{money_multiplier}x",
+                "§fYour balance is §a{balance}",
+                "",
+                "§7 -- §7§oMoney is currency for buying §7--",
+                "§7§o/upgrades and /rebirth"
+        );
+    }
+
     @Override
     public List<String> getLines(UUID playerUuid, Player player) {
         IncomeData data = getIncomeDataFor(playerUuid);
@@ -63,16 +89,12 @@ public class IncomeHologramProvider implements HologramContentProvider {
             return null;
         }
 
-        return List.of( //ɪɴᴄᴏᴍᴇ ᴍᴜʟᴛɪ ʙᴀʟᴀɴᴄᴇ
-                "&#39FF14&lINCOME",
-                "",
-                "§fYour income is §a" + NumberFormatter.format(data.incomePerSecond, playerUuid) + " §f/s",
-                "§fYour total multi is §a" + NumberFormatter.format(data.moneyMultiplier, playerUuid) + "x",
-                "§fYour balance is §a" + NumberFormatter.format(data.money, playerUuid),
-                "",
-                "§7 -- §7§oMoney is currency for buying §7--",
-                "§7§o/upgrades and /rebirth"
-        );
+        Map<String, String> values = new HashMap<>();
+        values.put("income_per_second", NumberFormatter.format(data.incomePerSecond, playerUuid));
+        values.put("money_multiplier", NumberFormatter.format(data.moneyMultiplier, playerUuid));
+        values.put("balance", NumberFormatter.format(data.money, playerUuid));
+
+        return render(values);
     }
 
     @Override

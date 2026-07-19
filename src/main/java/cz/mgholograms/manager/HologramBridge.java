@@ -6,6 +6,7 @@ import cz.mgholograms.manager.bridge.content.ProductionHologramProvider;
 import cz.mgholograms.manager.bridge.content.TierHologramProvider;
 import cz.mgholograms.manager.bridge.content.IncomeHologramProvider;
 import cz.mgholograms.manager.bridge.content.RebirthHologramProvider;
+import cz.mgholograms.manager.bridge.content.AfkHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -31,7 +32,7 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-            java.util.Set.of("Production", "Tier", "Income", "Rebirth");
+            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -48,21 +49,31 @@ public class HologramBridge {
      */
     public void init() {
         // Create and register content providers
-        ProductionHologramProvider productionProvider = new ProductionHologramProvider(plugin);
-        TierHologramProvider tierProvider = new TierHologramProvider(plugin);
-        IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin);
-        RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin);
+        shutdown();
+        ProductionHologramProvider productionProvider = new ProductionHologramProvider(plugin, hologramManager);
+        TierHologramProvider tierProvider = new TierHologramProvider(plugin, hologramManager);
+        IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin, hologramManager);
+        RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin, hologramManager);
+        AfkHologramProvider afkProvider = new AfkHologramProvider(plugin, hologramManager);
 
         // Ensure config entries exist for all groups
         ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Tier", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Income", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Rebirth", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("AFK", "voidworld", 0.0, 0.0, 0.0);
+
+        // AFK hologram has purely static text - doesn't depend on Multigainer at
+        // all - so create/init its engine unconditionally, before the Multigainer
+        // availability check below (which only gates the money/xp-driven ones).
+        PlayerHologramEngine afkEngine = new PlayerHologramEngine(plugin, hologramManager, afkProvider);
+        engines.put("AFK", afkEngine);
+        afkEngine.init();
 
         // Check if multigainer is available
         if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
                 && incomeProvider.getMultigainer() == null && rebirthProvider.getMultigainer() == null) {
-            plugin.getLogger().warning("Multigainer plugin not found - holograms disabled. "
+            plugin.getLogger().warning("Multigainer plugin not found - Production/Tier/Income/Rebirth holograms disabled. "
                     + "Make sure 'multigainer' is installed and loaded before MGHolograms.");
             return;
         }
@@ -84,7 +95,7 @@ public class HologramBridge {
         incomeEngine.init();
         rebirthEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income and Rebirth engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth and AFK engines");
     }
 
     public void shutdown() {
@@ -106,26 +117,53 @@ public class HologramBridge {
         displayData.put("scale", 1.0f);
         displayData.put("background", "transparent");
 
-        // Different fallback text for different groups
+        // Default template written into hologram-groups.yml on first run - matches
+        // each provider's getDefaultTemplate() so admins immediately see (and can
+        // edit) the full, real template instead of a stripped-down placeholder.
         if (groupId.equals("Production")) {
             displayData.put("lines", List.of(
-                    "&#E9C463&l&#CFAE58&lr&#B5984D&lo&#9B8241&ld&#816C36&lu&#967E3F&lc&#AB8F48&lt&#BFA151&li&#D4B25A&lo&#E9C463&ln",
-                    "§7Worker System"
+                    "§e§lPRODUCTION",
+                    "",
+                    "§fYour level §e{level}",
+                    "§fYour Worker's XP §e{work_xp} §f/ §e{xp_for_next}",
+                    "§fYour production rate §e{energy_per_min} §f/min",
+                    "§f§lTotal Energy §f{stored_energy} §e§l⚡",
+                    "",
+                    "§4§oRequires at least TIER 3"
             ));
         } else if (groupId.equals("Tier")) {
             displayData.put("lines", List.of(
-                    "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463",
-                    "§7Tier System"
+                    "§b§lTIER",
+                    "§fCurrent Tier §3{tier}",
+                    "§fTier Points §3{tier_points}",
+                    "§fProgress §3{progress_cur} §7/§3 {progress_next}",
+                    "{tier_up}"
             ));
         } else if (groupId.equals("Income")) {
             displayData.put("lines", List.of(
-                    "&#9DFD3A&l&#84FC33&li&#6BFB2D&ln&#52FA26&lc&#3AF920&lo&#52FA26&lm&#6BFB2D&le",
-                    "§7Income System"
+                    "&#39FF14&lINCOME",
+                    "",
+                    "§fYour income is §a{income_per_second} §f/s",
+                    "§fYour total multi is §a{money_multiplier}x",
+                    "§fYour balance is §a{balance}",
+                    "",
+                    "§7 -- §7§oMoney is currency for buying §7--",
+                    "§7§o/upgrades and /rebirth"
             ));
         } else if (groupId.equals("Rebirth")) {
             displayData.put("lines", List.of(
-                    "§5§lRebirth",
-                    "§7Loading..."
+                    "§5§lREBIRTH",
+                    "",
+                    "§fYou will get §5",
+                    "{points_on_rebirth} §frebirth points",
+                    "§fYour rebirth multi §5{rebirth_multi}§fx",
+                    "§fRebirth points §5{rebirth_points}"
+            ));
+        } else if (groupId.equals("AFK")) {
+            displayData.put("lines", List.of(
+                    "§e§l§nAFK",
+                    "§eEarn 1 AFK POINT every 60 seconds",
+                    "§eBut rank IMMORTAL earns 1.5x more AFK points"
             ));
         }
 

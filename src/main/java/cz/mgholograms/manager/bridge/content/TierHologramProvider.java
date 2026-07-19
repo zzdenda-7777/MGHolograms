@@ -1,6 +1,7 @@
 package cz.mgholograms.manager.bridge.content;
 
 import cz.mgholograms.MGHolograms;
+import cz.mgholograms.manager.HologramManager;
 import cz.mgholograms.manager.bridge.core.HologramContentProvider;
 import multigainer.multigainer.Multigainer;
 import multigainer.multigainer.data.PlayerProfile;
@@ -10,19 +11,27 @@ import multigainer.multigainer.tier.TierManager;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
  * Content provider for the Tier hologram.
  * Displays current tier, tier points, and progress to next tier.
+ * <p>
+ * Wording is a template read from hologram-groups.yml (group "Tier", first
+ * TEXT display's "lines") with {placeholder} tokens - see
+ * {@link #getDefaultTemplate()}. Edit config + /holoreload to change wording
+ * without touching Java code.
  */
-public class TierHologramProvider implements HologramContentProvider {
+public class TierHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
     private final MGHolograms plugin;
     private Multigainer multigainer;
 
-    public TierHologramProvider(MGHolograms plugin) {
+    public TierHologramProvider(MGHolograms plugin, HologramManager hologramManager) {
+        super(hologramManager);
         this.plugin = plugin;
         hookMultigainer();
     }
@@ -45,6 +54,21 @@ public class TierHologramProvider implements HologramContentProvider {
         return "Tier";
     }
 
+    /**
+     * Placeholders: {tier}, {tier_points}, {progress_cur}, {progress_next},
+     * {tier_up} (renders to the "you can tier up" message, or empty string).
+     */
+    @Override
+    protected List<String> getDefaultTemplate() {
+        return List.of(
+                "§b§lTIER",
+                "§fCurrent Tier §3{tier}",
+                "§fTier Points §3{tier_points}",
+                "§fProgress §3{progress_cur} §7/§3 {progress_next}",
+                "{tier_up}"
+        );
+    }
+
     @Override
     public List<String> getLines(UUID playerUuid, Player player) {
         TierData data = getTierDataFor(playerUuid);
@@ -56,29 +80,20 @@ public class TierHologramProvider implements HologramContentProvider {
         // nelze použít >= přímo jako u double/primitiv.
         boolean canTierUp = data.curPoints.compareTo(data.nextCost) >= 0;
 
-        java.util.ArrayList<String> lines = new java.util.ArrayList<>(List.of(
-                "§b§lTIER",
-                "&#55FFFF&l―&#4DE8E8&l―&#45D6D6&l―&#3AB8B8&l―&#2E9999&l―&#227A7A&l―&#156060&l―&#1D6B6B&l―&#227A7A&l―&#2E9999&l―&#3AB8B8&l―&#45D6D6&l―&#4DE8E8&l―&#55FFFF&l―",
-                "",
-                "§3Current Tier §f" + data.tier,
-                "§3Tier Points §f" + NumberFormatter.format(new BigNumber(data.tierPointsTotal)),
-                "§3Progress §f" + NumberFormatter.format(data.curPoints) + " §7/§f " + NumberFormatter.format(data.nextCost),
-                ""
-        ));
+        Map<String, String> values = new HashMap<>();
+        values.put("tier", String.valueOf(data.tier));
+        values.put("tier_points", NumberFormatter.format(new BigNumber(data.tierPointsTotal)));
+        values.put("progress_cur", NumberFormatter.format(data.curPoints));
+        values.put("progress_next", NumberFormatter.format(data.nextCost));
+        values.put("tier_up", canTierUp ? "§8>§7> §3§oYOU CAN TIER UP! §7<§8<" : "");
 
-        if (canTierUp) {
-            lines.set(6, "&#9DFD3A&lY&#ACFC56&lO&#BAFB73&lU &#CBF997&lC&#CDF89D&lA&#CEF7A4&lN &#CFF7A5&lT&#CDF8A0&lI&#CCF89A&lE&#CAF995&lR &#BAFB73&lU&#ACFC56&lP");
-        }
-
-        lines.add("&#55FFFF&l―&#4DE8E8&l―&#45D6D6&l―&#3AB8B8&l―&#2E9999&l―&#227A7A&l―&#156060&l―&#1D6B6B&l―&#227A7A&l―&#2E9999&l―&#3AB8B8&l―&#45D6D6&l―&#4DE8E8&l―&#55FFFF&l―");
-
-        return lines;
+        return render(values);
     }
 
     @Override
     public List<String> getLoadingLines() {
         return List.of(
-                "&#E9C463&l&#CFAE58&lt&#B5984D&li&#9B8241&le&#816C36&lr&#967E3F&#AB8F48&#BFA151&#D4B25A&#E9C463"
+                "§fLoading..."
         );
     }
 

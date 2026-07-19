@@ -1,6 +1,7 @@
 package cz.mgholograms.manager.bridge.content;
 
 import cz.mgholograms.MGHolograms;
+import cz.mgholograms.manager.HologramManager;
 import cz.mgholograms.manager.bridge.core.HologramContentProvider;
 import multigainer.multigainer.Multigainer;
 import multigainer.multigainer.artifacts.ArtifactManager;
@@ -12,7 +13,9 @@ import multigainer.multigainer.rebirth.RebirthManager;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -28,13 +31,19 @@ import java.util.UUID;
  * <p>
  * Colors: §5 (dark purple) as the main rebirth color, §d (light purple / pink)
  * as the secondary accent, matching the in-game rebirth color scheme (RebirthGUI).
+ * <p>
+ * Wording is a template read from hologram-groups.yml (group "Rebirth",
+ * first TEXT display's "lines") with {placeholder} tokens - see
+ * {@link #getDefaultTemplate()}. Edit config + /holoreload to change wording
+ * without touching Java code.
  */
-public class RebirthHologramProvider implements HologramContentProvider {
+public class RebirthHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
     private final MGHolograms plugin;
     private Multigainer multigainer;
 
-    public RebirthHologramProvider(MGHolograms plugin) {
+    public RebirthHologramProvider(MGHolograms plugin, HologramManager hologramManager) {
+        super(hologramManager);
         this.plugin = plugin;
         hookMultigainer();
     }
@@ -57,6 +66,21 @@ public class RebirthHologramProvider implements HologramContentProvider {
         return "Rebirth";
     }
 
+    /**
+     * Placeholders: {points_on_rebirth}, {rebirth_multi}, {rebirth_points}.
+     */
+    @Override
+    protected List<String> getDefaultTemplate() {
+        return List.of(
+                "§5§lREBIRTH",
+                "",
+                "§fYou will get §5",
+                "{points_on_rebirth} §frebirth points",
+                "§fYour rebirth multi §5{rebirth_multi}§fx",
+                "§fRebirth points §5{rebirth_points}"
+        );
+    }
+
     @Override
     public List<String> getLines(UUID playerUuid, Player player) {
         RebirthData data = getRebirthDataFor(playerUuid);
@@ -64,14 +88,12 @@ public class RebirthHologramProvider implements HologramContentProvider {
             return null;
         }
 
-        return List.of(
-                "§5§lREBIRTH",
-                "",
-                "§fYou will get §5",
-                ""+ NumberFormatter.format(data.pointsOnRebirth, playerUuid) + " §frebirth points",
-                "§fYour rebirth multi §5" + NumberFormatter.format(data.rebirthMulti, playerUuid) + "§fx",
-                "§fRebirth points §5" + NumberFormatter.format(data.rebirthPoints, playerUuid)
-                );
+        Map<String, String> values = new HashMap<>();
+        values.put("points_on_rebirth", NumberFormatter.format(data.pointsOnRebirth, playerUuid));
+        values.put("rebirth_multi", NumberFormatter.format(data.rebirthMulti, playerUuid));
+        values.put("rebirth_points", NumberFormatter.format(data.rebirthPoints, playerUuid));
+
+        return render(values);
     }
 
     @Override

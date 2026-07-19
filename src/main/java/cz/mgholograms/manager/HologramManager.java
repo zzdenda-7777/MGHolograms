@@ -110,6 +110,7 @@ public class HologramManager {
                 plugin.getLogger().info("Created static hologram engine for group: " + groupId);
             } else {
                 engine.updateGroup(group);
+                engine.createOrUpdateHologram(); // vynutí smazání a znovu-vytvoření aktivních hologramů s čerstvým obsahem
             }
         }
 

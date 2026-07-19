@@ -1,6 +1,7 @@
 package cz.mgholograms.manager.bridge.content;
 
 import cz.mgholograms.MGHolograms;
+import cz.mgholograms.manager.HologramManager;
 import cz.mgholograms.manager.bridge.core.HologramContentProvider;
 import multigainer.multigainer.Multigainer;
 import multigainer.multigainer.data.PlayerProfile;
@@ -10,19 +11,27 @@ import multigainer.multigainer.production.ProductionManager;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
  * Content provider for the Production hologram.
  * Displays worker level, XP, production rate, and total energy.
+ * <p>
+ * Wording is a template read from hologram-groups.yml (group "Production",
+ * first TEXT display's "lines") with {placeholder} tokens - see
+ * {@link #getDefaultTemplate()}. Edit config + /holoreload to change wording
+ * without touching Java code.
  */
-public class ProductionHologramProvider implements HologramContentProvider {
+public class ProductionHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
     private final MGHolograms plugin;
     private Multigainer multigainer;
 
-    public ProductionHologramProvider(MGHolograms plugin) {
+    public ProductionHologramProvider(MGHolograms plugin, HologramManager hologramManager) {
+        super(hologramManager);
         this.plugin = plugin;
         hookMultigainer();
     }
@@ -45,6 +54,24 @@ public class ProductionHologramProvider implements HologramContentProvider {
         return "Production";
     }
 
+    /**
+     * Placeholders: {level}, {work_xp}, {xp_for_next}, {energy_per_min},
+     * {stored_energy}.
+     */
+    @Override
+    protected List<String> getDefaultTemplate() {
+        return List.of(
+                "§e§lPRODUCTION",
+                "",
+                "§fYour level §e{level}",
+                "§fYour Worker's XP §e{work_xp} §f/ §e{xp_for_next}",
+                "§fYour production rate §e{energy_per_min} §f/min",
+                "§f§lTotal Energy §f{stored_energy} §e§l⚡",
+                "",
+                "§4§oRequires at least TIER 3"
+        );
+    }
+
     @Override
     public List<String> getLines(UUID playerUuid, Player player) {
         ProductionData data = getProductionDataFor(playerUuid);
@@ -52,16 +79,14 @@ public class ProductionHologramProvider implements HologramContentProvider {
             return null;
         }
 
-        return List.of(
-                "§e§lPRODUCTION",
-                "",
-                "§fYour level §e" + data.level,
-                "§fYour Worker's XP §e" + NumberFormatter.format(new BigNumber(data.workXp)) + " §f/ §e" + NumberFormatter.format(new BigNumber(data.xpForNext)),
-                "§fYour production rate §e" + NumberFormatter.format(new BigNumber(data.energyPerMin)) + " §f/min",
-                "§f§lTotal Energy " + "§f" + NumberFormatter.format(new BigNumber(data.storedEnergy)) + " §e§l⚡",
-                "",
-                "§4§oRequires at least TIER 3"
-        );
+        Map<String, String> values = new HashMap<>();
+        values.put("level", String.valueOf(data.level));
+        values.put("work_xp", NumberFormatter.format(new BigNumber(data.workXp)));
+        values.put("xp_for_next", NumberFormatter.format(new BigNumber(data.xpForNext)));
+        values.put("energy_per_min", NumberFormatter.format(new BigNumber(data.energyPerMin)));
+        values.put("stored_energy", NumberFormatter.format(new BigNumber(data.storedEnergy)));
+
+        return render(values);
     }
 
     @Override
