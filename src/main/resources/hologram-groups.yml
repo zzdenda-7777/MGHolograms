@@ -1,15 +1,15 @@
 groups:
   Production:
     world: voidworld
-    x: 44.0
-    y: 171.0
-    z: -30.0
-    yaw: -90.0
-    pitch: 2.0
+    x: 39.06534290444325
+    y: 175.0
+    z: -30.470815214526677
+    yaw: -89.67268
+    pitch: 1.3500006
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 2
+        scale: 1.5
         background: transparent
         lines:
           - §e§l§nPRODUCTION
@@ -35,7 +35,7 @@ groups:
           - §b§l§nTIER
           - §fYour current tier is §3{tier}
           - §fYou have §3{tier_points} §ftier points
-          - §fYour progress is §3{progress_cur} §7/ §3{progress_next}
+          - §fProgress §3{progress_cur} §7/ §3{progress_next}
           - '{tier_up}'
   Rebirth:
     world: voidworld
@@ -51,9 +51,9 @@ groups:
         background: transparent
         lines:
           - §5§l§nREBIRTH
+          - §fTotal rebirth points §5{rebirth_points}
           - §fYour rebirth multiplier is §5{rebirth_multi}x
-          - §fYou have a total of §5{rebirth_points} §frebirth points
-          - §fAfter rebirth, you will get §5{points_on_rebirth} §frebirth points
+          - §fRebirth for §5{points_on_rebirth} §frebirth points
   Income:
     world: voidworld
     x: 56.02533006635511
@@ -73,21 +73,21 @@ groups:
           - §fYour income is §a{income_per_second} §f/s
   AFK:
     world: voidworld
-    x: 80.59078981536028
+    x: 80.5
     y: 174.0
-    z: -9.452931972963139
-    yaw: 139.77258
-    pitch: 10.200137
+    z: -10.5
+    yaw: 134.26553
+    pitch: 4.1999855
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 3
+        scale: 2.5
         background: transparent
         lines:
           - §e§l§nAFK
-          - §fEarn §e1 AFK Point §fevery 60 seconds
-          - §fRank §5IMMORTAL §fearns §e1.5x §fmore AFK points
-          - §fSpend your §eAFK Points§f on §ePERMANENT REWARDS! §0/afk
+          - §fEarn §e1 AFK Point §fevery 1 minute
+          - §5IMMORTAL §fearns §e1.5x §fmore AFK points
+          - §fSpend them on §eExclusive rewards /afk
 
 
 
@@ -279,12 +279,12 @@ groups:
     displays:
       - type: TEXT
         y_offset: 0.0
-        scale: 3.0
+        scale: 2
         background: transparent
         lines:
-          - '&#9400FF&lA&#8E24DB&lR&#8848B7&lT&#8848B7&lI&#8848B7&lF&#8C30CF&lA&#9018E7&lC&#9400FF&lT&#9400FF&lS'
-          - '&#A5A5A5Exchange your crops for'
-          - '&#C60000M&#D83F3FA&#EB7F7FS&#FDBEBES&#FE7F7FI&#FE3F3FV&#FF0000E &#FF544BB&#FF7E71O&#FFA896O&#FFD2BCS&#E3695ET&#C60000!'
+          - §5§l§nARTIFACTS
+          - §fExchange your crops for
+          - §5MASSIVE BOOST!
 
   COPPERORE:
     world: voidworld

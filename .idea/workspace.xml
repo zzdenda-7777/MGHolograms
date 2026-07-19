@@ -9,13 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="ssss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/command/HoloReloadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/command/HoloReloadCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -277,11 +270,30 @@
       <option name="project" value="LOCAL" />
       <updated>1783717990639</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ssss">
+      <option name="closed" value="true" />
+      <created>1784472970367</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1784472970367</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ssss" />
