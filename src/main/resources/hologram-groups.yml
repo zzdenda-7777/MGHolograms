@@ -105,7 +105,7 @@ groups:
           - '{title}'
           - '&fWelcome §e§l{player}!§f'
           - ''
-          - 'For start follow §a§lTUTORIAL§f on top of the screen.'
+          - For start follow §a§lTUTORIAL§f on top of the screen.
           - '&fConstant events for big prizes on our §9§lDISCORD§f!'
           - '&fIf you have any questions contact §eSTAFF MEMBERS§f.'
 
@@ -173,10 +173,10 @@ groups:
 
   artiminexp:
     world: voidworld
-    x: 54.5
-    y: 173.2
-    z: -76.5
-    yaw: -180
+    x: 46.5
+    y: 174.1
+    z: -53.5
+    yaw: 90.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -184,14 +184,14 @@ groups:
         scale: 2
         background: transparent
         lines:
-          - '&#848884&lM&#707370&lI&#5C5D5C&lN&#484848&lE &#707370&lX&#848884&lP'
+          - §7§lMINE XP
 
   artiblockstorage:
     world: voidworld
-    x: 49.5
-    y: 174.2
-    z: -71.5
-    yaw: 180.0
+    x: 46.5
+    y: 176.1
+    z: -63.5
+    yaw: 90.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -199,43 +199,42 @@ groups:
         scale: 2
         background: transparent
         lines:
-          - '&#00E0FF&lB&#00CAE6&lL&#00B5CE&lO&#009FB5&lC&#00899C&lK &#005E6B&lS&#007484&lT&#00899C&lO&#009FB5&lR&#00B5CE&lA&#00CAE6&lG&#00E0FF&lE'
+          - §8§lBLOCK MULTI
   artigrindingpoints:
     world: voidworld
-    x: 47.5
-    y: 174.2
-    z: -73.5
-    yaw: -90
-    pitch: 1.0
+    x: 40.5
+    y: 174.1
+    z: -51.5
+    yaw: -90.0
+    pitch: -0.0
     displays:
       - type: TEXT
         y_offset: 0.0
         scale: 2.0
         background: transparent
         lines:
-          - '&#DB4444&lG&#C43939&lR&#AD2D2D&lI&#962222&lN&#7F1717&lD&#680B0B&lI&#510000&lN&#5A0505&lG
-        &#851A1A&lP&#962323&lO&#A72B2B&lI&#B93333&lN&#CA3C3C&lT&#CA3C3C&lS'
+          - §c§lGRIND PTS
 
   artiexponent:
     world: voidworld
-    x: 52.5
-    y: 174.2
-    z: -74.5
-    yaw: 140.0
-    pitch: 0.0
+    x: 45.5
+    y: 176.1
+    z: -68.5
+    yaw: 0.0
+    pitch: -0.0
     displays:
       - type: TEXT
         y_offset: 0.0
         scale: 2.0
         background: transparent
         lines:
-          - '&#FFBA00&lE&#DBA000&lX&#B88700&lP&#946D00&lO&#AF8000&lN&#CA9400&lE&#E4A700&lN&#FFBA00&lT'
+          - §a§lEXPONENT
   artifarmxp:
     world: voidworld
-    x: 47.5
-    y: 173.2
-    z: -76.5
-    yaw: -90.0
+    x: 40.5
+    y: 176.1
+    z: -68.5
+    yaw: -40.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -243,13 +242,13 @@ groups:
         scale: 2.0
         background: transparent
         lines:
-          - '&#FFD900&lF&#DCBB00&lA&#B99E00&lR&#968000&lM &#DCBB00&lX&#FFD900&lP'
+          - §e§lFARM XP
 
   artifarmmulti:
     world: voidworld
-    x: 45.5
-    y: 174.2
-    z: -79.5
+    x: 40.5
+    y: 175.1
+    z: -57.5
     yaw: -90.0
     pitch: 0.0
     displays:
@@ -258,49 +257,49 @@ groups:
         scale: 2.0
         background: transparent
         lines:
-          - '&#FFBA00&lF&#E6A800&lA&#CD9600&lR&#B48300&lM &#AF8000&lM&#C38E00&lU&#D79D00&lL&#EBAB00&lT&#FFBA00&lI'
+          - §6§lFARM MULTI
 
   artiseedmulti:
     world: voidworld
-    x: 48.5
-    y: 173.2
-    z: -81.5
-    yaw: 0.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - '&#00FF11&lS&#00D20E&lE&#00A50B&lE&#007708&lD &#006E07&lM&#00920A&lU&#00B70C&lL&#00DB0F&lT&#00FF11&lI'
-
-  artigemmulti:
-    world: voidworld
-    x: 51.5
-    y: 174.2
-    z: -80.5
-    yaw: 0.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4DDDE7&lE&#45BBD0&lM&#3D98B8&lS &#3B91B3&lM&#42ADC6&lU&#48C8D9&lL&#4FE4EC&lT&#55FFFF&lI'
-
-  artifacs:
-    world: voidworld
-    x: 58.5
-    y: 174.0
-    z: -78.5
+    x: 39.5
+    y: 176.1
+    z: -63.5
     yaw: -90.0
     pitch: 0.0
     displays:
       - type: TEXT
         y_offset: 0.0
-        scale: 2
+        scale: 2.0
+        background: transparent
+        lines:
+          - §a§lSEED MULTI
+
+  artigemmulti:
+    world: voidworld
+    x: 46.5
+    y: 175.1
+    z: -58.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 2.0
+        background: transparent
+        lines:
+          - §b§lGEMS MULTI
+
+  artifacs:
+    world: voidworld
+    x: 45.58096771631673
+    y: 173.0
+    z: -37.83423149714208
+    yaw: -31.232666
+    pitch: 7.0500097
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 3
         background: transparent
         lines:
           - §5§l§nARTIFACTS
