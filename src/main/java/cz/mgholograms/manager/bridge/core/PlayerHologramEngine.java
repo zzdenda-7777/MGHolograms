@@ -33,7 +33,6 @@ import java.util.UUID;
 public class PlayerHologramEngine {
 
     private static final long CHECK_INTERVAL_TICKS = 100L; // 5s
-    private static final long TEXT_REFRESH_INTERVAL_TICKS = 40L; // 2s
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -83,7 +82,7 @@ public class PlayerHologramEngine {
         // call createPlayerHologram() (spawns entities) - all unsafe off the
         // main thread and a likely cause of the same client-side entity
         // metadata corruption/crash as the distance-check task above.
-        textRefreshTask = Bukkit.getScheduler().runTaskTimer(plugin, this::refreshAllTexts, 20L, TEXT_REFRESH_INTERVAL_TICKS);
+        textRefreshTask = Bukkit.getScheduler().runTaskTimer(plugin, this::refreshAllTexts, 20L, contentProvider.getRefreshIntervalTicks());
     }
 
     /**

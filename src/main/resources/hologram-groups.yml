@@ -89,6 +89,27 @@ groups:
           - §5IMMORTAL §fearns §e1.5x §fmore AFK points
           - §fSpend them on §eExclusive rewards /afk
 
+  Welcome:
+    world: voidworld
+    x: 78.9595836663512
+    y: 190.0
+    z: -119.01297676334974
+    yaw: -125.99927
+    pitch: 3.900034
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 0.8
+        background: transparent
+        lines:
+          - '{title}'
+          - '&fWelcome §e§l{player}!§f'
+          - ''
+          - 'For start follow §a§lTUTORIAL§f on top of the screen.'
+          - '&fConstant events for big prizes on our §9§lDISCORD§f!'
+          - '&fIf you have any questions contact §eSTAFF MEMBERS§f.'
+
+
 
 
   COBBLESTONE:

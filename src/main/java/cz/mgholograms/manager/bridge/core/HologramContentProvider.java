@@ -33,4 +33,15 @@ public interface HologramContentProvider {
      * initial hologram creation before data is loaded).
      */
     List<String> getLoadingLines();
+
+    /**
+     * How often (in ticks) {@link PlayerHologramEngine} recalculates and pushes
+     * this provider's text to active viewers. Defaults to 40 ticks (2s).
+     * Override for content that animates and needs a faster, smoother cadence
+     * (e.g. a flowing gradient title) - 10 ticks (0.5s) matches Multigainer's
+     * TabListManager.
+     */
+    default long getRefreshIntervalTicks() {
+        return 40L;
+    }
 }

@@ -7,6 +7,7 @@ import cz.mgholograms.manager.bridge.content.TierHologramProvider;
 import cz.mgholograms.manager.bridge.content.IncomeHologramProvider;
 import cz.mgholograms.manager.bridge.content.RebirthHologramProvider;
 import cz.mgholograms.manager.bridge.content.AfkHologramProvider;
+import cz.mgholograms.manager.bridge.content.WelcomeHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -32,7 +33,7 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK");
+            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -55,6 +56,7 @@ public class HologramBridge {
         IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin, hologramManager);
         RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin, hologramManager);
         AfkHologramProvider afkProvider = new AfkHologramProvider(plugin, hologramManager);
+        WelcomeHologramProvider welcomeProvider = new WelcomeHologramProvider(plugin, hologramManager);
 
         // Ensure config entries exist for all groups
         ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
@@ -62,13 +64,19 @@ public class HologramBridge {
         ensureConfigEntry("Income", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Rebirth", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("AFK", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("Welcome", "voidworld", 0.0, 0.0, 0.0);
 
-        // AFK hologram has purely static text - doesn't depend on Multigainer at
-        // all - so create/init its engine unconditionally, before the Multigainer
-        // availability check below (which only gates the money/xp-driven ones).
+        // AFK and Welcome holograms have purely static/local text - don't depend
+        // on Multigainer at all - so create/init their engines unconditionally,
+        // before the Multigainer availability check below (which only gates the
+        // money/xp-driven ones).
         PlayerHologramEngine afkEngine = new PlayerHologramEngine(plugin, hologramManager, afkProvider);
         engines.put("AFK", afkEngine);
         afkEngine.init();
+
+        PlayerHologramEngine welcomeEngine = new PlayerHologramEngine(plugin, hologramManager, welcomeProvider);
+        engines.put("Welcome", welcomeEngine);
+        welcomeEngine.init();
 
         // Check if multigainer is available
         if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
@@ -95,7 +103,7 @@ public class HologramBridge {
         incomeEngine.init();
         rebirthEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth and AFK engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, AFK and Welcome engines");
     }
 
     public void shutdown() {
@@ -164,6 +172,15 @@ public class HologramBridge {
                     "§e§l§nAFK",
                     "§eEarn 1 AFK POINT every 60 seconds",
                     "§eBut rank IMMORTAL earns 1.5x more AFK points"
+            ));
+        } else if (groupId.equals("Welcome")) {
+            // {title} is generated in code (WelcomeHologramProvider) as an animated
+            // hex gradient - keep it as-is unless you want to lose the animation.
+            displayData.put("lines", List.of(
+                    "{title}",
+                    "&fWelcome {player}! For start follow tutorial on top of the screen.",
+                    "&fConstant events for big prizes on our DISCORD!",
+                    "&fIf you have any questions contact staff members."
             ));
         }
 
