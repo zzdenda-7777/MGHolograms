@@ -18,7 +18,7 @@ groups:
           - §fYour production rate is §e{energy_per_min} §f⚡/min
           - §f§lYour stored energy is §f{stored_energy} §e⚡
           - ''
-          - §4§oRequires at least Tier 3
+          - §4§oRequires atleast Tier 3
   Tier:
     world: voidworld
     x: 61.515659546687154
@@ -81,13 +81,15 @@ groups:
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 2.5
+        scale: 2.3
         background: transparent
         lines:
           - §e§l§nAFK
           - §fEarn §e1 AFK Point §fevery 1 minute
           - §5IMMORTAL §fearns §e1.5x §fmore AFK points
           - §fSpend them on §eExclusive rewards /afk
+          - §f
+          - §c§oRequires atleast Tier 7
 
   Welcome:
     world: voidworld
@@ -786,7 +788,7 @@ groups:
           - §5§l§nGIVEAWAY
           - §e1 PRO GAINERPASS
           - §fTotal 3 winners
-          - §fEnd in §530.7. at 11:34
+          - §fEnds in §530.7. at 9:30 UTC
 
   Event:
     world: voidworld
@@ -804,7 +806,7 @@ groups:
           - §9§l§nEVENT
           - §x§A§7§1§5§7§E§lC§x§C§1§9§7§0§9§lo§x§D§B§8§6§0§1§ll§x§A§1§5§2§7§A§lo§x§D§B§F§D§A§8§lr
             §x§0§2§4§D§8§7§lE§x§9§1§1§B§4§1§lv§x§F§C§7§0§0§0§le§x§0§4§E§7§A§F§ln§x§9§B§9§9§B§6§lt
-          - §f26.7. 20:00
+          - §f26.7. 18:00 UTC
           - §0-----------------
           - §4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
-          - §f28.7. 20:00
+          - §f28.7. 18:00 UTC
