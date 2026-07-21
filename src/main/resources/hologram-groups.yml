@@ -769,3 +769,42 @@ groups:
         lines:
           - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'
+
+  GIVEAWAY:
+    world: voidworld
+    x: 73.50856385778941
+    y: 177.0
+    z: -94.02864635767243
+    yaw: 179.54993
+    pitch: -0.6000003
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - §5§l§nGIVEAWAY
+          - §e1 PRO GAINERPASS
+          - §fTotal 3 winners
+          - §fEnd in §530.7. at 11:34
+
+  Event:
+    world: voidworld
+    x: 76.96675247196703
+    y: 177.0
+    z: -98.48459631400179
+    yaw: 90.15021
+    pitch: 1.0499895
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.5
+        background: transparent
+        lines:
+          - §9§l§nEVENT
+          - §x§A§7§1§5§7§E§lC§x§C§1§9§7§0§9§lo§x§D§B§8§6§0§1§ll§x§A§1§5§2§7§A§lo§x§D§B§F§D§A§8§lr
+            §x§0§2§4§D§8§7§lE§x§9§1§1§B§4§1§lv§x§F§C§7§0§0§0§le§x§0§4§E§7§A§F§ln§x§9§B§9§9§B§6§lt
+          - §f26.7. 20:00
+          - §0-----------------
+          - §4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
+          - §f28.7. 20:00

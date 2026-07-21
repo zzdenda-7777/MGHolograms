@@ -8,6 +8,8 @@ import cz.mgholograms.manager.bridge.content.IncomeHologramProvider;
 import cz.mgholograms.manager.bridge.content.RebirthHologramProvider;
 import cz.mgholograms.manager.bridge.content.AfkHologramProvider;
 import cz.mgholograms.manager.bridge.content.WelcomeHologramProvider;
+import cz.mgholograms.manager.bridge.content.GiveawayHologramProvider;
+import cz.mgholograms.manager.bridge.content.EventHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -33,7 +35,7 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome");
+            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome", "GIVEAWAY", "Event");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -57,6 +59,8 @@ public class HologramBridge {
         RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin, hologramManager);
         AfkHologramProvider afkProvider = new AfkHologramProvider(plugin, hologramManager);
         WelcomeHologramProvider welcomeProvider = new WelcomeHologramProvider(plugin, hologramManager);
+        GiveawayHologramProvider giveawayProvider = new GiveawayHologramProvider(plugin, hologramManager);
+        EventHologramProvider eventProvider = new EventHologramProvider(plugin, hologramManager);
 
         // Ensure config entries exist for all groups
         ensureConfigEntry("Production", "voidworld", 0.0, 0.0, 0.0);
@@ -65,8 +69,10 @@ public class HologramBridge {
         ensureConfigEntry("Rebirth", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("AFK", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Welcome", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("GIVEAWAY", "voidworld", 60.0, 175.0, 20.0);
+        ensureConfigEntry("Event", "voidworld", 65.0, 175.0, 20.0);
 
-        // AFK and Welcome holograms have purely static/local text - don't depend
+        // AFK, Welcome and static holograms (GIVEAWAY, Event) have purely static/local text - don't depend
         // on Multigainer at all - so create/init their engines unconditionally,
         // before the Multigainer availability check below (which only gates the
         // money/xp-driven ones).
@@ -77,6 +83,14 @@ public class HologramBridge {
         PlayerHologramEngine welcomeEngine = new PlayerHologramEngine(plugin, hologramManager, welcomeProvider);
         engines.put("Welcome", welcomeEngine);
         welcomeEngine.init();
+
+        PlayerHologramEngine giveawayEngine = new PlayerHologramEngine(plugin, hologramManager, giveawayProvider);
+        engines.put("GIVEAWAY", giveawayEngine);
+        giveawayEngine.init();
+
+        PlayerHologramEngine eventEngine = new PlayerHologramEngine(plugin, hologramManager, eventProvider);
+        engines.put("Event", eventEngine);
+        eventEngine.init();
 
         // Check if multigainer is available
         if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
@@ -103,7 +117,7 @@ public class HologramBridge {
         incomeEngine.init();
         rebirthEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, AFK and Welcome engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, AFK, Welcome, GIVEAWAY and Event engines");
     }
 
     public void shutdown() {
@@ -181,6 +195,24 @@ public class HologramBridge {
                     "&fWelcome {player}! For start follow tutorial on top of the screen.",
                     "&fConstant events for big prizes on our DISCORD!",
                     "&fIf you have any questions contact staff members."
+            ));
+        } else if (groupId.equals("GIVEAWAY")) {
+            displayData.put("lines", List.of(
+                    "§5§lGIVEAWAY",
+                    "§f1 Pro GainerPass",
+                    "§ftotal 3 winners",
+                    "§f{giveaway_date}",
+                    "{giveaway_timer_line}"
+            ));
+        } else if (groupId.equals("Event")) {
+            displayData.put("lines", List.of(
+                    "§9§l§nEVENT",
+                    "§fColor event",
+                    "§f{event_date}",
+                    "",
+                    "§9Upcoming events:",
+                    "§ftnt run",
+                    "§f28.7. 20:00"
             ));
         }
 
