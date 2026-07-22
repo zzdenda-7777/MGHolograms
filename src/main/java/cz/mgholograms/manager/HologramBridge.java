@@ -10,6 +10,9 @@ import cz.mgholograms.manager.bridge.content.AfkHologramProvider;
 import cz.mgholograms.manager.bridge.content.WelcomeHologramProvider;
 import cz.mgholograms.manager.bridge.content.GiveawayHologramProvider;
 import cz.mgholograms.manager.bridge.content.EventHologramProvider;
+import cz.mgholograms.manager.bridge.content.ParkourPersonalHologramProvider;
+import cz.mgholograms.manager.bridge.content.ParkourWeeklyHologramProvider;
+import cz.mgholograms.manager.bridge.content.ParkourLifetimeHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -35,7 +38,8 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome", "GIVEAWAY", "Event");
+                java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome", "GIVEAWAY", "Event",
+                        "ParkourPersonal", "ParkourWeekly", "ParkourLifetime");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -57,6 +61,9 @@ public class HologramBridge {
         TierHologramProvider tierProvider = new TierHologramProvider(plugin, hologramManager);
         IncomeHologramProvider incomeProvider = new IncomeHologramProvider(plugin, hologramManager);
         RebirthHologramProvider rebirthProvider = new RebirthHologramProvider(plugin, hologramManager);
+        ParkourPersonalHologramProvider parkourPersonalProvider = new ParkourPersonalHologramProvider(plugin, hologramManager);
+        ParkourWeeklyHologramProvider parkourWeeklyProvider = new ParkourWeeklyHologramProvider(plugin, hologramManager);
+        ParkourLifetimeHologramProvider parkourLifetimeProvider = new ParkourLifetimeHologramProvider(plugin, hologramManager);
         AfkHologramProvider afkProvider = new AfkHologramProvider(plugin, hologramManager);
         WelcomeHologramProvider welcomeProvider = new WelcomeHologramProvider(plugin, hologramManager);
         GiveawayHologramProvider giveawayProvider = new GiveawayHologramProvider(plugin, hologramManager);
@@ -67,6 +74,9 @@ public class HologramBridge {
         ensureConfigEntry("Tier", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Income", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Rebirth", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("ParkourPersonal", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("ParkourWeekly", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("ParkourLifetime", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("AFK", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Welcome", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("GIVEAWAY", "voidworld", 60.0, 175.0, 20.0);
@@ -105,19 +115,28 @@ public class HologramBridge {
         PlayerHologramEngine tierEngine = new PlayerHologramEngine(plugin, hologramManager, tierProvider);
         PlayerHologramEngine incomeEngine = new PlayerHologramEngine(plugin, hologramManager, incomeProvider);
         PlayerHologramEngine rebirthEngine = new PlayerHologramEngine(plugin, hologramManager, rebirthProvider);
+        PlayerHologramEngine parkourPersonalEngine = new PlayerHologramEngine(plugin, hologramManager, parkourPersonalProvider);
+        PlayerHologramEngine parkourWeeklyEngine = new PlayerHologramEngine(plugin, hologramManager, parkourWeeklyProvider);
+        PlayerHologramEngine parkourLifetimeEngine = new PlayerHologramEngine(plugin, hologramManager, parkourLifetimeProvider);
 
         engines.put("Production", productionEngine);
         engines.put("Tier", tierEngine);
         engines.put("Income", incomeEngine);
         engines.put("Rebirth", rebirthEngine);
+        engines.put("ParkourPersonal", parkourPersonalEngine);
+        engines.put("ParkourWeekly", parkourWeeklyEngine);
+        engines.put("ParkourLifetime", parkourLifetimeEngine);
 
         // Initialize engines
         productionEngine.init();
         tierEngine.init();
         incomeEngine.init();
         rebirthEngine.init();
+        parkourPersonalEngine.init();
+        parkourWeeklyEngine.init();
+        parkourLifetimeEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, AFK, Welcome, GIVEAWAY and Event engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, ParkourPersonal, ParkourWeekly, ParkourLifetime, AFK, Welcome, GIVEAWAY and Event engines");
     }
 
     public void shutdown() {
@@ -213,6 +232,42 @@ public class HologramBridge {
                     "§9Upcoming events:",
                     "§ftnt run",
                     "§f28.7. 20:00"
+            ));
+        } else if (groupId.equals("ParkourPersonal")) {
+            displayData.put("lines", List.of(
+                    "§fYOUR PARKOUR STATS",
+                    "",
+                    "§fHighest score §3{parkour_max_score}",
+                    "§fTotal jumps §3{parkour_total_jumps}",
+                    "§fFails §3{parkour_fails}"
+            ));
+        } else if (groupId.equals("ParkourWeekly")) {
+            displayData.put("lines", List.of(
+                    "§fWEEKLY STATISTICS",
+                    "§f1. {p1} - {s1} jumps",
+                    "§f2. {p2} - {s2} jumps",
+                    "§f3. {p3} - {s3} jumps",
+                    "§f4. {p4} - {s4} jumps",
+                    "§f5. {p5} - {s5} jumps",
+                    "§f6. {p6} - {s6} jumps",
+                    "§f7. {p7} - {s7} jumps",
+                    "§f8. {p8} - {s8} jumps",
+                    "§f9. {p9} - {s9} jumps",
+                    "§f10. {p10} - {s10} jumps"
+            ));
+        } else if (groupId.equals("ParkourLifetime")) {
+            displayData.put("lines", List.of(
+                    "§fLIFETIME STATISTICS",
+                    "§f1. {p1} - {s1} jumps",
+                    "§f2. {p2} - {s2} jumps",
+                    "§f3. {p3} - {s3} jumps",
+                    "§f4. {p4} - {s4} jumps",
+                    "§f5. {p5} - {s5} jumps",
+                    "§f6. {p6} - {s6} jumps",
+                    "§f7. {p7} - {s7} jumps",
+                    "§f8. {p8} - {s8} jumps",
+                    "§f9. {p9} - {s9} jumps",
+                    "§f10. {p10} - {s10} jumps"
             ));
         }
 

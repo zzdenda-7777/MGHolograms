@@ -71,6 +71,74 @@ groups:
           - §fYour balance is §a{balance}
           - §fYour multiplier is §a{money_multiplier}x
           - §fYour income is §a{income_per_second} §f/s
+
+  ParkourPersonal:
+    world: voidworld
+    x: 53.0720505290728
+    y: 186.5
+    z: -286.3
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 6.5
+        background: transparent
+        lines:
+          - §5§l§nYOUR PARKOUR STATS
+          - §fHighest score §5{parkour_max_score}
+          - §fTotal jumps §5{parkour_total_jumps}
+          - §fFails §5{parkour_fails}
+
+  ParkourWeekly:
+    world: voidworld
+    x: 77.5
+    y: 182.0
+    z: -309.5
+    yaw: 0.0
+    pitch: 1.4999384
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 6
+        background: transparent
+        lines:
+          - §5§l§nWEEKLY STATISTICS
+          - §6§l🥇§f§6 {p1} §f- {s1} score
+          - §7§l🥈§f§7 {p2} §f- {s2} score
+          - §c§l🥉§f§c {p3} §f- {s3} score
+          - §e4.§f {p4} - {s4} score
+          - §e5.§f {p5} - {s5} score
+          - §e6.§f {p6} - {s6} score
+          - §e7.§f {p7} - {s7} score
+          - §e8.§f {p8} - {s8} score
+          - §e9.§f {p9} - {s9} score
+          - §e10.§f {p10} - {s10} score
+
+  ParkourLifetime:
+    world: voidworld
+    x: 76.5
+    y: 182.7
+    z: -265.0
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 5.6
+        background: transparent
+        lines:
+          - §5§l§nLIFETIME STATISTICS
+          - §6§l🥇§f§6 {p1} §f- {s1} score
+          - §7§l🥈§f§7 {p2} §f- {s2} score
+          - §c§l🥉§f§c {p3} §f- {s3} score
+          - §e4.§f {p4} - {s4} score
+          - §e5.§f {p5} - {s5} score
+          - §e6.§f {p6} - {s6} score
+          - §e7.§f {p7} - {s7} score
+          - §e8.§f {p8} - {s8} score
+          - §e9.§f {p9} - {s9} score
+          - §e10.§f {p10} - {s10} score
   AFK:
     world: voidworld
     x: 80.5
