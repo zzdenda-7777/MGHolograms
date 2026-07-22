@@ -19,6 +19,20 @@ groups:
           - §f§lYour stored energy is §f{stored_energy} §e⚡
           - ''
           - §4§oRequires atleast Tier 3
+  Staffroom:
+    world: voidworld
+    x: 57.5
+    y: 175.0
+    z: -78.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 2.5
+        background: transparent
+        lines:
+          - §4§l§nSTAFF ROOM
   Tier:
     world: voidworld
     x: 61.515659546687154
@@ -74,8 +88,8 @@ groups:
 
   ParkourPersonal:
     world: voidworld
-    x: 53.0720505290728
-    y: 186.5
+    x: 53.0
+    y: 188.7
     z: -286.3
     yaw: -90.0
     pitch: 0.0
@@ -94,21 +108,21 @@ groups:
     world: voidworld
     x: 77.5
     y: 182.0
-    z: -309.5
+    z: -310.0
     yaw: 0.0
-    pitch: 1.4999384
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 6
+        scale: 5.5
         background: transparent
         lines:
           - §5§l§nWEEKLY STATISTICS
-          - §6§l🥇§f§6 {p1} §f- {s1} score
-          - §7§l🥈§f§7 {p2} §f- {s2} score
-          - §c§l🥉§f§c {p3} §f- {s3} score
-          - §e4.§f {p4} - {s4} score
-          - §e5.§f {p5} - {s5} score
+          - §6§l🥇§f§6 {p1} §f- {s1} score §4§l❖ §f§4200
+          - §7§l🥈§f§7 {p2} §f- {s2} score §4§l❖ §f§4150
+          - §c§l🥉§f§c {p3} §f- {s3} score §4§l❖ §f§4100
+          - §e4.§f {p4} - {s4} score §4§l❖ §f§475
+          - §e5.§f {p5} - {s5} score §4§l❖ §f§450
           - §e6.§f {p6} - {s6} score
           - §e7.§f {p7} - {s7} score
           - §e8.§f {p8} - {s8} score
