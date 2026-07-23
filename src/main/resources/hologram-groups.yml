@@ -6,10 +6,10 @@ groups:
   Production:
     world: voidworld
     x: 39.06534290444325
-    y: 175.0
+    y: 174.5
     z: -30.470815214526677
-    yaw: -89.67268
-    pitch: 1.3500006
+    yaw: -90.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
@@ -22,7 +22,7 @@ groups:
           - §fYour production rate is §e{energy_per_min} §f⚡/min
           - §f§lYour stored energy is §f{stored_energy} §e⚡
           - ''
-          - §4§oRequires atleast Tier 3
+          - ''
   Staffroom:
     world: voidworld
     x: 57.5
@@ -39,7 +39,7 @@ groups:
           - §4§l§nSTAFF ROOM
   Tier:
     world: voidworld
-    x: 61.515659546687154
+    x: 61.9
     y: 174.0
     z: 3.9669364767189794
     yaw: 179.5176
@@ -47,7 +47,7 @@ groups:
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 2
+        scale: 2.0
         background: transparent
         lines:
           - §b§l§nTIER
