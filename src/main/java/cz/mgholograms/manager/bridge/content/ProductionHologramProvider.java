@@ -18,12 +18,7 @@ import java.util.UUID;
 
 /**
  * Content provider for the Production hologram.
- * Displays worker level, XP, production rate, and total energy.
- * <p>
- * Wording is a template read from hologram-groups.yml (group "Production",
- * first TEXT display's "lines") with {placeholder} tokens - see
- * {@link #getDefaultTemplate()}. Edit config + /holoreload to change wording
- * without touching Java code.
+ * Displays worker level, XP, production rate (with multipliers), and total energy.
  */
 public class ProductionHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
@@ -56,7 +51,7 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
 
     /**
      * Placeholders: {level}, {work_xp}, {xp_for_next}, {energy_per_min},
-     * {stored_energy}.
+     * {stored_energy}, {multiplier}.
      */
     @Override
     protected List<String> getDefaultTemplate() {
@@ -65,7 +60,7 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
                 "",
                 "§fYour level §e{level}",
                 "§fYour Worker's XP §e{work_xp} §f/ §e{xp_for_next}",
-                "§fYour production rate §e{energy_per_min} §f/min",
+                "§fYour production rate §e{energy_per_min} §f/min §7(x{multiplier})",
                 "§f§lTotal Energy §f{stored_energy} §e§l⚡",
                 "",
                 "§4§oRequires at least TIER 3"
@@ -86,6 +81,9 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
         values.put("energy_per_min", NumberFormatter.format(new BigNumber(data.energyPerMin)));
         values.put("stored_energy", NumberFormatter.format(new BigNumber(data.storedEnergy)));
 
+        // Zobrazí celkový násobič např. jako "3.39"
+        values.put("multiplier", String.format("%.2f", data.multiplier));
+
         return render(values);
     }
 
@@ -99,7 +97,6 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
 
     /**
      * Reads Production data from MultiGainer player profile.
-     * Returns null if profile is not yet loaded.
      */
     private ProductionData getProductionDataFor(UUID uuid) {
         if (multigainer == null) {
@@ -117,10 +114,19 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
             int level = profile.getWorkerLevel();
             double workXp = profile.getWorkerXp();
             double xpForNext = ProductionManager.getXpForNextLevel(level);
-            double energyPerMin = ProductionManager.getEnergyPerMinute(level);
+
+            // 1. Získání základní produkce
+            double baseEnergy = ProductionManager.getEnergyPerMinute(level);
+
+            // 2. Získání PLNÉ produkce (včetně všech multiplierů)
+            double fullEnergyPerMin = ProductionManager.getFullEnergyPerMinute(profile);
+
+            // 3. Výpočet samotného násobiče (pro nový placeholder {multiplier})
+            double multiplier = baseEnergy > 0 ? (fullEnergyPerMin / baseEnergy) : 1.0;
+
             double storedEnergy = profile.getWorkerEnergy();
 
-            return new ProductionData(level, workXp, xpForNext, energyPerMin, storedEnergy);
+            return new ProductionData(level, workXp, xpForNext, fullEnergyPerMin, storedEnergy, multiplier);
         } catch (Exception e) {
             plugin.getLogger().severe("Failed to get production data for " + uuid + ": " + e.getMessage());
             e.printStackTrace();
@@ -134,13 +140,15 @@ public class ProductionHologramProvider extends TemplateHologramProvider impleme
         double xpForNext;
         double energyPerMin;
         double storedEnergy;
+        double multiplier;
 
-        ProductionData(int level, double workXp, double xpForNext, double energyPerMin, double storedEnergy) {
+        ProductionData(int level, double workXp, double xpForNext, double energyPerMin, double storedEnergy, double multiplier) {
             this.level = level;
             this.workXp = workXp;
             this.xpForNext = xpForNext;
             this.energyPerMin = energyPerMin;
             this.storedEnergy = storedEnergy;
+            this.multiplier = multiplier;
         }
     }
 }

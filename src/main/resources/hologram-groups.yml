@@ -1,4 +1,8 @@
 groups:
+
+  # =========================================================================================================
+  #                      REBIRTH, TIER, PRODUCTION, INCOME HOLOGRAM CONFIGURATION
+  # =========================================================================================================
   Production:
     world: voidworld
     x: 39.06534290444325
@@ -86,6 +90,10 @@ groups:
           - §fYour multiplier is §a{money_multiplier}x
           - §fYour income is §a{income_per_second} §f/s
 
+  # ==============================================================================
+  #                      PARKOUR HOLOGRAM CONFIGURATION
+  # ==============================================================================
+
   ParkourPersonal:
     world: voidworld
     x: 53.0
@@ -153,6 +161,11 @@ groups:
           - §e8.§f {p8} - {s8} score
           - §e9.§f {p9} - {s9} score
           - §e10.§f {p10} - {s10} score
+
+        # ==============================================================================
+        #                      SPAWNS HOLOGRAM CONFIGURATION
+        # ==============================================================================
+
   AFK:
     world: voidworld
     x: 80.5
@@ -194,8 +207,181 @@ groups:
           - '&fIf you have any questions contact §eSTAFF MEMBERS§f.'
 
 
+  # ==============================================================================
+  #                      ARTIFACTS HOLOGRAM CONFIGURATION
+  # ==============================================================================
 
 
+
+  artitierpts:
+    world: voidworld
+    x: 45.5
+    y: 174.1
+    z: -48.5
+    yaw: 90.0
+    pitch: -0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §e§lTIER PTS
+
+  artirebirthpts:
+    world: voidworld
+    x: 40.5
+    y: 173.1
+    z: -46.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §5§lREBIRTH PTS
+
+  artiminexp:
+    world: voidworld
+    x: 46.5
+    y: 174.1
+    z: -53.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §7§lMINE XP
+
+  artiblockstorage:
+    world: voidworld
+    x: 46.5
+    y: 176.1
+    z: -63.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §8§lBLOCK MULTI
+  artigrindingpoints:
+    world: voidworld
+    x: 40.5
+    y: 174.1
+    z: -51.5
+    yaw: -90.0
+    pitch: -0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §c§lGRIND PTS
+
+  artiexponent:
+    world: voidworld
+    x: 45.5
+    y: 176.1
+    z: -68.5
+    yaw: 0.0
+    pitch: -0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §a§lEXPONENT
+  artifarmxp:
+    world: voidworld
+    x: 40.5
+    y: 176.1
+    z: -68.5
+    yaw: -40.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §e§lFARM XP
+
+  artifarmmulti:
+    world: voidworld
+    x: 40.5
+    y: 175.1
+    z: -57.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §6§lFARM MULTI
+
+  artiseedmulti:
+    world: voidworld
+    x: 39.5
+    y: 176.1
+    z: -63.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §a§lSEED MULTI
+
+  artigemmulti:
+    world: voidworld
+    x: 46.5
+    y: 175.1
+    z: -58.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §b§lGEMS MULTI
+
+  artifacs:
+    world: voidworld
+    x: 45.58096771631673
+    y: 173.0
+    z: -37.83423149714208
+    yaw: -31.232666
+    pitch: 7.0500097
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 3
+        background: transparent
+        lines:
+          - §5§l§nARTIFACTS
+          - §fExchange your crops for
+          - §5MASSIVE BOOST!
+
+  # ==============================================================================
+  #                      MINES HOLOGRAM CONFIGURATION
+  # ==============================================================================
   COBBLESTONE:
     world: voidworld
     x: 50.0
@@ -254,142 +440,6 @@ groups:
         lines:
           - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF2×'
-
-  artiminexp:
-    world: voidworld
-    x: 46.5
-    y: 174.1
-    z: -53.5
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2
-        background: transparent
-        lines:
-          - §7§lMINE XP
-
-  artiblockstorage:
-    world: voidworld
-    x: 46.5
-    y: 176.1
-    z: -63.5
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2
-        background: transparent
-        lines:
-          - §8§lBLOCK MULTI
-  artigrindingpoints:
-    world: voidworld
-    x: 40.5
-    y: 174.1
-    z: -51.5
-    yaw: -90.0
-    pitch: -0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §c§lGRIND PTS
-
-  artiexponent:
-    world: voidworld
-    x: 45.5
-    y: 176.1
-    z: -68.5
-    yaw: 0.0
-    pitch: -0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §a§lEXPONENT
-  artifarmxp:
-    world: voidworld
-    x: 40.5
-    y: 176.1
-    z: -68.5
-    yaw: -40.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §e§lFARM XP
-
-  artifarmmulti:
-    world: voidworld
-    x: 40.5
-    y: 175.1
-    z: -57.5
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §6§lFARM MULTI
-
-  artiseedmulti:
-    world: voidworld
-    x: 39.5
-    y: 176.1
-    z: -63.5
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §a§lSEED MULTI
-
-  artigemmulti:
-    world: voidworld
-    x: 46.5
-    y: 175.1
-    z: -58.5
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 2.0
-        background: transparent
-        lines:
-          - §b§lGEMS MULTI
-
-  artifacs:
-    world: voidworld
-    x: 45.58096771631673
-    y: 173.0
-    z: -37.83423149714208
-    yaw: -31.232666
-    pitch: 7.0500097
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 3
-        background: transparent
-        lines:
-          - §5§l§nARTIFACTS
-          - §fExchange your crops for
-          - §5MASSIVE BOOST!
-
   COPPERORE:
     world: voidworld
     x: 77
@@ -853,6 +903,10 @@ groups:
         lines:
           - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
           - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'
+
+  # ==============================================================================
+  #                      EVENT/GIVEAWAYS HOLOGRAM CONFIGURATION
+  # ==============================================================================
 
   GIVEAWAY:
     world: voidworld
