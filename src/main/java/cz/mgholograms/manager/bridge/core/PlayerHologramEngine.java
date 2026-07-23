@@ -210,7 +210,7 @@ public class PlayerHologramEngine {
                 textData.setScale(new Vector3f(scale, scale, scale));
                 if (transparent) {
                     textData.setBackground(org.bukkit.Color.fromARGB(0, 0, 0, 0));
-                    textData.setSeeThrough(true);
+                    textData.setSeeThrough(false);
                 }
                 textData.setVisibility(Visibility.MANUAL);
                 textData.setVisibilityDistance(plugin.getConfig().getInt("view-distance", 100));
