@@ -37,7 +37,7 @@ import java.util.UUID;
  */
 public class StaticGroupEngine {
 
-    private static final long CHECK_INTERVAL_TICKS = 100L; // 5s, same as PlayerHologramEngine
+    private static final long CHECK_INTERVAL_TICKS = 20L; // 5s, same as PlayerHologramEngine
     private static final int MAX_DISPLAYS_CLEANUP = 20; // safety margin for name-based cleanup
 
     private final MGHolograms plugin;
