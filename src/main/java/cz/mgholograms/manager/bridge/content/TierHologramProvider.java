@@ -121,7 +121,7 @@ public class TierHologramProvider extends TemplateHologramProvider implements Ho
             // do double - NumberFormatter to umí formátovat přímo.
             BigNumber nextCost = TierManager.getCostForTierBig(tier + 1);
             BigNumber curPoints = profile.getRebirthPoints();
-            int tierPointsTotal = profile.getTierPoints();
+            int tierPointsTotal = (int)profile.getTierPoints();
 
             return new TierData(tier, nextCost, curPoints, tierPointsTotal);
         } catch (Exception e) {

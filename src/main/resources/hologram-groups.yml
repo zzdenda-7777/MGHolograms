@@ -5,9 +5,9 @@ groups:
   # =========================================================================================================
   Production:
     world: voidworld
-    x: 39.06534290444325
-    y: 174.5
-    z: -30.470815214526677
+    x: 39.0
+    y: 174.3
+    z: -30.5
     yaw: -90.0
     pitch: 0.0
     displays:
@@ -75,7 +75,7 @@ groups:
   Income:
     world: voidworld
     x: 56.02533006635511
-    y: 173.0
+    y: 172.75
     z: -53.481357062493025
     yaw: -90.18219
     pitch: 0.5999908
@@ -166,25 +166,50 @@ groups:
   #                      SPAWNS HOLOGRAM CONFIGURATION
   # ==============================================================================
 
-  AFK:
+  DonatorWall:
     world: voidworld
     x: 80.5
-    y: 174.0
+    y: 174.5
     z: -10.5
-    yaw: 134.26553
-    pitch: 4.1999855
+    yaw: 140.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 2.3
+        scale: 4.3
         background: transparent
         lines:
-          - §e§l§nAFK
-          - §fEarn §e1 AFK Point §fevery 1 minute
-          - §5IMMORTAL §fearns §e1.5x §fmore AFK points
-          - §fSpend them on §eExclusive rewards /afk
+          - §a§l§nDONATIONS
+          - §fTOP SERVER DONATORS
+
+  Donators:
+    world: voidworld
+    x: 92.5
+    y: 172.5
+    z: -5.0
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.75
+        background: transparent
+        lines:
+          - §a§l§nTOTAL DONATIONS
           - §f
-          - §c§oRequires atleast Tier 7
+          - §e§l🥇 §fAzuchi_ §8» §a$109.99
+          - §7§l🥈 §fQCEP §8» §a$86.97
+          - §6§l🥉 §fAmyLovesCoffee §8» §a$75.46
+          - §74. §fBlackGru §8» §a$34.48
+          - §75. §f130Ping §8» §a$19.99
+          - §76. §fvilageer §8» §a$19.99
+          - §77. §fSupeEvilSantio71 §8» §a$15.97
+          - §78. §fvr0xe §8» §a$10.47
+          - §79. §fLunerHive §8» §a$3.98
+          - §f
+          - §e§lThank you all for your support!
+          - §7&omultigainer2.tebex.io
+
 
   Welcome:
     world: voidworld
@@ -202,9 +227,9 @@ groups:
           - '{title}'
           - '&fWelcome §e§l{player}!§f'
           - ''
+          - §fYour goal is to reach as much §a§lMONEY§f as possible.
+          - '&fIf you have any questions contact §6§lSTAFF MEMBERS§f.'
           - For start follow §a§lTUTORIAL§f on top of the screen.
-          - '&fConstant events for big prizes on our §9§lDISCORD§f!'
-          - '&fIf you have any questions contact §eSTAFF MEMBERS§f.'
 
 
   # ==============================================================================
@@ -925,42 +950,56 @@ groups:
 
   GIVEAWAY:
     world: voidworld
-    x: 73.50856385778941
-    y: 177.0
-    z: -94.02864635767243
-    yaw: 179.54993
-    pitch: -0.6000003
+    x: 89.96517839800617
+    y: 173.5
+    z: -30.495861372707413
+    yaw: 90.03514
+    pitch: 1.6499742
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 1.5
         background: transparent
         lines:
-          - §5§l§nGIVEAWAY
-          - §e1 PRO GAINERPASS
-          - §fTotal 3 winners
-          - §fEnds in §530.7. at 7:40 UTC
+          - §5§l§nGIVEAWAYS
+          - §e§lPRO GAINERPASS
+          - §fTOTAL 3 WINNERS
+          - §fEnds in §e30.7. at 7:40 UTC
+          - §5--------------------------
+          - §6§lMASTER RANK
+          - §fTOTAL 2 WINNERS
+          - §fEnds in §61.8. at 9:00 UTC
+          - §9§oMore info on /DISCORD
 
   Event:
     world: voidworld
-    x: 76.96675247196703
-    y: 177.0
-    z: -98.48459631400179
-    yaw: 90.15021
-    pitch: 1.0499895
+    x: 85.93367927728076
+    y: 174.65
+    z: -44.49929356449161
+    yaw: 89.75391
+    pitch: 3.449997
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 1.5
+        scale: 1.9
         background: transparent
         lines:
-          - §9§l§nEVENT
-          - §x§A§7§1§5§7§E§lC§x§C§1§9§7§0§9§lo§x§D§B§8§6§0§1§ll§x§A§1§5§2§7§A§lo§x§D§B§F§D§A§8§lr
-            §x§0§2§4§D§8§7§lE§x§9§1§1§B§4§1§lv§x§F§C§7§0§0§0§le§x§0§4§E§7§A§F§ln§x§9§B§9§9§B§6§lt
-          - §f26.7. 18:00 UTC
-          - §0-----------------
-          - §4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
-          - §f28.7. 18:00 UTC
+          - §9§l§nEVENTS&f
+          - §4§lRED &a&lGREEN &fLIGHT
+          - §e🕗 §f1.8. 20:00 UTC §e🕗
+      ## §4§lRED &a&lGREEN &fLIGHT
+      ## §e🕢 §f1.8. 19:30 UTC §e🕢
+      ##
+      ##§4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
+      ##§f28.7. 19:30 UTC
+      ##§9§l--------------
+      ## §e🕖 §fX.8. 19:00 UTC §e🕖
+      ## §e🕢 §fX.8. 19:30 UTC §e🕢
+      ## §e🕗 §fX.8. 20:00 UTC §e🕗
+      ## §e🕣 §fX.8. 20:30 UTC §e🕣
+      ## §e🕘 §fX.8. 21:00 UTC §e🕘
+      ## §e🕤 §fX.8. 21:30 UTC §e🕤
+      ## §e🕙 §fX.8. 22:00 UTC §e🕙
 
   # =========================================================================================================
   #                      STAFF NAMES HOLOGRAM CONFIGURATION
@@ -1026,7 +1065,7 @@ groups:
         lines:
           - §0§oVixxyOnCoke
 
-  Javagamer12321:
+  Recorrection:
     world: voidworld
     x: 51.5
     y: 172.5
@@ -1036,10 +1075,10 @@ groups:
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 0.48
+        scale: 0.58
         background: transparent
         lines:
-          - §0§oJavagamer12321
+          - §0§oRecorrection
 
   Spiralz69:
     world: voidworld
@@ -1055,3 +1094,22 @@ groups:
         background: transparent
         lines:
           - §e§oSpiralz69
+  AFK:
+    world: voidworld
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - background: transparent
+        scale: 1.0
+        type: TEXT
+        y_offset: 0.0
+        lines:
+          - §e§l§nAFK
+          - §eEarn 1 AFK POINT every 60 seconds
+          - §eBut rank IMMORTAL earns 1.5x more AFK points
+        x_offset: 0.0
+        z_offset: 0.0
+
