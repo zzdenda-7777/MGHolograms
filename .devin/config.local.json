@@ -19,7 +19,9 @@
       "Exec(curl)",
       "Exec(jar)",
       "Exec(javap)",
-      "Exec(mkdir)"
+      "Exec(mkdir)",
+      "Exec(mvn clean)",
+      "Exec(rm)"
     ]
   }
 }
