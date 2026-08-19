@@ -11,25 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Content provider for the "Welcome" spawn hologram.
- * <p>
- * Purely informational and not backed by Multigainer at all (same idea as
- * {@link AfkHologramProvider}) - greets the viewing player using their own
- * name via the {player} placeholder.
- * <p>
- * The title (first line, {title}) is a smooth, continuously animated
- * hex-gradient ("MULTIGAINER 2", deep orange &lt;-&gt; gold yellow, brightest
- * in the middle) built by {@link GradientText}. This provider overrides
- * {@link #getRefreshIntervalTicks()} to 10 ticks (0.5s) - the same cadence
- * Multigainer's TabListManager uses - so the gradient flows smoothly instead
- * of jumping every 2s like the other holograms.
- * <p>
- * Wording is a template read from hologram-groups.yml (group "Welcome",
- * first TEXT display's "lines") with {@link #getDefaultTemplate()} used as a
- * built-in fallback. Edit config + /holoreload to change wording without
- * touching Java code ({title} must stay as-is to keep the animated gradient).
- */
 public class WelcomeHologramProvider extends TemplateHologramProvider implements HologramContentProvider {
 
     public WelcomeHologramProvider(MGHolograms plugin, HologramManager hologramManager) {
@@ -42,29 +23,43 @@ public class WelcomeHologramProvider extends TemplateHologramProvider implements
     }
 
     /**
-     * Placeholders: {title} (generated animated gradient), {player}.
+     * Fallback used only if hologram-groups.yml has no TEXT displays with
+     * lines configured for this group.
      */
     @Override
     protected List<String> getDefaultTemplate() {
         return List.of(
                 "{title}",
-                "&fWelcome {player}! For start follow tutorial on top of the screen.",
-                "&fConstant events for big prizes on our DISCORD!",
-                "&fIf you have any questions contact staff members."
+                "&7Welcome §e§l{player}§f!",
+                "&8§m                       ",
+                "&fYour goal is to reach as much",
+                "§a§lMONEY§f as possible.",
+                "&8§m                       ",
+                "&fNeed help? Do §6§l/guide§f",
+                "&a§oTo start, follow §a§lTUTORIAL§a§o on top of the screen."
         );
     }
 
     @Override
     public long getRefreshIntervalTicks() {
-        return 10L; // matches Multigainer's TabListManager cadence for a smooth gradient flow
+        return 1L; // matches Multigainer's TabListManager cadence for a smooth gradient flow
+    }
+    @Override
+    public java.util.Set<Integer> getDynamicDisplayIndices() {
+        return java.util.Set.of(0); // jen title (gradient) se skutečně mění
     }
 
+    /**
+     * Required by the interface, but no longer used for rendering by
+     * PlayerHologramEngine (which now calls getLinesPerDisplay() instead).
+     * Kept as a flattened equivalent for compatibility with any other code
+     * that might still call getLines() directly.
+     */
     @Override
     public List<String> getLines(UUID playerUuid, Player player) {
         Map<String, String> values = new HashMap<>();
         values.put("title", GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
         values.put("player", player.getName());
-
         return render(values);
     }
 
@@ -73,7 +68,26 @@ public class WelcomeHologramProvider extends TemplateHologramProvider implements
         Map<String, String> values = new HashMap<>();
         values.put("title", GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
         values.put("player", "Player");
-
         return render(values);
+    }
+
+    /**
+     * Actually used by PlayerHologramEngine - returns lines split per TEXT
+     * display block, matching the group's structure in hologram-groups.yml.
+     */
+    @Override
+    public List<List<String>> getLinesPerDisplay(UUID playerUuid, Player player) {
+        Map<String, String> values = new HashMap<>();
+        values.put("title", GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
+        values.put("player", player.getName());
+        return renderPerDisplay(values);
+    }
+
+    @Override
+    public List<List<String>> getLoadingLinesPerDisplay() {
+        Map<String, String> values = new HashMap<>();
+        values.put("title", GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
+        values.put("player", "Player");
+        return renderPerDisplay(values);
     }
 }

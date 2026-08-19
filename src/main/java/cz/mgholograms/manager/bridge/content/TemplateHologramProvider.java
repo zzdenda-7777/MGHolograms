@@ -64,6 +64,42 @@ public abstract class TemplateHologramProvider {
         return getDefaultTemplate();
     }
 
+    protected List<List<String>> renderPerDisplay(Map<String, String> values) {
+        List<List<String>> result = new ArrayList<>();
+
+        if (hologramManager != null && hologramManager.getLoadedGroups() != null) {
+            for (HologramGroup group : hologramManager.getLoadedGroups()) {
+                if (!group.getGroupId().equals(getGroupId())) continue;
+
+                for (Display display : group.getDisplays()) {
+                    if (display.getType() == DisplayType.TEXT
+                            && display.getLines() != null
+                            && !display.getLines().isEmpty()) {
+
+                        List<String> blockLines = new ArrayList<>();
+                        for (Object lineObj : display.getLines()) {
+                            String rendered = lineObj.toString();
+                            for (Map.Entry<String, String> entry : values.entrySet()) {
+                                if (entry.getValue() != null) {
+                                    rendered = rendered.replace("{" + entry.getKey() + "}", entry.getValue());
+                                }
+                            }
+                            rendered = rendered.replaceAll("\\{[^}]*\\}", "").trim();
+                            blockLines.add(rendered);
+                        }
+                        result.add(blockLines);
+                    }
+                }
+
+                if (!result.isEmpty()) return result;
+            }
+        }
+
+        // Fallback: getDefaultTemplate() jako jeden jediný blok
+        List<List<String>> single = new ArrayList<>();
+        single.add(render(values));
+        return single;
+    }
     /**
      * Renders the template by replacing every {key} occurrence in each line
      * with its value from the given map. Ignores placeholders without values.
@@ -73,17 +109,17 @@ public abstract class TemplateHologramProvider {
         for (Object lineObj : getTemplate()) {
             String line = lineObj.toString();
             String rendered = line;
-            
+
             // Replace only placeholders that have values in the map
             for (Map.Entry<String, String> entry : values.entrySet()) {
                 if (entry.getValue() != null) {
                     rendered = rendered.replace("{" + entry.getKey() + "}", entry.getValue());
                 }
             }
-            
+
             // Remove any remaining unreplaced placeholders
             rendered = rendered.replaceAll("\\{[^}]*\\}", "").trim();
-            
+
             result.add(rendered);
         }
         return result;

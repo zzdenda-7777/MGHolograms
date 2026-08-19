@@ -135,7 +135,15 @@ public class StaticGroupEngine {
                 TextHologramData textData = new TextHologramData(name, displayLocation);
 
                 if (display.getLines() != null && !display.getLines().isEmpty()) {
-                    textData.setText(display.getLines());
+                    java.util.List<String> resolvedLines = new java.util.ArrayList<>();
+                    for (Object lineObj : display.getLines()) {
+                        String line = lineObj.toString();
+                        line = line.replace("{title}",
+                                cz.mgholograms.util.GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
+                        line = line.replace("{player}", player.getName());
+                        resolvedLines.add(line);
+                    }
+                    textData.setText(resolvedLines);
                 }
 
                 if (display.getBackground() != null && display.getBackground().equalsIgnoreCase("transparent")) {

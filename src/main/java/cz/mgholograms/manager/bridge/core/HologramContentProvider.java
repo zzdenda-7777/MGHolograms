@@ -1,46 +1,44 @@
 package cz.mgholograms.manager.bridge.core;
 
 import org.bukkit.entity.Player;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Interface for providing hologram content on a per-player basis.
- * 
- * HOW TO ADD A NEW HOLOGRAM:
- * 1. Create a new class implementing this interface in the content/ package
- * 2. Register it in HologramBridge.init() by creating a PlayerHologramEngine instance
- * 3. Add a config entry block in HologramBridge.ensureConfigEntry() for the new group
- * 
- * This separation allows adding new holograms without modifying the core engine logic.
- */
 public interface HologramContentProvider {
 
-    /**
-     * Unique ID of the group in hologram-groups.yml (e.g., "Production" or "Tier").
-     */
     String getGroupId();
 
-    /**
-     * Returns the current text lines for the given player, or null if data
-     * is not yet available (e.g., profile is still loading). In that case,
-     * the engine will display the fallback "Loading..." text.
-     */
     List<String> getLines(UUID playerUuid, Player player);
 
-    /**
-     * Fallback text displayed while getLines() returns null (typically during
-     * initial hologram creation before data is loaded).
-     */
     List<String> getLoadingLines();
 
     /**
-     * How often (in ticks) {@link PlayerHologramEngine} recalculates and pushes
-     * this provider's text to active viewers. Defaults to 40 ticks (2s).
-     * Override for content that animates and needs a faster, smoother cadence
-     * (e.g. a flowing gradient title) - 10 ticks (0.5s) matches Multigainer's
-     * TabListManager.
+     * Returns text lines grouped per TEXT display, in the same order as the
+     * group's displays in hologram-groups.yml. Default implementation wraps
+     * getLines() as a single block, preserving behavior for providers with
+     * only one TEXT display. Override this for providers backing multiple
+     * TEXT displays (e.g. WelcomeHologramProvider).
      */
+    default List<List<String>> getLinesPerDisplay(UUID playerUuid, Player player) {
+        List<String> lines = getLines(playerUuid, player);
+        List<List<String>> wrapped = new ArrayList<>();
+        wrapped.add(lines);
+        return wrapped;
+    }
+    default java.util.Set<Integer> getDynamicDisplayIndices() {
+        return null;
+    }
+
+    /**
+     * Loading-state equivalent of getLinesPerDisplay().
+     */
+    default List<List<String>> getLoadingLinesPerDisplay() {
+        List<List<String>> wrapped = new ArrayList<>();
+        wrapped.add(getLoadingLines());
+        return wrapped;
+    }
+
     default long getRefreshIntervalTicks() {
         return 40L;
     }

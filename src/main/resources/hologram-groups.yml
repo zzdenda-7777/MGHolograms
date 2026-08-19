@@ -192,44 +192,28 @@ groups:
     displays:
       - type: TEXT
         y_offset: -0.5
-        scale: 1.75
+        scale: 1.55
         background: transparent
         lines:
           - §a§l§nTOTAL DONATIONS
           - §f
-          - §e§l🥇 §fAzuchi_ §8» §a$109.99
-          - §7§l🥈 §fQCEP §8» §a$86.97
-          - §6§l🥉 §fAmyLovesCoffee §8» §a$75.46
-          - §74. §fBlackGru §8» §a$34.48
-          - §75. §f130Ping §8» §a$19.99
-          - §76. §fvilageer §8» §a$19.99
-          - §77. §fSupeEvilSantio71 §8» §a$15.97
-          - §78. §fvr0xe §8» §a$10.47
-          - §79. §fLunerHive §8» §a$3.98
+          - §6§l🥇 §fAmyLovesCoffee §8» §a$239.4
+          - §e§l🥈 §fQCEP §8» §a$196.96
+          - §7§l🥉 §fAzuchi_ §8» §a$109.99
+          - §74. §fvr0xe §8» §a$40.93
+          - §75. §fBlackGru §8» §a$34.48
+          - §76. §fvilageer §8» §a$22.48
+          - §77. §f130Ping §8» §a$19.99
+          - §78. §fHDCFerb §8» §a$19.99
+          - §79. §fSupeEvilSantio71 §8» §a$18.46
+          - §710. §fGo3erserk §8» §a$8.48
+          - §711. §fLunerHive §8» §a$3.98
           - §f
           - §e§lThank you all for your support!
           - §7&omultigainer2.tebex.io
 
 
-  Welcome:
-    world: voidworld
-    x: 78.9595836663512
-    y: 190.0
-    z: -119.01297676334974
-    yaw: -125.99927
-    pitch: 3.900034
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 0.8
-        background: transparent
-        lines:
-          - '{title}'
-          - '&fWelcome §e§l{player}!§f'
-          - ''
-          - §fYour goal is to reach as much §a§lMONEY§f as possible.
-          - '&fIf you have any questions contact §6§lSTAFF MEMBERS§f.'
-          - For start follow §a§lTUTORIAL§f on top of the screen.
+
 
 
   # ==============================================================================
@@ -252,6 +236,21 @@ groups:
         background: transparent
         lines:
           - §e§lTIER PTS
+
+  artitetrationmulti:
+    world: voidworld
+    x: 45.5
+    y: 173.1
+    z: -44.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        lines:
+          - §b§lTETRATION MULTI
 
   artirebirthpts:
     world: voidworld
@@ -950,26 +949,29 @@ groups:
 
   GIVEAWAY:
     world: voidworld
-    x: 89.96517839800617
-    y: 173.5
-    z: -30.495861372707413
-    yaw: 90.03514
-    pitch: 1.6499742
+    x: 89.8
+    y: 172.0
+    z: -30.5
+    yaw: 90.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: -0.5
         scale: 1.5
         background: transparent
         lines:
-          - §5§l§nGIVEAWAYS
-          - §e§lPRO GAINERPASS
-          - §fTOTAL 3 WINNERS
-          - §fEnds in §e30.7. at 7:40 UTC
-          - §5--------------------------
-          - §6§lMASTER RANK
-          - §fTOTAL 2 WINNERS
-          - §fEnds in §61.8. at 9:00 UTC
-          - §9§oMore info on /DISCORD
+          - §5§l§nGIVEAWAY
+          - §7TOTAL §5§l10 §7WINNERS
+          - §4§l350 Rubies
+          - §7Stay tuned on §9/discord
+          - §f
+          - §f
+          - §f§9§o
+          - §f
+          - §f
+          - §f
+          - §f
+          - §f
 
   Event:
     world: voidworld
@@ -985,23 +987,29 @@ groups:
         background: transparent
         lines:
           - §9§l§nEVENTS&f
-          - §4§lRED &a&lGREEN &fLIGHT
-          - §e🕗 §f1.8. 20:00 UTC §e🕗
-      ## §4§lRED &a&lGREEN &fLIGHT
-      ## §e🕢 §f1.8. 19:30 UTC §e🕢
-      ##
-      ##§4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
-      ##§f28.7. 19:30 UTC
-      ##§9§l--------------
-      ## §e🕖 §fX.8. 19:00 UTC §e🕖
-      ## §e🕢 §fX.8. 19:30 UTC §e🕢
-      ## §e🕗 §fX.8. 20:00 UTC §e🕗
-      ## §e🕣 §fX.8. 20:30 UTC §e🕣
-      ## §e🕘 §fX.8. 21:00 UTC §e🕘
-      ## §e🕤 §fX.8. 21:30 UTC §e🕤
-      ## §e🕙 §fX.8. 22:00 UTC §e🕙
+          - §7Stay tuned on §9/discord
+          - §4
+          - §e
+          - §7
 
-  # =========================================================================================================
+    # §7Stay tuned on §9/discord
+    # §4§lRED &a&lGREEN &fLIGHT
+    # §e🕗 §f1.8. 20:00 UTC §e🕗
+    # # §4§lRED &a&lGREEN &fLIGHT
+    # # §e🕢 §f1.8. 19:30 UTC §e🕢
+    # #
+    # #§4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
+    # #§f28.7. 19:30 UTC
+    # #§9§l--------------
+    # # §e🕖 §fX.8. 19:00 UTC §e🕖
+    # # §e🕢 §fX.8. 19:30 UTC §e🕢
+    # # §e🕗 §fX.8. 20:00 UTC §e🕗
+    # # §e🕣 §fX.8. 20:30 UTC §e🕣
+    # # §e🕘 §fX.8. 21:00 UTC §e🕘
+    # # §e🕤 §fX.8. 21:30 UTC §e🕤
+    # # §e🕙 §fX.8. 22:00 UTC §e🕙
+
+    # =========================================================================================================
   #                      STAFF NAMES HOLOGRAM CONFIGURATION
   # =========================================================================================================
 
@@ -1113,3 +1121,734 @@ groups:
         x_offset: 0.0
         z_offset: 0.0
 
+  # =========================================================================================================
+  #                      SAPLING AREAS HOLOGRAM CONFIGURATION
+  # =========================================================================================================
+
+  oakplants:
+    world: voidworld
+    x: 100.5
+    y: 208.0
+    z: -51.0
+    yaw: 52.531494
+    pitch: 6.7499466
+    displays:
+      - background: transparent
+        scale: 1
+        type: ITEM
+        material: OAK_SAPLING
+        x_offset: 0.0
+        y_offset: -0.7
+        z_offset: 0.0
+      - background: '#000000'
+        scale: 2.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 0.3
+        z_offset: 0.0
+        lines:
+          - §x§A§B§8§A§7§B§lOAK PLANTS§f
+      - background: transparent
+        scale: 2
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.18
+        z_offset: 0.0
+        lines:
+          - §7§oEntry here is §x§A§B§8§A§7§BFREE
+
+  spruceplants:
+    world: voidworld
+    x: 84.54072456794536
+    y: 208.0
+    z: -51.37202205695561
+    yaw: -45.728333
+    pitch: 3.5999742
+    displays:
+      - background: transparent
+        scale: 1
+        type: ITEM
+        material: SPRUCE_SAPLING
+        x_offset: 0.0
+        y_offset: -0.7
+        z_offset: 0.0
+      - background: '#000000'
+        scale: 2.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.8
+        z_offset: 0.0
+        lines:
+          - §x§5§D§4§F§3§C§lSPRUCE PLANTS§f
+      - background: transparent
+        scale: 2
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.18
+        z_offset: 0.0
+        lines:
+          - §7Grove lvl §x§5§D§4§F§3§C20
+          - §7Planted §x§5§D§4§F§3§C100x T4 Oak
+          - §f
+          - §7Cost §c500§7 Apples
+
+  birchplants:
+    world: voidworld
+    x: 84.53396350111123
+    y: 208.0
+    z: -36.65898977511943
+    yaw: -134.47636
+    pitch: 3.4334078
+    displays:
+      - background: transparent
+        scale: 1
+        type: ITEM
+        material: BIRCH_SAPLING
+        x_offset: 0.0
+        y_offset: -0.7
+        z_offset: 0.0
+      - background: '#000000'
+        scale: 2.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.8
+        z_offset: 0.0
+        lines:
+          - §x§D§9§C§6§A§C§lBIRCH PLANTS§f
+      - background: transparent
+        scale: 2
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.18
+        z_offset: 0.0
+        lines:
+          - §7Grove lvl §x§D§9§C§6§A§C50
+          - §7Planted §x§D§9§C§6§A§C250x T4 Spruce
+          - §f
+          - §7Cost §c5k§7 Apples
+
+  acaciaplants:
+    world: voidworld
+    x: 100.5296227953504
+    y: 208.0
+    z: -37.38557003640224
+    yaw: 131.12213
+    pitch: 2.6999598
+    displays:
+      - background: transparent
+        scale: 1
+        type: ITEM
+        material: ACACIA_SAPLING
+        x_offset: 0.0
+        y_offset: -0.7
+        z_offset: 0.0
+      - background: '#000000'
+        scale: 2.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.8
+        z_offset: 0.0
+        lines:
+          - §x§D§D§7§2§4§0§lACACIA PLANTS§f
+      - background: transparent
+        scale: 2
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.18
+        z_offset: 0.0
+        lines:
+          - §7Grove lvl §x§D§D§7§2§4§0100
+          - §7Planted §x§D§D§7§2§4§01kx T4 Birch
+          - §f
+          - §7Cost §c250k§7 Apples
+
+  tierupsapling:
+    world: voidworld
+    x: 84.1
+    y: 205.9
+    z: -44.5
+    yaw: -90.0
+    pitch: 0.0
+    displays:
+      - background: '#000000'
+        scale: 1.8
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.0
+        z_offset: 0.0
+        lines:
+          - §a§lMERGING AREA§f
+      - background: transparent
+        scale: 1.2
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 0.0
+        z_offset: 0.0
+        lines:
+          - §7Tier 1 §f-> §7Tier 2 §f•§7  5 saplings
+          - §7Tier 2 §f-> §7Tier 3 §f•§7 15 saplings
+          - §7Tier 3 §f-> §7Tier 4 §f•§7 60 saplings
+
+  # ------------------------------------------------------------------------------ #
+  # -----------------------------------SAPLINGS----------------------------------- #
+  # ------------------------------------------------------------------------------ #
+
+  acaciasapling:
+    world: voidworld
+    x: 115
+    y: 208.0
+    z: -23.0
+    yaw: 140
+    pitch: 0.0
+    displays:
+      - background: '#000000'
+        scale: 3.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.2
+        z_offset: 0.0
+        lines:
+          - §x§D§D§7§2§4§0§lACACIA AREA§f
+      - background: transparent
+        scale: 3
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.35
+        z_offset: 0.0
+        lines:
+          - §7Apples §x§D§D§7§2§4§05x
+          - §7Log Multi §x§D§D§7§2§4§07.5x
+
+  oaksapling:
+    world: voidworld
+    x: 118.5
+    y: 204.5
+    z: -69.5
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - background: '#000000'
+        scale: 3.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.05
+        z_offset: 0.0
+        lines:
+          - §x§A§B§8§A§7§B§lOAK AREA§f
+      - background: transparent
+        scale: 3
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.4
+        z_offset: 0.0
+        lines:
+          - §7Apples §x§A§B§8§A§7§B1x
+          - §7Log Multi §x§A§B§8§A§7§B1x
+
+  sprucesapling:
+    world: voidworld
+    x: 75.0
+    y: 206
+    z: -63.0
+    yaw: -44
+    pitch: 0.0
+    displays:
+      - background: '#000000'
+        scale: 3.5
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.2
+        z_offset: 0.0
+        lines:
+          - §x§5§D§4§F§3§C§lSPRUCE AREA§f
+      - background: transparent
+        scale: 3
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.35
+        z_offset: 0.0
+        lines:
+          - §7Apples §x§5§D§4§F§3§C1.25x
+          - §7Log Multi §x§5§D§4§F§3§C1.35x
+
+  birchsapling:
+    world: voidworld
+    x: 65
+    y: 207.0
+    z: -14.0
+    yaw: -140
+    pitch: 0.0
+    displays:
+      - background: '#000000'
+        scale: 4
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1.7
+        z_offset: 0.0
+        lines:
+          - §x§D§9§C§6§A§C§lBIRCH AREA§f
+      - background: transparent
+        scale: 4
+        type: TEXT
+        x_offset: 0.0
+        y_offset: -0.35
+        z_offset: 0.0
+        lines:
+          - §7Apples §x§D§9§C§6§A§C2x
+          - §7Log Multi §x§D§9§C§6§A§C2.5x
+
+
+  # ------------------------------------------------------------------------------ #
+  # -----------------------------------SAPLING TALISMANS-------------------------- #
+  # ------------------------------------------------------------------------------ #
+  oaktalisman:
+    world: voidworld
+    x: 108.5
+    y: 206.0
+    z: -57.5
+    yaw: 49.19751
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §x§A§B§8§A§7§B§lOAK TALISMAN
+
+  birchtalisman:
+    world: voidworld
+    x: 74.5
+    y: 205.0
+    z: -26.5
+    yaw: -134.25252
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §x§D§9§C§6§A§C§lBIRCH TALISMAN
+
+  sprucetalisman:
+    world: voidworld
+    x: 79.5
+    y: 206.0
+    z: -56.5
+    yaw: -46.35247
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §x§5§D§4§F§3§C§lSPRUCE TALISMAN
+
+  acaciatalisman:
+    world: voidworld
+    x: 107.5
+    y: 206.0
+    z: -31.5
+    yaw: 131.99799
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §x§D§D§7§2§4§0§lACACIA TALISMAN
+
+
+  # ------------------------------------------------------------------------------ #
+  # -----------------------------------MAIN HOLO SAPLING -------------------------- #
+  # ------------------------------------------------------------------------------ #
+
+  welcomesapling:
+    world: voidworld
+    x: 100.5
+    y: 206.0
+    z: -44.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - background: transparent
+        scale: 0.5
+        type: ITEM
+        material: OAK_SAPLING
+        x_offset: 0.0
+        y_offset: -0.3
+        z_offset: -0.9
+      - background: transparent
+        scale: 0.5
+        type: ITEM
+        material: SPRUCE_SAPLING
+        x_offset: 0.0
+        y_offset: -0.3
+        z_offset: -0.4
+      - background: transparent
+        scale: 0.5
+        type: ITEM
+        material: BIRCH_SAPLING
+        x_offset: 0.0
+        y_offset: -0.3
+        z_offset: 0.5
+      - background: transparent
+        scale: 0.5
+        type: ITEM
+        material: ACACIA_SAPLING
+        x_offset: 0.0
+        y_offset: -0.3
+        z_offset: 0.99
+      - background: '#000000'
+        scale: 4
+        type: TEXT
+        x_offset: 0.0
+        y_offset: 1
+        z_offset: 0.0
+        lines:
+          - §a§lGROVE
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §7Inside §a/grove§7 you will find everything
+          - §7Exchange your §alogs §7for §atalismans§7 (offhand only)
+          - §7Exchange your apples inside the §a/appleshop
+
+  starthere:
+    world: voidworld
+    x: 100.5
+    y: 205.7
+    z: -47.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1.3
+        background: transparent
+        billboard: CENTER
+        lines:
+          - §a§l<---- §7§oStart here
+
+
+
+  Welcome:
+    world: voidworld
+    x: 398.5104843206249
+    y: 214.0
+    z: 245.95082889982285
+    yaw: -179.73425
+    pitch: 1.3499933
+    displays:
+      - type: TEXT
+        y_offset: 4.0
+        scale: 4.2
+        background: '#40000000'
+        lines:
+          - '{title}'
+      - type: TEXT
+        y_offset: 2.8
+        scale: 1.8
+        background: transparent
+        lines:
+          - '&fWelcome §6§l{player}§f!'
+      - type: TEXT
+        y_offset: 1.8
+        scale: 1.8
+        background: transparent
+        lines:
+          - '&8§m                    §f'
+      - type: TEXT
+        y_offset: 0.69
+        scale: 1.8
+        background: '#30000000'
+        lines:
+          - '&fYour goal is to reach as much'
+          - §a§lMONEY§f as possible.
+      - type: TEXT
+        y_offset: 0.1
+        scale: 1.8
+        background: transparent
+        lines:
+          - '&8§m                    §f'
+      - type: TEXT
+        y_offset: -0.9
+        scale: 1.8
+        background: transparent
+        lines:
+          - '&fNeed help? Do §6§l/guide§f'
+      - type: TEXT
+        y_offset: -2.1
+        scale: 1.5
+        background: '#40000000'
+        lines:
+          - '&a§oTo start, follow §a§lTUTORIAL§a§o on top of the screen.'
+
+
+  Mines:
+    world: voidworld
+    x: 398.49
+    y: 217
+    z: 182.48
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 11.2
+        scale: 8.8
+        background: '#40000000'
+        lines:
+          - '&#D97C5ECOPPER MINES'
+      - type: TEXT
+        y_offset: 8.4
+        scale: 6.0
+        background: transparent
+        lines:
+          - '&fMultipliers'
+      - type: TEXT
+        y_offset: 7.6
+        scale: 7.2
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: 3.68
+        scale: 7.2
+        background: '#30000000'
+        lines:
+          - '&7 Gems: &#D97C5E5x '
+          - '&7 XP: &#D97C5E10x '
+      - type: TEXT
+        y_offset: 1.48
+        scale: 7.2
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.8
+        scale: 7.2
+        background: transparent
+        lines:
+          - §fNext mine
+          - '§a§l🔓§f§c Req: §a§l✔ §fIron Pickaxe &  §a§l✔ §fTier 5'
+      - type: TEXT
+        y_offset: -4.9
+        scale: 6.0
+        background: '#40000000'
+        lines:
+          - '&7§oChange your Mines in &f§l/mines'
+
+  checkmines:
+    world: voidworld
+    x: 370.57104632312706
+    y: 215.58630420798022
+    z: 180.69726626341483
+    yaw: -0.125
+    pitch: -5.051965
+    displays:
+      - type: TEXT
+        y_offset: -0.5
+        scale: 1.55
+        background: transparent
+        lines:
+          - '&4&l&nMINES INFO - MINES INFO - MINES INFO - MINES INFO - MINES INFO - MINES
+        INFO - MINES INFO  '
+          - '&#A3A3A3COBBLESTONE MINES  gems: 1x | xp: 1x Cobblestone req: pickaxe'
+          - '&#7F7F7FCOBBLED DEEPSLATE MINES  gems: 2x | xp: 2x cobbled deepslate - req:
+        stone pickaxe'
+          - '&#D97C5ECOPPER MINES  gems: 4x | xp: 3x copper req: stone pickaxe'
+          - '&#4B5320COPPER DEEPSLATE MINES  gems: 6x | xp: 4x copper deepslate req: stone
+        pickaxe'
+          - '&#222222COAL MINES  gems: 10x | xp: 5x coal req: copper pickaxe'
+          - '&#1A1A1ACOAL DEEPSLATE MINES  gems: 15x | xp: 7x coal deep req: copperpickaxe'
+          - '&#D8D8D8IRON MINES  gems: 25x | xp: 9x iron req: copper pickaxe'
+          - '&#505050IRON DEEPSLATE MINES  gems: 40x | xp: 11x iron deep req: iron pickaxe'
+          - '&#FF2222REDSTONE MINES  gems: 70x | xp: 13x redstone req: iron pickaxe'
+          - '&#990000REDSTONE DEEPSLATE MINES  gems: 120x | xp: 15x redstone deep req:
+        dia pickaxe'
+          - '&#1B3984LAPIS MINES  gems: 200x | xp: 18x lapis req: dia pickaxe'
+          - '&#0D1B42LAPIS DEEPSLATE MINES  gems: 450x | xp: 25x lapis deep req: dia pickaxe'
+          - '&#E5C158GOLD MINES  gems: 1kx | xp: 35x  gold req: netherite pickaxe'
+          - '&#B89728GOLD DEEPSLATE MINES  gems: 2.5kx | xp: 50x  gold deep req: netherite
+        pickaxe'
+          - '&#55FFFFDIAMOND MINES  gems: 10kx | xp: 75x  dia req: gold pickaxe'
+          - '&#00AAAAREINFORCED DIAMOND MINES  gems: 50kx | xp: 150x  dia deep req: pickaxe'
+          - '&#1A1A1ANETHERITE MINES gems: 1mx | xp: 1kx  netherite req: pickaxe'
+
+
+  Welcomespawn:
+    world: voidworld
+    x: 78.9595836663512
+    y: 190.0
+    z: -119.01297676334974
+    yaw: -125.99927
+    pitch: 3.900034
+    displays:
+      - type: TEXT
+        y_offset: 0.0
+        scale: 1
+        background: transparent
+        lines:
+          - '&#FFC100&lM&#E9B000&lu&#D29F00&ll&#BC8E00&lt&#D29F00&li&#E9B100&lG&#FFC200&la&#E9B100&li&#D29F00&ln&#BC8E00&le&#D29F00&lr
+        &#FFC100&l2'
+          - ''
+          - §f
+          - §fYour goal is to reach as much §a§lMONEY§f as possible.
+          - '&fIf you have any questions contact §6§lSTAFF MEMBERS§f.'
+          - For start follow §a§lTUTORIAL§f on top of the screen.
+
+
+  # ------------------------------------------------------------------------------ #
+  # -----------------------------------MAIN HOLO SHOVELING -------------------------- #
+  # ------------------------------------------------------------------------------ #
+
+  digprogress:
+    world: voidworld
+    x: 664.8810056479007
+    y: 229.66019162598383
+    z: -99.31891816066621
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 2.10
+        scale: 1.40
+        background: '#40000000'
+        lines:
+          - '&x&B&F&9&7&1&1&lDIG PROGRESS'
+      - type: TEXT
+        y_offset: 1.70
+        scale: 1.00
+        background: transparent
+        lines:
+          - '&fArea Overview'
+      - type: TEXT
+        y_offset: 1.40
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.83
+        scale: 1.15
+        background: '#30000000'
+        lines:
+          - '§fDestroyed 100/10k §7(1%)'
+          - '§fReseting in 8 minutes 5 seconds'
+      - type: TEXT
+        y_offset: 0.45
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.10
+        scale: 1.00
+        background: '#40000000'
+        lines:
+          - '&7§oKeep digging to reset faster'
+
+  digblocks:
+    world: voidworld
+    x: 674.8810056479007
+    y: 229.66019162598383
+    z: -99.31891816066621
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 2.30
+        scale: 1.40
+        background: '#40000000'
+        lines:
+          - '&x&B&F&9&7&1&1&lBLOCK LAYERS'
+      - type: TEXT
+        y_offset: 1.90
+        scale: 1.00
+        background: transparent
+        lines:
+          - '&fSpawn Chances by Depth'
+      - type: TEXT
+        y_offset: 1.60
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.58
+        scale: 1.15
+        background: '#30000000'
+        lines:
+          - '§6§l1-25 §7Dirt §a90% §7Podzol §a10%'
+          - '§6§l26-50 §7Dirt §a80% §7Podzol §a20%'
+          - '§6§l51-75 §7Dirt §a65% §7Podzol §a30% §7Myc §a5%'
+          - '§6§l76-100 §7Dirt §a50% §7Podzol §a35% §7Myc §a15%'
+      - type: TEXT
+        y_offset: 0.35
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.05
+        scale: 1.00
+        background: '#40000000'
+        lines:
+          - '&7§oDeeper layers hold rarer soil'
+
+  digrestats:
+    world: voidworld
+    x: 684.8810056479007
+    y: 229.66019162598383
+    z: -99.31891816066621
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 2.10
+        scale: 1.40
+        background: '#40000000'
+        lines:
+          - '&x&B&F&9&7&1&1&lDIG STATISTICS'
+      - type: TEXT
+        y_offset: 1.70
+        scale: 1.00
+        background: transparent
+        lines:
+          - '&fPer Block Gains'
+      - type: TEXT
+        y_offset: 1.40
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.65
+        scale: 1.15
+        background: '#30000000'
+        lines:
+          - '§fSoil &x&B&F&9&7&1&1&l1x'
+          - '§fHP §c5'
+          - '§fXP §b1x'
+      - type: TEXT
+        y_offset: 0.45
+        scale: 1.15
+        background: transparent
+        lines:
+          - '&8§m                   '
+      - type: TEXT
+        y_offset: 0.10
+        scale: 1.00
+        background: '#40000000'
+        lines:
+          - '&7§oGains are fixed per block dug'

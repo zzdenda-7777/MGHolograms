@@ -147,9 +147,29 @@ public class PlayerHologramEngine {
     private void updatePlayerHologramText(Player player, UUID uuid, HologramGroup group) {
         de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
 
+        java.util.Set<Integer> dynamicIndices = contentProvider.getDynamicDisplayIndices();
+
+        List<List<String>> linesPerDisplay = contentProvider.getLinesPerDisplay(uuid, player);
+        if (linesPerDisplay == null || linesPerDisplay.isEmpty()) {
+            linesPerDisplay = contentProvider.getLoadingLinesPerDisplay();
+        }
+        int textBlockIndex = 0;
+
         for (int i = 0; i < group.getDisplays().size(); i++) {
             Display display = group.getDisplays().get(i);
             if (display.getType() != DisplayType.TEXT) continue;
+
+            int currentBlockIndex = textBlockIndex;
+            textBlockIndex++;
+
+            // Přeskoč bloky, které se nikdy nemění (žádný lookup, žádný packet)
+            if (dynamicIndices != null && !dynamicIndices.contains(currentBlockIndex)) {
+                continue;
+            }
+
+            List<String> textLines = currentBlockIndex < linesPerDisplay.size()
+                    ? linesPerDisplay.get(currentBlockIndex)
+                    : List.of();
 
             String name = hologramName(uuid) + "_" + i;
             Optional<Hologram> holoOpt = manager.getHologram(name);
@@ -164,10 +184,6 @@ public class PlayerHologramEngine {
 
             Hologram hologram = holoOpt.get();
             if (hologram.getData() instanceof TextHologramData textData) {
-                List<String> textLines = contentProvider.getLines(uuid, player);
-                if (textLines == null) {
-                    textLines = contentProvider.getLoadingLines();
-                }
                 textData.setText(textLines);
                 hologram.refreshHologram(player);
             }
@@ -179,6 +195,12 @@ public class PlayerHologramEngine {
         hologramCreationCount.put(player.getUniqueId(), count + 1);
 
         de.oliver.fancyholograms.api.HologramManager manager = FancyHologramsPlugin.get().getHologramManager();
+
+        List<List<String>> linesPerDisplay = contentProvider.getLinesPerDisplay(player.getUniqueId(), player);
+        if (linesPerDisplay == null || linesPerDisplay.isEmpty()) {
+            linesPerDisplay = contentProvider.getLoadingLinesPerDisplay();
+        }
+        int textBlockIndex = 0;
 
         for (int i = 0; i < group.getDisplays().size(); i++) {
             Display display = group.getDisplays().get(i);
@@ -199,10 +221,10 @@ public class PlayerHologramEngine {
             );
 
             if (display.getType() == DisplayType.TEXT) {
-                List<String> textLines = contentProvider.getLines(player.getUniqueId(), player);
-                if (textLines == null) {
-                    textLines = contentProvider.getLoadingLines();
-                }
+                List<String> textLines = textBlockIndex < linesPerDisplay.size()
+                        ? linesPerDisplay.get(textBlockIndex)
+                        : List.of();
+                textBlockIndex++;
 
                 TextHologramData textData = new TextHologramData(name, displayLocation);
                 textData.setText(textLines);

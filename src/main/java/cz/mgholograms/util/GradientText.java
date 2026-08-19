@@ -21,7 +21,7 @@ public final class GradientText {
     private static final int[] STOPS = {0xC45100, 0xD97200, 0xEC9400, 0xFBB700, 0xFFD900, 0xFFFF00};
 
     // Full wave-travel cycle length - matches Multigainer's TabListManager cadence (10 ticks/0.5s per step).
-    private static final long PERIOD_MILLIS = 12_000L;
+    private static final long PERIOD_MILLIS = 5_000L;
 
     /**
      * Builds a bold, animated triangle-gradient string for {@code word}
@@ -45,7 +45,7 @@ public final class GradientText {
                 sb.append(' ');
                 continue;
             }
-            double t = (len <= 1) ? 0.0 : triangle((double) i / (len - 1) + phase);
+            double t = (len <= 1) ? 0.0 : triangle((double) i / (len - 1) - phase);
             sb.append(legacyHex(colorAt(t))).append("§l").append(c);
         }
         sb.append(suffix);
