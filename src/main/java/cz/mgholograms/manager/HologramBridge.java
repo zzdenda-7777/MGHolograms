@@ -13,6 +13,7 @@ import cz.mgholograms.manager.bridge.content.EventHologramProvider;
 import cz.mgholograms.manager.bridge.content.ParkourPersonalHologramProvider;
 import cz.mgholograms.manager.bridge.content.ParkourWeeklyHologramProvider;
 import cz.mgholograms.manager.bridge.content.ParkourLifetimeHologramProvider;
+import cz.mgholograms.manager.bridge.content.MinesHologramProvider;
 import cz.mgholograms.manager.bridge.core.PlayerHologramEngine;
 import org.bukkit.Location;
 
@@ -38,8 +39,8 @@ public class HologramBridge {
     // a StaticGroupEngine for Production/Tier/Income too - which then never gets cleaned up
     // because it uses different (per-player) hologram names than the legacy cleanup logic expects.
     private static final java.util.Set<String> MANAGED_GROUP_IDS =
-                java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome", "GIVEAWAY", "Event",
-                        "ParkourPersonal", "ParkourWeekly", "ParkourLifetime");
+            java.util.Set.of("Production", "Tier", "Income", "Rebirth", "AFK", "Welcome", "GIVEAWAY", "Event",
+                    "ParkourPersonal", "ParkourWeekly", "ParkourLifetime", "Mines");
 
     private final MGHolograms plugin;
     private final cz.mgholograms.manager.HologramManager hologramManager;
@@ -64,6 +65,7 @@ public class HologramBridge {
         ParkourPersonalHologramProvider parkourPersonalProvider = new ParkourPersonalHologramProvider(plugin, hologramManager);
         ParkourWeeklyHologramProvider parkourWeeklyProvider = new ParkourWeeklyHologramProvider(plugin, hologramManager);
         ParkourLifetimeHologramProvider parkourLifetimeProvider = new ParkourLifetimeHologramProvider(plugin, hologramManager);
+        MinesHologramProvider minesProvider = new MinesHologramProvider(plugin, hologramManager);
         AfkHologramProvider afkProvider = new AfkHologramProvider(plugin, hologramManager);
         WelcomeHologramProvider welcomeProvider = new WelcomeHologramProvider(plugin, hologramManager);
         GiveawayHologramProvider giveawayProvider = new GiveawayHologramProvider(plugin, hologramManager);
@@ -77,6 +79,7 @@ public class HologramBridge {
         ensureConfigEntry("ParkourPersonal", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("ParkourWeekly", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("ParkourLifetime", "voidworld", 0.0, 0.0, 0.0);
+        ensureConfigEntry("Mines", "voidworld", 398.49, 217.0, 182.48);
         ensureConfigEntry("AFK", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("Welcome", "voidworld", 0.0, 0.0, 0.0);
         ensureConfigEntry("GIVEAWAY", "voidworld", 60.0, 175.0, 20.0);
@@ -104,8 +107,9 @@ public class HologramBridge {
 
         // Check if multigainer is available
         if (productionProvider.getMultigainer() == null && tierProvider.getMultigainer() == null
-                && incomeProvider.getMultigainer() == null && rebirthProvider.getMultigainer() == null) {
-            plugin.getLogger().warning("Multigainer plugin not found - Production/Tier/Income/Rebirth holograms disabled. "
+                && incomeProvider.getMultigainer() == null && rebirthProvider.getMultigainer() == null
+                && minesProvider.getMultigainer() == null) {
+            plugin.getLogger().warning("Multigainer plugin not found - Production/Tier/Income/Rebirth/Mines holograms disabled. "
                     + "Make sure 'multigainer' is installed and loaded before MGHolograms.");
             return;
         }
@@ -118,6 +122,7 @@ public class HologramBridge {
         PlayerHologramEngine parkourPersonalEngine = new PlayerHologramEngine(plugin, hologramManager, parkourPersonalProvider);
         PlayerHologramEngine parkourWeeklyEngine = new PlayerHologramEngine(plugin, hologramManager, parkourWeeklyProvider);
         PlayerHologramEngine parkourLifetimeEngine = new PlayerHologramEngine(plugin, hologramManager, parkourLifetimeProvider);
+        PlayerHologramEngine minesEngine = new PlayerHologramEngine(plugin, hologramManager, minesProvider);
 
         engines.put("Production", productionEngine);
         engines.put("Tier", tierEngine);
@@ -126,6 +131,7 @@ public class HologramBridge {
         engines.put("ParkourPersonal", parkourPersonalEngine);
         engines.put("ParkourWeekly", parkourWeeklyEngine);
         engines.put("ParkourLifetime", parkourLifetimeEngine);
+        engines.put("Mines", minesEngine);
 
         // Initialize engines
         productionEngine.init();
@@ -135,8 +141,9 @@ public class HologramBridge {
         parkourPersonalEngine.init();
         parkourWeeklyEngine.init();
         parkourLifetimeEngine.init();
+        minesEngine.init();
 
-        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, ParkourPersonal, ParkourWeekly, ParkourLifetime, AFK, Welcome, GIVEAWAY and Event engines");
+        plugin.getLogger().info("HologramBridge initialized with Production, Tier, Income, Rebirth, ParkourPersonal, ParkourWeekly, ParkourLifetime, Mines, AFK, Welcome, GIVEAWAY and Event engines");
     }
 
     public void shutdown() {
@@ -254,6 +261,24 @@ public class HologramBridge {
                     "§f8. {p8} - {s8} jumps",
                     "§f9. {p9} - {s9} jumps",
                     "§f10. {p10} - {s10} jumps"
+            ));
+        } else if (groupId.equals("Mines")) {
+            // Note: "Mines" group actually has 6 separate TEXT displays in
+            // hologram-groups.yml (name / "Multipliers" label / separator /
+            // gems+xp / separator / next-mine+requirements / footer). This
+            // single-block fallback is only used if the group is entirely
+            // missing from the config - edit hologram-groups.yml directly to
+            // change the real per-display template.
+            displayData.put("lines", List.of(
+                    "{mine_name}",
+                    "&fMultipliers",
+                    "&8§m                    ",
+                    "&7 Gems: {mine_gems} ",
+                    "&7 XP: {mine_xp} ",
+                    "&8§m                    ",
+                    "{next_mine_line}",
+                    "{next_mine_req_line}",
+                    "&7§oChange your Mines in &f§l/mines"
             ));
         } else if (groupId.equals("ParkourLifetime")) {
             displayData.put("lines", List.of(

@@ -287,17 +287,21 @@ public class PlayerHologramEngine {
         return contentProvider.getGroupId() + "_" + uuid;
     }
 
+    // NOTE: intentionally does NOT add the first display's offset (unlike the
+    // old version of this method). Groups can have a large y_offset on their
+    // first TEXT display (e.g. "Mines", whose top line sits +11.2 above the
+    // group's base Y) - using that offset as the distance/line-of-sight check
+    // point could poke through a ceiling/roof and make the whole hologram
+    // invisible even though every display would otherwise render fine. The
+    // group's raw base location is used instead, exactly like
+    // StaticGroupEngine#templateLocation(), so behavior is consistent between
+    // bridge-managed and static groups.
     private Location templateLocation(HologramGroup group) {
-        Display display = group.getDisplays().isEmpty() ? null : group.getDisplays().get(0);
-        double xOff = display != null ? display.getXOffset() : 0.0;
-        double yOff = display != null ? display.getYOffset() : 0.0;
-        double zOff = display != null ? display.getZOffset() : 0.0;
-
         return new Location(
                 Bukkit.getWorld(group.getWorld()),
-                group.getX() + xOff,
-                group.getY() + yOff,
-                group.getZ() + zOff,
+                group.getX(),
+                group.getY(),
+                group.getZ(),
                 group.getYaw(),
                 group.getPitch()
         );
