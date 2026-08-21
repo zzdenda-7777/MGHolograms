@@ -7,6 +7,7 @@ import multigainer.multigainer.Multigainer;
 import multigainer.multigainer.data.PlayerProfile;
 import multigainer.multigainer.listeners.MiningListener;
 import multigainer.multigainer.tools.PickaxeManager;
+import multigainer.multigainer.personalmine.PersonalMineManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -77,12 +78,12 @@ public class MinesHologramProvider extends TemplateHologramProvider implements H
     }
 
     /**
-     * Only display blocks 0 (name), 3 (gems/xp) and 5 (next mine + requirements)
-     * are ever dynamic. 1, 2, 4, 6 are static labels/separators/footer.
+     * Only display blocks 0 (name), 3 (gems/xp) are ever dynamic.
+     * 1, 2, 4, 5 are static labels/separators/footer.
      */
     @Override
     public java.util.Set<Integer> getDynamicDisplayIndices() {
-        return java.util.Set.of(0, 3, 5);
+        return java.util.Set.of(0, 3);
     }
 
     @Override
@@ -94,8 +95,6 @@ public class MinesHologramProvider extends TemplateHologramProvider implements H
                 "&7 Gems: {mine_gems} ",
                 "&7 XP: {mine_xp} ",
                 "&8§m                    ",
-                "{next_mine_line}",
-                "{next_mine_req_line}",
                 "&7§oChange your Mines in &f§l/mines"
         );
     }
@@ -125,8 +124,6 @@ public class MinesHologramProvider extends TemplateHologramProvider implements H
         values.put("mine_name", "&7Loading...");
         values.put("mine_gems", "&7-");
         values.put("mine_xp", "&7-");
-        values.put("next_mine_line", "");
-        values.put("next_mine_req_line", "");
         return renderPerDisplay(values);
     }
 
@@ -159,34 +156,6 @@ public class MinesHologramProvider extends TemplateHologramProvider implements H
             values.put("mine_name", "&#" + hex + name);
             values.put("mine_gems", "&#" + hex + formatMulti(gemsMulti) + "x");
             values.put("mine_xp", "&#" + hex + formatMulti(xpMulti) + "x");
-
-            int nextIndex = index + 1;
-            if (nextIndex >= PickaxeManager.BLOCKS.length) {
-                // Already on the last (Netherite) mine - nothing further to unlock.
-                values.put("next_mine_line", "§a§l✔ §aMax mine unlocked!");
-                values.put("next_mine_req_line", "");
-            } else {
-                int requiredPickaxeTier = PickaxeManager.getMinTierForBlock(nextIndex);
-                String requiredPickaxeName = PickaxeManager.TIER_NAMES[requiredPickaxeTier] + " Pickaxe";
-                boolean pickaxeMet = profile.getPickaxeTier() >= requiredPickaxeTier;
-
-                int requiredTier = MiningListener.BLOCK_TIER_REQUIREMENTS[nextIndex];
-                boolean tierMet = profile.getTier() >= requiredTier;
-
-                boolean bothMet = pickaxeMet && tierMet;
-
-                values.put("next_mine_line", bothMet
-                        ? "§a§l✔ §aYou can buy next mine"
-                        : "§fNext mine");
-
-                String lockIcon = bothMet ? "§a§l🔓" : "§c§l🔒";
-                String pickaxeCheck = pickaxeMet ? "§a§l✔" : "§c§l✖";
-                String tierCheck = tierMet ? "§a§l✔" : "§c§l✖";
-
-                values.put("next_mine_req_line", lockIcon + "§f§c Req: "
-                        + pickaxeCheck + " §f" + requiredPickaxeName
-                        + " &  " + tierCheck + " §fTier " + requiredTier);
-            }
 
             return new MinesData(values);
         } catch (Exception e) {

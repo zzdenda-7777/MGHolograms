@@ -21,7 +21,9 @@
       "Exec(javap)",
       "Exec(mkdir)",
       "Exec(mvn clean)",
-      "Exec(rm)"
+      "Exec(rm)",
+      "Exec(git diff)",
+      "Exec(findstr)"
     ]
   }
 }
