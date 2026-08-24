@@ -6,6 +6,7 @@ import cz.mgholograms.model.DisplayType;
 import cz.mgholograms.model.HologramGroup;
 
 import java.util.ArrayList;
+import org.bukkit.ChatColor;
 import java.util.List;
 import java.util.Map;
 
@@ -84,7 +85,13 @@ public abstract class TemplateHologramProvider {
                                     rendered = rendered.replace("{" + entry.getKey() + "}", entry.getValue());
                                 }
                             }
-                            rendered = rendered.replaceAll("\\{[^}]*\\}", "").trim();
+                            rendered = rendered.replaceAll("\\{[^}]*\\}", "");
+                            if (rendered.trim().isEmpty()) {
+                                // Preserve an empty-looking line so hologram APIs don't drop it
+                                rendered = " ";
+                            } else {
+                                rendered = ChatColor.translateAlternateColorCodes('&', rendered);
+                            }
                             blockLines.add(rendered);
                         }
                         result.add(blockLines);
@@ -117,8 +124,13 @@ public abstract class TemplateHologramProvider {
                 }
             }
 
-            // Remove any remaining unreplaced placeholders
-            rendered = rendered.replaceAll("\\{[^}]*\\}", "").trim();
+            // Remove any remaining unreplaced placeholders (but keep an empty line)
+            rendered = rendered.replaceAll("\\{[^}]*\\}", "");
+            if (rendered.trim().isEmpty()) {
+                rendered = " ";
+            } else {
+                rendered = ChatColor.translateAlternateColorCodes('&', rendered);
+            }
 
             result.add(rendered);
         }

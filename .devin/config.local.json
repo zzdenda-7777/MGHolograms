@@ -23,7 +23,8 @@
       "Exec(mvn clean)",
       "Exec(rm)",
       "Exec(git diff)",
-      "Exec(findstr)"
+      "Exec(findstr)",
+      "Exec(mvn compile)"
     ]
   }
 }

@@ -1,94 +1,8 @@
 groups:
 
-  # =========================================================================================================
-  #                      REBIRTH, TIER, PRODUCTION, INCOME HOLOGRAM CONFIGURATION
-  # =========================================================================================================
-  Production:
-    world: voidworld
-    x: 39.0
-    y: 174.3
-    z: -30.5
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - §e§l§nPRODUCTION
-          - §fYour level is §e{level}
-          - §fYour worker's XP is §e{work_xp} §f/ §e{xp_for_next}
-          - §fYour production rate is §e{energy_per_min} §f⚡/min
-          - §f§lYour stored energy is §f{stored_energy} §e⚡
-          - ''
-          - ''
-  Staffroom:
-    world: voidworld
-    x: 57.5
-    y: 175.0
-    z: -78.5
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 2.5
-        background: transparent
-        lines:
-          - §4§l§nSTAFF ROOM
-  Tier:
-    world: voidworld
-    x: 58.5
-    y: 173.0
-    z: 3.9
-    yaw: -180.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 3
-        background: transparent
-        lines:
-          - §b§l§nTIER
-          - §fYour current tier is §3{tier}
-          - §fYou have §3{tier_points} §ftier points
-          - §fProgress §3{progress_cur} §7/ §3{progress_next}
-          - '{tier_up}'
-  Rebirth:
-    world: voidworld
-    x: 43.0
-    y: 174.0
-    z: -9.5
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 2.0
-        background: transparent
-        lines:
-          - §5§l§nREBIRTH
-          - §fTotal rebirth points §5{rebirth_points}
-          - §fYour rebirth multiplier is §5{rebirth_multi}x
-          - §fRebirth for §5{points_on_rebirth} §frebirth points
-  Income:
-    world: voidworld
-    x: 56.02533006635511
-    y: 172.75
-    z: -53.481357062493025
-    yaw: -90.18219
-    pitch: 0.5999908
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - §a§n&lINCOME
-          - §fYour balance is §a{balance}
-          - §fYour multiplier is §a{money_multiplier}x
-          - §fYour income is §a{income_per_second} §f/s
+
+
+
 
   # ==============================================================================
   #                      PARKOUR HOLOGRAM CONFIGURATION
@@ -166,51 +80,7 @@ groups:
   #                      SPAWNS HOLOGRAM CONFIGURATION
   # ==============================================================================
 
-  DonatorWall:
-    world: voidworld
-    x: 80.5
-    y: 174.5
-    z: -10.5
-    yaw: 140.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 4.3
-        background: transparent
-        lines:
-          - §a§l§nDONATIONS
-          - §fTOP SERVER DONATORS
 
-  donators2:
-    world: voidworld
-    x: 92.9
-    y: 173.0
-    z: -4.5
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 1.1
-        background: transparent
-        lines:
-          - §a§l§nTOTAL DONATIONS
-          - §f
-          - §6§l🥇 §fAmyLovesCoffee §8» §a$322.87
-          - §e§l🥈 §fQCEP §8» §a$196.96
-          - §7§l🥉 §fAzuchi_ §8» §a$109.99
-          - §74. §fvr0xe §8» §a$40.93
-          - §75. §fBlackGru §8» §a$34.48
-          - §76. §fvilageer §8» §a$22.48
-          - §77. §f130Ping §8» §a$19.99
-          - §78. §fHDCFerb §8» §a$19.99
-          - §79. §fSupeEvilSantio71 §8» §a$18.46
-          - §710. §fGo3erserk §8» §a$8.48
-          - §711. §fLunerHive §8» §a$3.98
-          - §f
-          - §e§lThank you all for your support!
-          - §7§omultigainer2.tebex.io
 
   donators:
     world: voidworld
@@ -227,33 +97,37 @@ groups:
         lines:
           - §a§lTOTAL DONATIONS
       - type: TEXT
-        y_offset: 2.3
+        y_offset: 2.45
         scale: 0.75
         background: transparent
         lines:
           - '&fThank you all for your support!'
       - type: TEXT
-        y_offset: 2
+        y_offset: 2.3
         scale: 0.8
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.2
-        scale: 0.78
+        y_offset: -0.25
+        scale: 0.74
         background: '#30000000'
         lines:
           - §6§l🥇 §fAmyLovesCoffee §8» §a$322.87
-          - §e§l🥈 §fQCEP §8» §a$196.96
-          - §7§l🥉 §fAzuchi_ §8» §a$109.99
-          - §74. §fvr0xe §8» §a$40.93
-          - §75. §fBlackGru §8» §a$34.48
-          - §76. §fvilageer §8» §a$22.48
-          - §77. §f130Ping §8» §a$19.99
-          - §78. §fHDCFerb §8» §a$19.99
-          - §79. §fSupeEvilSantio71 §8» §a$18.46
-          - §710. §fGo3erserk §8» §a$8.48
-          - §711. §fLunerHive §8» §a$3.98
+          - §e§l🥈 §fBramBoterham §8» §a$219.98
+          - §7§l🥉 §fQCEP §8» §a$196.96
+          - §74. §fAzuchi_ §8» §a$109.99
+          - §75. §f.mej469 §8» §a$60.00
+          - §76. §fvr0xe §8» §a$40.93
+          - §77. §fBlackGru §8» §a$34.48
+          - §78. §fRoscoe555 §8» §a$22.48
+          - §79. §fvilageer §8» §a$22.48
+          - §710. §f130Ping §8» §a$19.99
+          - §711. §fHDCFerb §8» §a$19.99
+          - §712. §fSupeEvilSantio71 §8» §a$18.46
+          - §713. §fGo3erserk §8» §a$8.48
+          - §714. §fLunerHive §8» §a$3.98
+
       - type: TEXT
         y_offset: -0.41
         scale: 0.8
@@ -285,11 +159,11 @@ groups:
 
   artitierpts:
     world: voidworld
-    x: 45.5
-    y: 174.1
-    z: -48.5
-    yaw: 90.0
-    pitch: -0.0
+    x: 355.5
+    y: 213.20000004768372
+    z: 309.5
+    yaw: -134.98195
+    pitch: -1.462893
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -300,11 +174,11 @@ groups:
 
   artitetrationmulti:
     world: voidworld
-    x: 45.5
-    y: 173.1
-    z: -44.5
-    yaw: 90.0
-    pitch: 0.0
+    x: 343.5
+    y: 213.20000004768372
+    z: 293.5
+    yaw: -101.027695
+    pitch: 0.15005337
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -315,11 +189,11 @@ groups:
 
   artirebirthpts:
     world: voidworld
-    x: 40.5
-    y: 173.1
-    z: -46.5
-    yaw: -90.0
-    pitch: 0.0
+    x: 359.54694203340284
+    y: 213.20000004768372
+    z: 311.5496190922504
+    yaw: -179.3268
+    pitch: 1.3500186
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -330,11 +204,11 @@ groups:
 
   artiminexp:
     world: voidworld
-    x: 46.5
-    y: 174.1
-    z: -53.5
-    yaw: 90.0
-    pitch: 0.0
+    x: 346.5
+    y: 213.20000004768372
+    z: 301.5
+    yaw: -134.77774
+    pitch: -0.4430428
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -345,11 +219,11 @@ groups:
 
   artiblockstorage:
     world: voidworld
-    x: 46.5
-    y: 176.1
-    z: -63.5
-    yaw: 90.0
-    pitch: 0.0
+    x: 344.5
+    y: 213.20000004768372
+    z: 297.5
+    yaw: -110.17787
+    pitch: 0.15003927
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -359,11 +233,11 @@ groups:
           - §8§lBLOCK MULTI
   artigrindingpoints:
     world: voidworld
-    x: 40.5
-    y: 174.1
-    z: -51.5
-    yaw: -90.0
-    pitch: -0.0
+    x: 352.5
+    y: 213.20000004768372
+    z: 307.5
+    yaw: -134.96188
+    pitch: 0.8332302
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -374,11 +248,11 @@ groups:
 
   artiexponent:
     world: voidworld
-    x: 45.5
-    y: 176.1
-    z: -68.5
-    yaw: 0.0
-    pitch: -0.0
+    x: 342.5
+    y: 213.20000004768372
+    z: 289.5
+    yaw: -99.528915
+    pitch: 0.44991142
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -388,11 +262,11 @@ groups:
           - §a§lEXPONENT
   artifarmxp:
     world: voidworld
-    x: 40.5
-    y: 176.1
-    z: -68.5
-    yaw: -40.0
-    pitch: 0.0
+    x: 341.5
+    y: 213.20000004768372
+    z: 285.5
+    yaw: -89.62844
+    pitch: -2.4001143
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -403,11 +277,11 @@ groups:
 
   artifarmmulti:
     world: voidworld
-    x: 40.5
-    y: 175.1
-    z: -57.5
-    yaw: -90.0
-    pitch: 0.0
+    x: 340.5
+    y: 213.20000004768372
+    z: 277.5
+    yaw: -89.62799
+    pitch: -0.15002055
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -418,11 +292,11 @@ groups:
 
   artiseedmulti:
     world: voidworld
-    x: 39.5
-    y: 176.1
-    z: -63.5
-    yaw: -90.0
-    pitch: 0.0
+    x: 340.5
+    y: 213.20000004768372
+    z: 281.5
+    yaw: -90.37796
+    pitch: -0.45000893
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -433,11 +307,11 @@ groups:
 
   artigemmulti:
     world: voidworld
-    x: 46.5
-    y: 175.1
-    z: -58.5
-    yaw: 90.0
-    pitch: 0.0
+    x: 349.5
+    y: 213.20000004768372
+    z: 304.5
+    yaw: -131.77748
+    pitch: -2.5430079
     displays:
       - type: TEXT
         y_offset: 0.0
@@ -447,740 +321,15 @@ groups:
         lines:
           - §b§lGEMS MULTI
 
-  artifacs:
-    world: voidworld
-    x: 45.58096771631673
-    y: 173.0
-    z: -37.83423149714208
-    yaw: -31.232666
-    pitch: 7.0500097
-    displays:
-      - type: TEXT
-        y_offset: 0.0
-        scale: 3
-        background: transparent
-        lines:
-          - §5§l§nARTIFACTS
-          - §fExchange your crops for
-          - §5MASSIVE BOOST!
-
-  Farmarrow:
-    world: voidworld
-    x: 81.700170622561
-    y: 190.0
-    z: -119.29847334301775
-    yaw: -135.75049
-    pitch: 1.6499892
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.3
-        background: transparent
-        lines:
-          - §4§l<------ §f§oStart here!
-
-  # ==============================================================================
-  #                      MINES HOLOGRAM CONFIGURATION
-  # ==============================================================================
-  COBBLESTONE:
-    world: voidworld
-    x: 50.0
-    y: 174.8
-    z: -91.1
-    yaw: -180.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: COBBLESTONE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: -0.1
-        scale: 0.9
-        material: WOODEN_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1×'
-  COBBLED:
-    world: voidworld
-    x: 54.0
-    y: 172.8
-    z: -98.9
-    yaw: 0.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: COBBLED_DEEPSLATE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.35
-        y_offset: 1.2
-        z_offset: 0.05
-        scale: 1.0
-        material: STONE_PICKAXE
-        brightness: 15
-        yaw: 0.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF2×'
-  COPPERORE:
-    world: voidworld
-    x: 77
-    y: 173.8
-    z: -84
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: COPPER_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.1
-        y_offset: 1.2
-        z_offset: -0.3
-        scale: 0.9
-        material: STONE_PICKAXE
-        brightness: 15
-        yaw: -90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF4×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF3×'
-
-  COPPERDEEPSLATEORE:
-    world: voidworld
-    x: 86
-    y: 173.8
-    z: -80.0
-    yaw: 0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: DEEPSLATE_COPPER_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: 0.12
-        scale: 0.9
-        material: STONE_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF6×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF4×'
-
-  coalore:
-    world: voidworld
-    x: 79.0
-    y: 174.8
-    z: -69.0
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: COAL_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: COPPER_PICKAXE
-        brightness: 15
-        yaw: 90.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF10×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF5×'
-
-  deepslatecoalore:
-    world: voidworld
-    x: 98.0
-    y: 173.8
-    z: -61.0
-    yaw: -180.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: DEEPSLATE_COAL_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: -0.12
-        scale: 0.9
-        material: COPPER_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF15×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF7×'
-
-  ironore:
-    world: voidworld
-    x: 102.0
-    y: 174.8
-    z: -72.0
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: IRON_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.15
-        y_offset: 1.2
-        z_offset: 0.33
-        scale: 0.9
-        material: COPPER_PICKAXE
-        brightness: 15
-        yaw: 90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF25×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF9×'
-
-  deepslateironore:
-    world: voidworld
-    x: 111.0
-    y: 174.8
-    z: -67.0
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        x_offset: -0.04
-        y_offset: 0.5
-        scale: 0.5
-        material: DEEPSLATE_IRON_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: IRON_PICKAXE
-        brightness: 15
-        yaw: 90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF40×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF11×'
-
-  redstoneore:
-    world: voidworld
-    x: 138
-    y: 169.8
-    z: -59.0
-    yaw: 90
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        z_offset: -0.05
-        y_offset: 0.5
-        x_offset: -0.05
-        scale: 0.5
-        material: REDSTONE_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.15
-        y_offset: 1.2
-        z_offset: 0.25
-        scale: 0.9
-        material: IRON_PICKAXE
-        brightness: 15
-        yaw: 90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF70×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF13×'
-
-  deepslateredstoneore:
-    world: voidworld
-    x: 137
-    y: 170.8
-    z: -53
-    yaw: 90
-    pitch: 0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        x_offset: -0.05
-        scale: 0.5
-        material: DEEPSLATE_REDSTONE_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: DIAMOND_PICKAXE
-        brightness: 15
-        yaw: 90.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF120×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF15×'
 
 
-  deepslatelapisore:
-    world: voidworld
-    x: 105.0
-    y: 174.8
-    z: -58.0
-    yaw: -90.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: DEEPSLATE_LAPIS_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: DIAMOND_PICKAXE
-        brightness: 15
-        yaw: 90.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF450×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF25×'
-
-  lapisore:
-    world: voidworld
-    x: 115.0
-    y: 173.8
-    z: -54.0
-    yaw: 180
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        z_offset: -0.1
-        scale: 0.5
-        material: LAPIS_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.35
-        y_offset: 1.2
-        z_offset: -0.15
-        scale: 0.9
-        material: DIAMOND_PICKAXE
-        brightness: 15
-        yaw: 0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF200×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF18×'
-
-  goldore:
-    world: voidworld
-    x: 130.0
-    y: 172.8
-    z: -39.0
-    yaw: 90
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        x_offset: -0.05
-        y_offset: 0.5
-        z_offset: 0.0
-        scale: 0.5
-        material: GOLD_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: NETHERITE_PICKAXE
-        brightness: 15
-        yaw: 90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1K×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF35×'
-
-  deepslategoldore:
-    world: voidworld
-    x: 125.0
-    y: 172.8
-    z: -47.0
-    yaw: -90
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        x_offset: 0.05
-        y_offset: 0.5
-        z_offset: 0.0
-        scale: 0.5
-        material: DEEPSLATE_GOLD_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: 0.15
-        y_offset: 1.2
-        z_offset: 0.3
-        scale: 0.9
-        material: NETHERITE_PICKAXE
-        brightness: 15
-        yaw: 90
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF2.5K×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF50×'
 
 
-  diamondore:
-    world: voidworld
-    x: 132.0
-    y: 167.8
-    z: -30.0
-    yaw: 0.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        scale: 0.5
-        material: DIAMOND_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: 0.12
-        scale: 0.9
-        material: GOLDEN_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF10K×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF75×'
-
-  deepslatediamondore:
-    world: voidworld
-    x: 133.0
-    y: 167.8
-    z: -21.0
-    yaw: -180.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        z_offset: -0.1
-        scale: 0.5
-        material: DEEPSLATE_DIAMOND_ORE
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: -0.15
-        scale: 0.9
-        material: GOLDEN_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF50K×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF150×'
 
 
-  netheriteblock:
-    world: voidworld
-    x: 148.0
-    y: 162.8
-    z: -21.0
-    yaw: 180.0
-    pitch: 0.0
-    displays:
-      - type: ITEM
-        y_offset: 0.5
-        z_offset: -0.1
-        scale: 0.5
-        material: NETHERITE_BLOCK
-        brightness: 15
-      - type: ITEM
-        x_offset: -0.3
-        y_offset: 1.2
-        z_offset: -0.15
-        scale: 0.9
-        material: GOLDEN_PICKAXE
-        brightness: 15
-        yaw: 180.0
-        pitch: 0.0
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - '&#55FFFF&lG&#4EDBED&le&#47B8DC&lm&#3F94CA&ls &#FFFFFF1M×'
-          - '&#AAFF55&lX&#95DE4A&lP &#FFFFFF1K×'
 
-  # ==============================================================================
-  #                      EVENT/GIVEAWAYS HOLOGRAM CONFIGURATION
-  # ==============================================================================
 
-  GIVEAWAY:
-    world: voidworld
-    x: 89.8
-    y: 172.0
-    z: -30.5
-    yaw: 90.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.5
-        background: transparent
-        lines:
-          - §5§l§nGIVEAWAY
-          - §7TOTAL §5§l10 §7WINNERS
-          - §4§l350 Rubies
-          - §7Stay tuned on §9/discord
-          - §f
-          - §f
-          - §f§9§o
-          - §f
-          - §f
-          - §f
-          - §f
-          - §f
 
-  Event:
-    world: voidworld
-    x: 85.93367927728076
-    y: 174.65
-    z: -44.49929356449161
-    yaw: 89.75391
-    pitch: 3.449997
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.9
-        background: transparent
-        lines:
-          - §9§l§nEVENTS&f
-          - §7Stay tuned on §9/discord
-          - §4
-          - §e
-          - §7
-
-    # §7Stay tuned on §9/discord
-    # §4§lRED &a&lGREEN &fLIGHT
-    # §e🕗 §f1.8. 20:00 UTC §e🕗
-    # # §4§lRED &a&lGREEN &fLIGHT
-    # # §e🕢 §f1.8. 19:30 UTC §e🕢
-    # #
-    # #§4§lT§f§ln§4§lT §4§lR§f§lu§4§ln
-    # #§f28.7. 19:30 UTC
-    # #§9§l--------------
-    # # §e🕖 §fX.8. 19:00 UTC §e🕖
-    # # §e🕢 §fX.8. 19:30 UTC §e🕢
-    # # §e🕗 §fX.8. 20:00 UTC §e🕗
-    # # §e🕣 §fX.8. 20:30 UTC §e🕣
-    # # §e🕘 §fX.8. 21:00 UTC §e🕘
-    # # §e🕤 §fX.8. 21:30 UTC §e🕤
-    # # §e🕙 §fX.8. 22:00 UTC §e🕙
-
-    # =========================================================================================================
-  #                      STAFF NAMES HOLOGRAM CONFIGURATION
-  # =========================================================================================================
-
-  kilerradoslav1:
-    world: voidworld
-    x: 49.58
-    y: 172.5
-    z: -79.4
-    yaw: -40.0
-    pitch: -90.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 0.52
-        background: transparent
-        lines:
-          - §f§l§okilerradoslav1
-
-  zzdenda:
-    world: voidworld
-    x: 48.58
-    y: 172.5
-    z: -78.4
-    yaw: -40.0
-    pitch: -90.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 0.98
-        background: transparent
-        lines:
-          - §f§l§ozzdenda
-
-  Resoki:
-    world: voidworld
-    x: 48.5
-    y: 172.5
-    z: -75.0
-    yaw: 180.0
-    pitch: -90.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 1.2
-        background: transparent
-        lines:
-          - §0§oResoki
-
-  VixxyOnCoke:
-    world: voidworld
-    x: 49.5
-    y: 172.5
-    z: -73.0
-    yaw: 180.0
-    pitch: -90.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 0.65
-        background: transparent
-        lines:
-          - §0§oVixxyOnCoke
-
-  Recorrection:
-    world: voidworld
-    x: 51.5
-    y: 172.5
-    z: -74.0
-    yaw: 180.0
-    pitch: -90.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 0.58
-        background: transparent
-        lines:
-          - §0§oRecorrection
-
-  Spiralz69:
-    world: voidworld
-    x: 53.5
-    y: 172.0
-    z: -76.0
-    yaw: -180.0
-    pitch: 0.0
-    displays:
-      - type: TEXT
-        y_offset: -0.5
-        scale: 0.8
-        background: transparent
-        lines:
-          - §e§oSpiralz69
-  AFK:
-    world: voidworld
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    yaw: 0.0
-    pitch: 0.0
-    displays:
-      - background: transparent
-        scale: 1.0
-        type: TEXT
-        y_offset: 0.0
-        lines:
-          - §e§l§nAFK
-          - §eEarn 1 AFK POINT every 60 seconds
-          - §eBut rank IMMORTAL earns 1.5x more AFK points
-        x_offset: 0.0
-        z_offset: 0.0
 
   # =========================================================================================================
   #                      SAPLING AREAS HOLOGRAM CONFIGURATION
@@ -1658,42 +807,52 @@ groups:
 
   # ########################################################################################################################## zde mines
 
-  checkmines:
+  Mines:
     world: voidworld
-    x: 370.57104632312706
-    y: 215.58630420798022
-    z: 180.69726626341483
-    yaw: -0.125
-    pitch: -5.051965
+    x: 398.0
+    y: 212.0
+    z: 183.1
+    yaw: 0.0
+    pitch: 0.0
     displays:
       - type: TEXT
-        y_offset: -0.5
-        scale: 1.55
+        y_offset: 9.2
+        scale: 8.8
+        background: '#40000000'
+        lines:
+          - '{mine_name}'
+      - type: TEXT
+        y_offset: 7
+        scale: 6.0
         background: transparent
         lines:
-          - '&4&l&nMINES INFO - MINES INFO - MINES INFO - MINES INFO - MINES INFO - MINES
-        INFO - MINES INFO  '
-          - '&#A3A3A3COBBLESTONE MINES  gems: 1x | xp: 1x Cobblestone req: pickaxe'
-          - '&#7F7F7FCOBBLED DEEPSLATE MINES  gems: 2x | xp: 2x cobbled deepslate - req:
-        stone pickaxe'
-          - '&#D97C5ECOPPER MINES  gems: 4x | xp: 3x copper req: stone pickaxe'
-          - '&#4B5320COPPER DEEPSLATE MINES  gems: 6x | xp: 4x copper deepslate req: stone
-        pickaxe'
-          - '&#222222COAL MINES  gems: 10x | xp: 5x coal req: copper pickaxe'
-          - '&#1A1A1ACOAL DEEPSLATE MINES  gems: 15x | xp: 7x coal deep req: copperpickaxe'
-          - '&#D8D8D8IRON MINES  gems: 25x | xp: 9x iron req: copper pickaxe'
-          - '&#505050IRON DEEPSLATE MINES  gems: 40x | xp: 11x iron deep req: iron pickaxe'
-          - '&#FF2222REDSTONE MINES  gems: 70x | xp: 13x redstone req: iron pickaxe'
-          - '&#990000REDSTONE DEEPSLATE MINES  gems: 120x | xp: 15x redstone deep req:
-        dia pickaxe'
-          - '&#1B3984LAPIS MINES  gems: 200x | xp: 18x lapis req: dia pickaxe'
-          - '&#0D1B42LAPIS DEEPSLATE MINES  gems: 450x | xp: 25x lapis deep req: dia pickaxe'
-          - '&#E5C158GOLD MINES  gems: 1kx | xp: 35x  gold req: netherite pickaxe'
-          - '&#B89728GOLD DEEPSLATE MINES  gems: 2.5kx | xp: 50x  gold deep req: netherite
-        pickaxe'
-          - '&#55FFFFDIAMOND MINES  gems: 10kx | xp: 75x  dia req: gold pickaxe'
-          - '&#00AAAAREINFORCED DIAMOND MINES  gems: 50kx | xp: 150x  dia deep req: pickaxe'
-          - '&#1A1A1ANETHERITE MINES gems: 1mx | xp: 1kx  netherite req: pickaxe'
+          - '&fMultipliers'
+      - type: TEXT
+        y_offset: 5.8
+        scale: 7.2
+        background: transparent
+        lines:
+          - '&8§m                    §f'
+      - type: TEXT
+        y_offset: 2.3
+        scale: 7.2
+        background: '#30000000'
+        lines:
+          - '&7 Gems: {mine_gems} §f'
+          - '&7 XP: {mine_xp} §f'
+      - type: TEXT
+        y_offset: 1.0
+        scale: 7.2
+        background: transparent
+        lines:
+          - '&8§m                    §f'
+      - type: TEXT
+        y_offset: -0.9
+        scale: 6.0
+        background: '#40000000'
+        lines:
+          - '&7§oChange your Mines in &f§l/mines'
+
 
 
   Welcomespawn:
@@ -1724,9 +883,9 @@ groups:
 
   digprogress:
     world: voidworld
-    x: 463.15
-    y: 217.0
-    z: 190.5
+    x: 0
+    y: 175
+    z: 0
     yaw: -174.0
     pitch: 3.1500459
     displays:
@@ -1770,9 +929,9 @@ groups:
 
   digblocks:
     world: voidworld
-    x: 463.15
-    y: 217.0
-    z: 190.5
+    x: 0
+    y: 175
+    z: 0
     yaw: -174.0
     pitch: 3.1500459
     displays:
@@ -1818,11 +977,11 @@ groups:
 
   digrestats:
     world: voidworld
-    x: 463.15
-    y: 217.0
-    z: 190.5
-    yaw: 90.59973
-    pitch: 3.9000487
+    x: 0
+    y: 175
+    z: 0
+    yaw: -174.0
+    pitch: 3.1500459
     displays:
       - type: TEXT
         y_offset: 2.1
@@ -1919,11 +1078,11 @@ groups:
 
   rules:
     world: voidworld
-    x: 385.3025108300675
-    y: 213.7499540682674
-    z: 231.3317810158155
-    yaw: -43.79367
-    pitch: -0.5999839
+    x: 385.5
+    y: 212.31168707874468
+    z: 231.38424089713172
+    yaw: 0.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: 0.9
@@ -1948,7 +1107,7 @@ groups:
         scale: 0.4
         background: '#30000000'
         lines:
-          - §c✖ §7fNo Bullying or Harassment §c✖
+          - §c✖ §7No Bullying or Harassment §c✖
           - §c✖ §7No Swearing / Hate Speech §c✖
           - §c✖ §7No Cheating / Hacked Clients §c✖
           - §c✖ §7No Spamming / Flooding Chat §c✖
@@ -1979,11 +1138,11 @@ groups:
 
   messagesettings:
     world: voidworld
-    x: 378.78761072419536
-    y: 214.0
-    z: 236.74888839879804
-    yaw: -43.1809
-    pitch: 3.150005
+    x: 378.25
+    y: 211.9
+    z: 234.5
+    yaw: -90.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: 0.9
@@ -2033,10 +1192,10 @@ groups:
   discord:
     world: voidworld
     x: 381.5
-    y: 214.0
-    z: 233.5
-    yaw: -44.080902
-    pitch: -0.30003458
+    y: 211.9
+    z: 231.5
+    yaw: 0.0
+    pitch: 0.0
     displays:
       - type: TEXT
         y_offset: 0.9
@@ -2342,7 +1501,7 @@ groups:
         scale: 0.54
         background: transparent
         lines:
-          - Open sacrifice with §c§l/produce§f.
+          - Open sacrifice with §c§l/production§f.
       - type: TEXT
         y_offset: -0.68
         scale: 0.46
@@ -2563,7 +1722,7 @@ groups:
         scale: 0.7
         background: transparent
         lines:
-          - Open tree with §5§l/sacrificetree§f.
+          - Open sacrifice & tree with §5§l/sacrifice §f& §5§l/sacrificetree§f.
       - type: TEXT
         y_offset: -0.89
         scale: 0.6
@@ -2617,7 +1776,7 @@ groups:
         scale: 0.7
         background: transparent
         lines:
-          - Open storage with §b§l/farmingstorage§f.
+          - Open storage with §b§l/farmstorage§f.
       - type: TEXT
         y_offset: -0.89
         scale: 0.6
@@ -3011,10 +2170,10 @@ groups:
 
   grindingpts:
     world: voidworld
-    x: 367.5
-    y: 214.0
-    z: 247.9
-    yaw: 180.0
+    x: 425.3
+    y: 213.15
+    z: 217.5
+    yaw: -90.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -3065,33 +2224,33 @@ groups:
 
   cosmetics:
     world: voidworld
-    x: 361.5
-    y: 214.0
-    z: 247.9
-    yaw: 180.0
+    x: 339.0
+    y: 213.2
+    z: 254.5
+    yaw: -90.0
     pitch: 0.0
     displays:
       - type: TEXT
-        y_offset: 1.05
-        scale: 1.1
+        y_offset: 0.55
+        scale: 0.75
         background: '#40000000'
         lines:
           - §e§lCOSMETICS
       - type: TEXT
-        y_offset: 0.75
-        scale: 0.75
+        y_offset: 0.38
+        scale: 0.55
         background: transparent
         lines:
           - '&fFlex your style with exclusive cosmetics!'
       - type: TEXT
-        y_offset: 0.5
-        scale: 0.8
+        y_offset: 0.25
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.24
-        scale: 0.78
+        y_offset: -0.17
+        scale: 0.42
         background: '#30000000'
         lines:
           - §7Cosmetics come from §eSovereign Cases§7,
@@ -3099,31 +2258,31 @@ groups:
           - §7bought with §erubies§7, or §ereal money§7.
           - §7Purely for §eflex§7!
       - type: TEXT
-        y_offset: -0.41
-        scale: 0.8
+        y_offset: -0.35
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.59
-        scale: 0.7
+        y_offset: -0.48
+        scale: 0.5
         background: transparent
         lines:
           - Open cosmetics with §e§l/cosmetics§f.
       - type: TEXT
-        y_offset: -0.89
-        scale: 0.6
+        y_offset: -0.62
+        scale: 0.45
         background: '#30000000'
         lines:
           - '&e§oLook stylish, flex hard.'
 
   artifacts:
     world: voidworld
-    x: 354.5
-    y: 214.0
-    z: 247.9
-    yaw: 180.0
-    pitch: 0.0
+    x: 339.060098884237
+    y: 213.20000004768372
+    z: 271.4833865147164
+    yaw: -89.62576
+    pitch: -2.850002
     displays:
       - type: TEXT
         y_offset: 1.05
@@ -3144,7 +2303,7 @@ groups:
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.2
+        y_offset: -0.25
         scale: 0.78
         background: '#30000000'
         lines:
@@ -3163,7 +2322,7 @@ groups:
         scale: 0.7
         background: transparent
         lines:
-          - Check out artifacts near the farm.
+          - Open artifacts storage with §5§l/artifacts.
       - type: TEXT
         y_offset: -0.89
         scale: 0.6
@@ -3173,33 +2332,33 @@ groups:
 
   tetration:
     world: voidworld
-    x: 347.5
-    y: 214.0
-    z: 247.9
-    yaw: 180.0
+    x: 334.01
+    y: 213.2
+    z: 261.1
+    yaw: -90.0
     pitch: 0.0
     displays:
       - type: TEXT
-        y_offset: 1.05
-        scale: 1.1
+        y_offset: 0.55
+        scale: 0.75
         background: '#40000000'
         lines:
           - §b§lTETRATION
       - type: TEXT
-        y_offset: 0.75
-        scale: 0.75
+        y_offset: 0.38
+        scale: 0.55
         background: transparent
         lines:
           - '&fUnlock hyper-scaling exponential power!'
       - type: TEXT
-        y_offset: 0.5
-        scale: 0.8
+        y_offset: 0.25
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.2
-        scale: 0.78
+        y_offset: -0.16
+        scale: 0.42
         background: '#30000000'
         lines:
           - §7The 4th hyperoperation (iterated exponentiation).
@@ -3207,53 +2366,53 @@ groups:
           - §7and can also be generated §bpassively§7.
           - §bNever resets §7upon a sacrifice!
       - type: TEXT
-        y_offset: -0.41
-        scale: 0.8
+        y_offset: -0.35
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.59
-        scale: 0.7
+        y_offset: -0.48
+        scale: 0.5
         background: transparent
         lines:
           - Open tetration with §b§l/tetration§f.
       - type: TEXT
-        y_offset: -0.89
-        scale: 0.6
+        y_offset: -0.62
+        scale: 0.45
         background: '#30000000'
         lines:
           - '&b§oTowering exponents, infinite growth.'
 
   exponent:
     world: voidworld
-    x: 339.5
-    y: 214.0
-    z: 247.9
-    yaw: 180.0
+    x: 334.3
+    y: 213.2
+    z: 264.8
+    yaw: -90.0
     pitch: 0.0
     displays:
       - type: TEXT
-        y_offset: 1.05
-        scale: 1.1
+        y_offset: 0.55
+        scale: 0.75
         background: '#40000000'
         lines:
           - §b§lEXPONENT
       - type: TEXT
-        y_offset: 0.75
-        scale: 0.75
+        y_offset: 0.38
+        scale: 0.55
         background: transparent
         lines:
           - '&fMathematical exponential scaling for money!'
       - type: TEXT
-        y_offset: 0.5
-        scale: 0.8
+        y_offset: 0.25
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.2
-        scale: 0.78
+        y_offset: -0.16
+        scale: 0.4
         background: '#30000000'
         lines:
           - §7Mathematical function FinalMoney = Base^Exponent.
@@ -3261,30 +2420,30 @@ groups:
           - §7an exponential factor for extreme non-linear growth.
           - §7Applies §bexclusively for money§7. Check exponent in /stats.
       - type: TEXT
-        y_offset: -0.41
-        scale: 0.8
+        y_offset: -0.35
+        scale: 0.6
         background: transparent
         lines:
           - '&8§m                   §f'
       - type: TEXT
-        y_offset: -0.59
-        scale: 0.7
+        y_offset: -0.48
+        scale: 0.5
         background: transparent
         lines:
           - Open exponent with §b§l/exponent§f.
       - type: TEXT
-        y_offset: -0.89
-        scale: 0.6
+        y_offset: -0.62
+        scale: 0.45
         background: '#30000000'
         lines:
           - '&b§oScale your money beyond limits.'
 
-  giveaways2:
+  giveaways2_front:
     world: voidworld
-    x: 331.5
-    y: 214.0
-    z: 247.5
-    yaw: 180.0
+    x: 381.5
+    y: 212.5
+    z: 241.5
+    yaw: -45.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -3292,7 +2451,7 @@ groups:
         scale: 1.1
         background: '#40000000'
         lines:
-          - §9§lGIVEAWAYS INFO
+          - §9§lGIVEAWAYS
       - type: TEXT
         y_offset: 0.75
         scale: 0.75
@@ -3332,12 +2491,12 @@ groups:
         lines:
           - '&9§oParticipate and win big.'
 
-  events2:
+  giveaways2_back:
     world: voidworld
-    x: 329.0
-    y: 214.0
-    z: 242.5
-    yaw: -90.0
+    x: 381.5
+    y: 212.5
+    z: 241.5
+    yaw: 135.0
     pitch: 0.0
     displays:
       - type: TEXT
@@ -3345,7 +2504,61 @@ groups:
         scale: 1.1
         background: '#40000000'
         lines:
-          - §9§lSERVER EVENTS
+          - §9§lGIVEAWAYS
+      - type: TEXT
+        y_offset: 0.75
+        scale: 0.75
+        background: transparent
+        lines:
+          - '&fWin amazing prizes in our community giveaways!'
+      - type: TEXT
+        y_offset: 0.5
+        scale: 0.8
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: 0.01
+        scale: 0.78
+        background: '#30000000'
+        lines:
+          - §9350 Rubies for 5 players!
+          - §9Ends in 1.9. at 19:00 UTC
+      - type: TEXT
+        y_offset: -0.41
+        scale: 0.8
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.75
+        scale: 0.7
+        background: transparent
+        lines:
+          - §7Giveaways take place on our §9Discord§7.
+          - §7Stay tuned and check Discord for updates!
+      - type: TEXT
+        y_offset: -0.99
+        scale: 0.6
+        background: '#30000000'
+        lines:
+          - '&9§oParticipate and win big.'
+
+
+  events2_front:
+    world: voidworld
+    x: 384.5
+    y: 212.5
+    z: 238.5
+    yaw: -45.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 1.05
+        scale: 1.1
+        background: '#40000000'
+        lines:
+          - §e§lEVENTS
       - type: TEXT
         y_offset: 0.75
         scale: 0.75
@@ -3363,8 +2576,8 @@ groups:
         scale: 0.78
         background: '#30000000'
         lines:
-          - §9TNT RUN AT 19:00 UTC
-          - §9Price pool is 500 rubies for 5 players
+          - §eTNT RUN AT 19:00 UTC
+          - §ePrice pool is 500 rubies for 5 players
       - type: TEXT
         y_offset: -0.41
         scale: 0.8
@@ -3377,62 +2590,519 @@ groups:
         background: transparent
         lines:
           - §7Events take place in-game, but info &
-          - §7announcements can be found on §9Discord§7!
+          - §7announcements can be found on §eDiscord§7!
       - type: TEXT
         y_offset: -0.99
         scale: 0.6
         background: '#30000000'
         lines:
-          - '&9§oPlay, compete, and conquer.'
+          - '&e§oPlay, compete, and conquer.'
 
-  Mines:
+  events2_back:
     world: voidworld
-    x: 397.9975458423287
-    y: 224.20000004768372
-    z: 183.29843954011676
-    yaw: 0.6014404
-    pitch: -3.5998018
+    x: 384.5
+    y: 212.5
+    z: 238.5
+    yaw: 135.0
+    pitch: 0.0
     displays:
       - type: TEXT
-        y_offset: 11.2
-        scale: 8.8
+        y_offset: 1.05
+        scale: 1.1
         background: '#40000000'
         lines:
-          - '{mine_name}'
+          - §e§lEVENTS
       - type: TEXT
-        y_offset: 8.4
-        scale: 6.0
+        y_offset: 0.75
+        scale: 0.75
         background: transparent
         lines:
-          - '&fMultipliers'
+          - '&fJoin exciting in-game events!'
       - type: TEXT
-        y_offset: 7.6
-        scale: 7.2
+        y_offset: 0.5
+        scale: 0.8
         background: transparent
         lines:
-          - '&8§m                    '
+          - '&8§m                   §f'
       - type: TEXT
-        y_offset: 3.68
-        scale: 7.2
+        y_offset: -0.05
+        scale: 0.78
         background: '#30000000'
         lines:
-          - '&7 Gems: {mine_gems} '
-          - '&7 XP: {mine_xp} '
+          - §eTNT RUN AT 19:00 UTC
+          - §ePrice pool is 500 rubies for 5 players
       - type: TEXT
-        y_offset: 1.48
-        scale: 7.2
+        y_offset: -0.41
+        scale: 0.8
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.75
+        scale: 0.7
+        background: transparent
+        lines:
+          - §7Events take place in-game, but info &
+          - §7announcements can be found on §eDiscord§7!
+      - type: TEXT
+        y_offset: -0.99
+        scale: 0.6
+        background: '#30000000'
+        lines:
+          - '&e§oPlay, compete, and conquer.'
+
+
+  # ==============================================================================
+  #                      SHOVELING HOLOGRAM CONFIGURATION
+  # ==============================================================================
+
+  ShovelZoneStats1:
+    world: voidworld
+    x: 6.175383741426156
+    y: 172.7340583097124
+    z: -0.4542485831274084
+    yaw: -4.4999356
+    pitch: 5.549995
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL ZONE 1 STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
         background: transparent
         lines:
           - '&8§m                    '
       - type: TEXT
-        y_offset: -1.8
-        scale: 7.2
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fBlocks Destroyed: &6{zone1_blocks_line}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fRaw destroyed count: &6{zone1_current_destroyed}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
         background: transparent
         lines:
-          - '&7§oChange your Mines in &f§l/mines'
+          - '&8§m                    '
       - type: TEXT
-        y_offset: -4.9
-        scale: 6.0
+        y_offset: -1.0
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oZone 1 Progress'
+
+  ShovelZoneStats2:
+    world: voidworld
+    x: 12.0
+    y: 175.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL ZONE 2 STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fBlocks Destroyed: &6{zone2_blocks_line}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fRaw destroyed count: &6{zone2_current_destroyed}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.0
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oZone 2 Progress'
+
+  ShovelZoneStats3:
+    world: voidworld
+    x: 18.0
+    y: 175.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL ZONE 3 STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fBlocks Destroyed: &6{zone3_blocks_line}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fRaw destroyed count: &6{zone3_current_destroyed}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.0
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oZone 3 Progress'
+
+  ShovelZoneStats4:
+    world: voidworld
+    x: 24.0
+    y: 175.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL ZONE 4 STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fBlocks Destroyed: &6{zone4_blocks_line}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fRaw destroyed count: &6{zone4_current_destroyed}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.0
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oZone 4 Progress'
+
+  ShovelZoneStats5:
+    world: voidworld
+    x: 30.0
+    y: 175.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL ZONE 5 STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fBlocks Destroyed: &6{zone5_blocks_line}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fRaw destroyed count: &6{zone5_current_destroyed}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.0
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oZone 5 Progress'
+
+  ShovelPlayerStats:
+    world: voidworld
+    x: 0.500968794345261
+    y: 173.4780117216745
+    z: -2.0868706433239765
+    yaw: 0.90013146
+    pitch: -1.5000075
+    displays:
+      - type: TEXT
+        y_offset: 0.5
+        scale: 2.0
+        background: transparent
+        lines:
+          - '&6§l§nSHOVEL PLAYER STATS'
+      - type: TEXT
+        y_offset: 0.2
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -0.1
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fTotal Blocks Destroyed: &6{lifetime_total_blocks_str}'
+      - type: TEXT
+        y_offset: -0.4
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fTotal Blocks (raw): &6{lifetime_total_blocks_raw}'
+      - type: TEXT
+        y_offset: -0.7
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.0
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fTotal Treasure Found: &6{lifetime_total_treasure_str}'
+      - type: TEXT
+        y_offset: -1.3
+        scale: 1.2
+        background: '#30000000'
+        lines:
+          - '&fTotal Treasure (raw): &6{lifetime_total_treasure_raw}'
+      - type: TEXT
+        y_offset: -1.6
+        scale: 1.5
+        background: transparent
+        lines:
+          - '&8§m                    '
+      - type: TEXT
+        y_offset: -1.9
+        scale: 1.0
+        background: transparent
+        lines:
+          - '&7§oLifetime Statistics'
+
+
+  clans:
+    world: voidworld
+    x: 456.99
+    y: 213.0
+    z: 260.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.85
+        scale: 1.12
         background: '#40000000'
         lines:
-          - '&7§oChange your Mines in &f§l/mines'
+          - §5§lCLANS
+      - type: TEXT
+        y_offset: 0.58
+        scale: 0.82
+        background: transparent
+        lines:
+          - '&fDominate in clans, compete, and win!'
+      - type: TEXT
+        y_offset: 0.38
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.17
+        scale: 0.58
+        background: '#30000000'
+        lines:
+          - §7Crush rivals in epic §5Clan Wars§7!
+          - §7Fight §5head to head§7 for clan points§7,
+          - §7and spend your well earned loot in the shop
+          - §7to power up your entire §5clan team§7!
+      - type: TEXT
+        y_offset: -0.35
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.52
+        scale: 0.75
+        background: transparent
+        lines:
+          - Open clans with §5§l/clans§f.
+      - type: TEXT
+        y_offset: -0.78
+        scale: 0.68
+        background: '#30000000'
+        lines:
+          - '&5§oUnite, fight, and dominate.'
+
+  clicks:
+    world: voidworld
+    x: 454.5
+    y: 218.5
+    z: 261.9
+    yaw: -180.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.85
+        scale: 1.12
+        background: '#40000000'
+        lines:
+          - §d§lCLICKS
+      - type: TEXT
+        y_offset: 0.58
+        scale: 0.65
+        background: transparent
+        lines:
+          - '&fClick together and boost the server!'
+      - type: TEXT
+        y_offset: 0.38
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.05
+        scale: 0.5
+        background: '#30000000'
+        lines:
+          - §7Going to make some coffee? §dTurn on clicks§7!
+          - §7As a community, you help each other reach
+          - §7extreme server multipliers §dsolely from clicking§7!
+          - §dWork together and crush milestones!
+      - type: TEXT
+        y_offset: -0.25
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.45
+        scale: 0.75
+        background: transparent
+        lines:
+          - Open clicks with §d§l/clicks§f.
+      - type: TEXT
+        y_offset: -0.74
+        scale: 0.68
+        background: '#40000000'
+        lines:
+          - '&d§oEvery single click matters.'
+
+  parkour:
+    world: voidworld
+    x: 455.5
+    y: 213.4
+    z: 298.5
+    yaw: 90.0
+    pitch: 0.0
+    displays:
+      - type: TEXT
+        y_offset: 0.85
+        scale: 1.12
+        background: '#40000000'
+        lines:
+          - §5§lPARKOUR
+      - type: TEXT
+        y_offset: 0.58
+        scale: 0.82
+        background: transparent
+        lines:
+          - '&fJump, race, and conquer the course!'
+      - type: TEXT
+        y_offset: 0.38
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.17
+        scale: 0.58
+        background: '#30000000'
+        lines:
+          - §7Test your movement skills and climb high!
+          - §7Weekly payouts are hosted for the §5highest scores§7,
+          - §7and you can claim §5milestones§7!
+          - §5Prove your agility and take the crown.
+      - type: TEXT
+        y_offset: -0.39
+        scale: 0.9
+        background: transparent
+        lines:
+          - '&8§m                   §f'
+      - type: TEXT
+        y_offset: -0.49
+        scale: 0.5
+        background: transparent
+        lines:
+          - Open parkour with §5§l/parkour§f and rewards with §5§l/parkourmilestones§f.
+      - type: TEXT
+        y_offset: -0.75
+        scale: 0.68
+        background: '#40000000'
+        lines:
+          - '&5§oLeap beyond your limits.'

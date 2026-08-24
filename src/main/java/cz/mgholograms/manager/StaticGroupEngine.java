@@ -141,6 +141,13 @@ public class StaticGroupEngine {
                         line = line.replace("{title}",
                                 cz.mgholograms.util.GradientText.animatedTriangleGradient("MULTIGAINER", " 2", System.currentTimeMillis()));
                         line = line.replace("{player}", player.getName());
+                        // Remove any remaining placeholders and translate '&' color codes
+                        line = line.replaceAll("\\{[^}]*\\}", "");
+                        if (line.trim().isEmpty()) {
+                            line = " ";
+                        } else {
+                            line = org.bukkit.ChatColor.translateAlternateColorCodes('&', line);
+                        }
                         resolvedLines.add(line);
                     }
                     textData.setText(resolvedLines);

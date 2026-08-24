@@ -7,10 +7,24 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="ssss">
+    <list default="true" id="c4c77dac-4fe8-4be3-abae-cdb4f9dfcfee" name="Changes" comment="asdasdas">
       <change beforePath="$PROJECT_DIR$/.devin/config.local.json" beforeDir="false" afterPath="$PROJECT_DIR$/.devin/config.local.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/MGHolograms.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/MGHolograms.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/MinesHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/MinesHologramProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multigainer/multigainer/personalmine/PersonalMineBlockGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multigainer/multigainer/personalmine/PersonalMineManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multigainer/multigainer/personalmine/PersonalMineManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/MGHolograms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/MGHolograms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/listener/HologramClickListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/HologramBridge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/StaticGroupEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/StaticGroupEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/AfkHologramProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/IncomeHologramProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/ProductionHologramProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/RebirthHologramProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TemplateHologramProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TemplateHologramProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cz/mgholograms/manager/bridge/content/TierHologramProvider.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hologram-groups.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,11 +54,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="MGHolograms" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="MGHolograms" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -227,10 +236,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MGHolograms [jar]" />
+        <item itemvalue="Gradle.MGHolograms [build]" />
         <item itemvalue="Gradle.MGHolograms [clean]" />
         <item itemvalue="Gradle.MGHolograms [jar]" />
         <item itemvalue="Gradle.MGHolograms [clean]" />
-        <item itemvalue="Gradle.MGHolograms [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787311805764</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="asdasdas">
+      <option name="closed" value="true" />
+      <created>1787318167129</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1787318167129</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,6 +438,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ssss" />
-    <option name="LAST_COMMIT_MESSAGE" value="ssss" />
+    <MESSAGE value="asdasdas" />
+    <option name="LAST_COMMIT_MESSAGE" value="asdasdas" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/libs/multigainer-1.0-SNAPSHOT.jar!/multigainer/multigainer/shoveling/ShovelManager.class</url>
+          <line>1512</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
